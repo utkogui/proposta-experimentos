@@ -1,17 +1,6 @@
-# dependências
-v1/node_modules/
-v2/node_modules/
-
-# build Next.js
-v1/.next/
-v2/.next/
-v1/out/
-v2/out/
-
-# variáveis de ambiente (nunca subir)
-v1/.env.local
-v2/.env.local
-*.env.local
+# projetos Next.js (não necessários para o site estático)
+v1/
+v2/
 
 # pasta base (protótipos antigos)
 base/
