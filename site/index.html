@@ -70,8 +70,9 @@
     .subtitle { font-size: 0.9rem; color: var(--soft); max-width: 360px; line-height: 1.6; }
 
     .cards {
-      display: grid; grid-template-columns: 1fr 1fr;
-      gap: 1rem; width: 100%; max-width: 640px;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 1rem; width: 100%; max-width: 900px;
     }
 
     .card {
@@ -112,6 +113,8 @@
 
     .footer { font-family: var(--mono); font-size: 0.62rem; color: var(--muted); letter-spacing: 0.08em; text-align: center; line-height: 1.8; }
 
+    .card--local-dev { display: none; }
+
     @media (max-width: 520px) { .cards { grid-template-columns: 1fr; max-width: 360px; } }
   </style>
 </head>
@@ -143,6 +146,14 @@
       <span class="arrow">abrir →</span>
     </a>
 
+    <a class="card card--local-dev" href="http://localhost:3000/p/cp" id="link-cms-local">
+      <span class="tag">Somente local</span>
+      <div class="tech"><span class="dot"></span>Next.js · dados JSON</div>
+      <div class="title">Proposta<br>/p/cp</div>
+      <p class="desc">A mesma proposta vinda do JSON no Next.js. Rode npm run dev no projeto (porta 3000) e mantenha o servidor ligado.</p>
+      <span class="arrow">abrir →</span>
+    </a>
+
   </div>
 
   <footer class="footer">
@@ -152,5 +163,13 @@
   </footer>
 
 </div>
+<script>
+(function () {
+  var h = location.hostname;
+  if (h !== 'localhost' && h !== '127.0.0.1') return;
+  var el = document.getElementById('link-cms-local');
+  if (el) el.style.display = 'flex';
+})();
+</script>
 </body>
 </html>
