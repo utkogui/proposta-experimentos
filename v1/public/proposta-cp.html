@@ -1,0 +1,1739 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Proposta · CP · Guia de Transportadoras · Matilha Estúdio</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg: #000000;
+      --bg-card: #0c0c0c;
+      --bg-card-hover: #141414;
+      --accent: #F9C80E;
+      --accent-dim: #c9a010;
+      --text: #f5f5f5;
+      --text-muted: #6b6b6b;
+      --text-soft: #a8a8a8;
+      --border: #1f1f1f;
+      --font-display: 'Manrope', system-ui, sans-serif;
+      --font-body: 'Manrope', system-ui, sans-serif;
+      --font-mono: ui-monospace, 'Cascadia Code', monospace;
+      --radius: 0;
+    }
+
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+
+    body {
+      background: var(--bg);
+      color: var(--text);
+      font-family: var(--font-body);
+      font-size: 16px;
+      line-height: 1.65;
+      -webkit-font-smoothing: antialiased;
+      overflow-x: hidden;
+    }
+
+    body::after {
+      content: '';
+      position: fixed;
+      inset: 0;
+      background: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.025'/%3E%3C/svg%3E");
+      pointer-events: none;
+      z-index: 9999;
+    }
+
+    ::selection { background: var(--accent); color: var(--bg); }
+    a { color: var(--accent); text-decoration: none; }
+    a:hover { text-decoration: underline; }
+
+    nav {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: 100;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 1rem 2.5rem;
+      background: rgba(0, 0, 0, 0.88);
+      backdrop-filter: blur(16px);
+      border-bottom: 1px solid var(--border);
+    }
+
+    nav .brand {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+    }
+
+    nav .brand .brand-text {
+      font-family: var(--font-display);
+      font-size: 1.05rem;
+      font-weight: 700;
+      color: var(--text);
+      letter-spacing: -0.01em;
+    }
+
+    nav .nav-links {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1.25rem 1.75rem;
+      justify-content: flex-end;
+    }
+
+    nav .nav-links a {
+      font-family: var(--font-mono);
+      font-size: 0.68rem;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--text-muted);
+      transition: color 0.25s;
+    }
+
+    nav .nav-links a:hover { color: var(--accent); text-decoration: none; }
+
+    section {
+      padding: 7rem 2.5rem;
+      max-width: 1120px;
+      margin: 0 auto;
+      position: relative;
+    }
+
+    .section-label {
+      font-family: var(--font-mono);
+      font-size: 0.65rem;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 1.25rem;
+      display: block;
+    }
+
+    h1 {
+      font-family: var(--font-display);
+      font-size: clamp(2.75rem, 7vw, 5.5rem);
+      font-weight: 700;
+      line-height: 0.98;
+      letter-spacing: -0.03em;
+    }
+
+    h2 {
+      font-family: var(--font-display);
+      font-size: clamp(1.65rem, 3.5vw, 2.75rem);
+      font-weight: 600;
+      line-height: 1.12;
+      margin-bottom: 1.25rem;
+    }
+
+    h3 {
+      font-family: var(--font-display);
+      font-size: 1.15rem;
+      font-weight: 600;
+      margin-bottom: 0.45rem;
+    }
+
+    .lead {
+      font-size: 1.05rem;
+      color: var(--text-soft);
+      max-width: 640px;
+      line-height: 1.75;
+    }
+
+    .hero {
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      padding-top: 5rem;
+      position: relative;
+      overflow: hidden;
+      max-width: none;
+      width: 100vw;
+      margin-left: calc(50% - 50vw);
+      margin-right: calc(50% - 50vw);
+      padding-left: 0;
+      padding-right: 0;
+    }
+
+    .hero-bg {
+      position: absolute;
+      inset: 0;
+      z-index: 0;
+      pointer-events: none;
+      background: radial-gradient(ellipse at 70% 50%, rgba(249, 200, 14, 0.06) 0%, transparent 60%),
+                  radial-gradient(ellipse at 20% 80%, rgba(249, 200, 14, 0.04) 0%, transparent 50%);
+    }
+
+    .hero-content {
+      position: relative;
+      z-index: 2;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      flex: 1;
+      width: 100%;
+      max-width: 1120px;
+      margin: 0 auto;
+      padding: 0 2.5rem;
+    }
+
+    .hero h1 .accent { color: var(--accent); }
+
+    .hero .subtitle {
+      font-family: var(--font-display);
+      font-size: clamp(1.05rem, 2vw, 1.35rem);
+      font-weight: 400;
+      color: var(--text-soft);
+      margin-top: 1.25rem;
+      max-width: 560px;
+    }
+
+    .hero .meta {
+      font-family: var(--font-mono);
+      font-size: 0.72rem;
+      color: var(--text-muted);
+      letter-spacing: 0.08em;
+      margin-top: 2.5rem;
+    }
+
+    .hero-glow {
+      position: absolute;
+      top: 18%;
+      right: -8%;
+      width: 420px;
+      height: 420px;
+      background: radial-gradient(circle, rgba(249, 200, 14, 0.07) 0%, transparent 68%);
+      pointer-events: none;
+      z-index: 1;
+    }
+
+    .triangle-accent {
+      width: 48px;
+      height: 4px;
+      background: linear-gradient(90deg, var(--accent), transparent);
+      margin-bottom: 1.5rem;
+    }
+
+    .divider {
+      width: 100%;
+      max-width: 1120px;
+      margin: 0 auto;
+      border: none;
+      border-top: 1px solid var(--border);
+    }
+
+    .cards-2 {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1.25rem;
+      margin-top: 2rem;
+    }
+
+    .cards-3 {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1rem;
+      margin-top: 2rem;
+    }
+
+    .card {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      padding: 1.75rem;
+      transition: border-color 0.25s, background 0.25s;
+      border-radius: var(--radius);
+    }
+
+    .card:hover {
+      border-color: rgba(249, 200, 14, 0.25);
+      background: var(--bg-card-hover);
+    }
+
+    .card .card-label {
+      font-family: var(--font-mono);
+      font-size: 0.62rem;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 0.65rem;
+    }
+
+    .card p, .card li { color: var(--text-soft); font-size: 0.88rem; }
+    .card ul { list-style: none; padding: 0; margin-top: 0.65rem; }
+    .card ul li {
+      padding: 0.3rem 0 0.3rem 1rem;
+      position: relative;
+    }
+
+    .card ul li::before {
+      content: '·';
+      position: absolute;
+      left: 0;
+      color: var(--accent);
+      font-weight: 700;
+    }
+
+    .pilares-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1rem;
+      margin-top: 2rem;
+    }
+
+    .pilar {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      padding: 1.35rem;
+      border-radius: var(--radius);
+      transition: border-color 0.25s;
+    }
+
+    .pilar:hover { border-color: rgba(249, 200, 14, 0.2); }
+
+    .pilar .pilar-name {
+      font-family: var(--font-mono);
+      font-size: 0.65rem;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 0.45rem;
+    }
+
+    .pilar p { font-size: 0.84rem; color: var(--text-soft); }
+
+    .crono-table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 1.75rem;
+      font-size: 0.82rem;
+    }
+
+    .crono-table th {
+      font-family: var(--font-mono);
+      font-size: 0.62rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--accent);
+      padding: 0.75rem 0.5rem;
+      text-align: center;
+      border-bottom: 1px solid var(--border);
+      background: var(--bg-card);
+    }
+
+    .crono-table th:first-child { text-align: left; width: 220px; padding-left: 1rem; }
+    .crono-table td {
+      padding: 0.55rem 0.5rem;
+      text-align: center;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.04);
+      color: var(--text-soft);
+    }
+
+    .crono-table td:first-child { text-align: left; padding-left: 1rem; color: var(--text); }
+
+    .crono-table tr.phase-row td {
+      color: var(--accent);
+      font-weight: 700;
+      font-family: var(--font-mono);
+      font-size: 0.65rem;
+      letter-spacing: 0.12em;
+    }
+
+    .crono-star { color: var(--accent); font-size: 1.1rem; }
+
+    .invest-cards {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1.25rem;
+      margin-top: 2rem;
+    }
+
+    .invest-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      padding: 2rem;
+      border-radius: var(--radius);
+    }
+
+    .invest-card .price {
+      font-family: var(--font-display);
+      font-size: 2.25rem;
+      font-weight: 700;
+      color: var(--accent);
+      margin: 1.25rem 0 0.4rem;
+    }
+
+    .invest-card .payment {
+      font-family: var(--font-mono);
+      font-size: 0.72rem;
+      color: var(--text-muted);
+    }
+
+    .invest-total {
+      background: var(--bg-card);
+      border: 1px solid var(--accent);
+      padding: 2rem;
+      margin-top: 1.25rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 1rem;
+      border-radius: var(--radius);
+    }
+
+    .invest-total .total-label {
+      font-family: var(--font-mono);
+      font-size: 0.72rem;
+      letter-spacing: 0.18em;
+      color: var(--text-soft);
+      text-transform: uppercase;
+    }
+
+    .invest-total .total-price {
+      font-family: var(--font-display);
+      font-size: 2.5rem;
+      font-weight: 700;
+      color: var(--accent);
+    }
+
+    .obs-block {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      padding: 2rem;
+      margin-top: 1.75rem;
+      border-radius: var(--radius);
+    }
+
+    .obs-block h3 {
+      font-family: var(--font-mono);
+      font-size: 0.68rem;
+      letter-spacing: 0.2em;
+      color: var(--accent);
+      margin-bottom: 0.85rem;
+      text-transform: uppercase;
+    }
+
+    .obs-block p, .obs-block li {
+      font-size: 0.88rem;
+      color: var(--text-soft);
+      line-height: 1.7;
+    }
+
+    .obs-block ul {
+      list-style: none;
+      padding: 0;
+      margin: 0.75rem 0;
+      columns: 2;
+      column-gap: 2rem;
+    }
+
+    .obs-block ul li {
+      padding: 0.25rem 0 0.25rem 1rem;
+      position: relative;
+    }
+
+    .obs-block ul li::before {
+      content: '·';
+      position: absolute;
+      left: 0;
+      color: var(--accent);
+      font-weight: 700;
+    }
+
+    .steps { margin-top: 1.75rem; }
+
+    .step {
+      display: grid;
+      grid-template-columns: 52px 180px 1fr;
+      align-items: center;
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      padding: 1.1rem 1.5rem;
+      margin-bottom: 0.5rem;
+      transition: border-color 0.25s;
+      border-radius: var(--radius);
+    }
+
+    .step:hover { border-color: rgba(249, 200, 14, 0.18); }
+
+    .step .step-num {
+      font-family: var(--font-display);
+      font-size: 1.45rem;
+      font-weight: 700;
+      color: var(--accent);
+    }
+
+    .step .step-title { font-weight: 600; font-size: 0.92rem; }
+    .step .step-desc { font-size: 0.85rem; color: var(--text-soft); }
+
+    .quote-section {
+      text-align: center;
+      padding: 8rem 2rem;
+    }
+
+    .quote-section .big-quote {
+      font-family: var(--font-display);
+      font-size: clamp(1.85rem, 4vw, 3rem);
+      font-weight: 600;
+      line-height: 1.15;
+      max-width: 680px;
+      margin: 0 auto;
+    }
+
+    .quote-section .big-quote em {
+      font-style: italic;
+      color: var(--accent);
+    }
+
+    footer {
+      text-align: center;
+      padding: 2.5rem 1.5rem 3rem;
+      border-top: 1px solid var(--border);
+    }
+
+    footer .contact-row {
+      font-family: var(--font-display);
+      font-size: 1.1rem;
+      margin-bottom: 0.75rem;
+    }
+
+    footer .contact-row a { color: var(--text); }
+    footer .contact-row a:hover { color: var(--accent); text-decoration: none; }
+
+    footer p.meta-footer {
+      font-family: var(--font-mono);
+      font-size: 0.68rem;
+      color: var(--text-muted);
+      letter-spacing: 0.08em;
+      margin-top: 1rem;
+    }
+
+    .aspects-box {
+      display: inline-flex;
+      flex-wrap: wrap;
+      gap: 2rem 2.5rem;
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      padding: 1.35rem 2rem;
+      margin-top: 2rem;
+      border-radius: var(--radius);
+    }
+
+    .aspect-item { text-align: center; }
+    .aspect-item .aspect-val {
+      font-family: var(--font-display);
+      font-size: 1.25rem;
+      font-weight: 700;
+      color: var(--accent);
+    }
+
+    .aspect-item .aspect-label {
+      font-size: 0.72rem;
+      color: var(--text-muted);
+      margin-top: 0.2rem;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+    }
+
+    .fade-in {
+      opacity: 0;
+      transform: translateY(24px);
+      transition: opacity 0.7s ease, transform 0.7s ease;
+    }
+
+    .fade-in.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    /* Client header sem logo */
+    .client-header {
+      display: grid;
+      grid-template-columns: 1fr auto;
+      align-items: center;
+      gap: 2rem;
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      padding: 1.5rem 1.75rem;
+      margin-top: 2rem;
+      max-width: 720px;
+      border-radius: var(--radius);
+    }
+
+    .client-header .client-info {
+      display: grid;
+      grid-template-columns: repeat(2, auto);
+      gap: 0.85rem 2.25rem;
+    }
+
+    .client-header .client-info .field-label {
+      font-family: var(--font-mono);
+      font-size: 0.58rem;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--text-muted);
+      display: block;
+      margin-bottom: 0.2rem;
+    }
+
+    .client-header .client-info .field-value {
+      font-family: var(--font-display);
+      font-size: 0.92rem;
+      font-weight: 600;
+      color: var(--text);
+    }
+
+    /* Monograma CP no lugar do logo */
+    .client-monogram {
+      background: var(--accent);
+      color: var(--bg);
+      width: 72px;
+      height: 72px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: var(--font-display);
+      font-size: 1.65rem;
+      font-weight: 800;
+      letter-spacing: -0.04em;
+      flex-shrink: 0;
+    }
+
+    /* Stats grid */
+    .stats-grid {
+      display: grid;
+      grid-template-columns: repeat(5, 1fr);
+      gap: 0.85rem;
+      margin-top: 2rem;
+    }
+
+    .stat-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      padding: 1.35rem 1.25rem;
+      border-radius: var(--radius);
+      transition: border-color 0.25s, background 0.25s;
+    }
+
+    .stat-card:hover {
+      border-color: rgba(249, 200, 14, 0.25);
+      background: var(--bg-card-hover);
+    }
+
+    .stat-card .stat-label {
+      font-family: var(--font-mono);
+      font-size: 0.6rem;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: var(--text-muted);
+      margin-bottom: 0.75rem;
+    }
+
+    .stat-card .stat-value {
+      font-family: var(--font-display);
+      font-size: 1.75rem;
+      font-weight: 700;
+      color: var(--accent);
+      line-height: 1.05;
+    }
+
+    .result-callout {
+      border-left: 2px solid var(--accent);
+      padding: 0.25rem 0 0.25rem 1.25rem;
+      margin-top: 1.5rem;
+      color: var(--text-soft);
+      font-size: 0.95rem;
+      max-width: 640px;
+    }
+
+    .nota {
+      font-family: var(--font-mono);
+      font-size: 0.7rem;
+      letter-spacing: 0.1em;
+      color: var(--text-muted);
+      margin-top: 1rem;
+      font-style: italic;
+    }
+
+    .client-name {
+      color: var(--accent);
+      font-weight: 600;
+    }
+
+    /* Tabela de escopo detalhado */
+    .scope-table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 1.5rem;
+      font-size: 0.82rem;
+    }
+
+    .scope-table th {
+      font-family: var(--font-mono);
+      font-size: 0.6rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--text-muted);
+      padding: 0.65rem 0.75rem;
+      text-align: left;
+      border-bottom: 1px solid var(--border);
+      background: var(--bg-card);
+    }
+
+    .scope-table th.right { text-align: right; }
+
+    .scope-table td {
+      padding: 0.6rem 0.75rem;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.04);
+      color: var(--text-soft);
+      vertical-align: top;
+    }
+
+    .scope-table td:last-child { text-align: right; font-weight: 700; color: var(--accent); font-family: var(--font-mono); white-space: nowrap; }
+    .scope-table tr:last-child td { border-bottom: none; }
+    .scope-table tr.scope-group td {
+      color: var(--accent);
+      font-family: var(--font-mono);
+      font-size: 0.65rem;
+      letter-spacing: 0.1em;
+      background: rgba(249, 200, 14, 0.04);
+      font-weight: 700;
+      padding-top: 0.85rem;
+    }
+
+    .scope-table tr.scope-total td {
+      border-top: 1px solid var(--border);
+      color: var(--text);
+      font-weight: 700;
+      background: var(--bg-card);
+      padding-top: 0.75rem;
+    }
+
+    .badge-esforco {
+      display: inline-block;
+      padding: 1px 7px;
+      border-radius: 3px;
+      font-size: 0.68rem;
+      font-weight: 600;
+      font-family: var(--font-mono);
+      letter-spacing: 0.05em;
+    }
+
+    .badge-alto   { background: rgba(192, 57, 43, 0.2); color: #e88; }
+    .badge-medio  { background: rgba(133, 100, 4, 0.2); color: #d4a; border: none; color: #ccaa44; }
+    .badge-baixo  { background: rgba(46, 125, 50, 0.2); color: #7c7; }
+
+    /* Callout de alerta */
+    .alert-block {
+      background: rgba(249, 200, 14, 0.05);
+      border: 1px solid rgba(249, 200, 14, 0.2);
+      padding: 1.25rem 1.5rem;
+      margin-top: 1.5rem;
+      border-radius: var(--radius);
+    }
+
+    .alert-block .alert-title {
+      font-family: var(--font-mono);
+      font-size: 0.68rem;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 0.5rem;
+    }
+
+    .alert-block p {
+      font-size: 0.88rem;
+      color: var(--text-soft);
+      line-height: 1.65;
+    }
+
+    /* Resumo financeiro */
+    .summary-line {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 0.65rem 0;
+      border-bottom: 1px solid var(--border);
+      font-size: 0.9rem;
+    }
+
+    .summary-line:last-child { border-bottom: none; }
+    .summary-line .sl-label { color: var(--text-soft); }
+    .summary-line .sl-value { font-weight: 700; font-family: var(--font-mono); color: var(--text); }
+    .summary-line.sl-total .sl-label { color: var(--text); font-weight: 700; }
+    .summary-line.sl-total .sl-value { color: var(--accent); font-size: 1.15rem; }
+
+    /* Volumes de dados */
+    .data-chips {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.65rem;
+      margin-top: 1.5rem;
+    }
+
+    .data-chip {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      padding: 0.75rem 1.1rem;
+      display: flex;
+      flex-direction: column;
+      gap: 0.2rem;
+    }
+
+    .data-chip .chip-val {
+      font-family: var(--font-display);
+      font-size: 1.15rem;
+      font-weight: 700;
+      color: var(--accent);
+      line-height: 1;
+    }
+
+    .data-chip .chip-label {
+      font-size: 0.72rem;
+      color: var(--text-muted);
+      letter-spacing: 0.06em;
+    }
+
+    /* ==============================================================
+       Tema invertido (fundo claro, texto preto)
+    ============================================================== */
+    .inverted {
+      position: relative;
+      color: #0a0a0a;
+      z-index: 1;
+      padding-top: 2rem;
+      padding-bottom: 7rem;
+    }
+
+    .inverted::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      bottom: 0;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 100vw;
+      background: #f5f2ea;
+      z-index: -1;
+      box-shadow: inset 0 1px 0 rgba(0, 0, 0, 0.04);
+    }
+
+    .inverted h2,
+    .inverted h3 { color: #0a0a0a; }
+    .inverted p,
+    .inverted li,
+    .inverted .lead { color: #1a1a1a; }
+    .inverted .section-label { color: #0a0a0a; }
+    .inverted strong { color: #000; }
+    .inverted .pilar {
+      background: #ffffff;
+      border: 1px solid rgba(0, 0, 0, 0.12);
+    }
+    .inverted .pilar:hover {
+      border-color: var(--accent);
+      background: #fffef6;
+    }
+    .inverted .pilar .pilar-name {
+      background: var(--accent);
+      color: #000;
+      display: inline-block;
+      padding: 0.25rem 0.55rem;
+      margin-bottom: 0.75rem;
+      font-weight: 700;
+    }
+    .inverted .pilar p { color: #2a2a2a; }
+    .inverted .client-name { color: #a9800a; font-weight: 700; }
+    .inverted .result-callout { color: #2a2a2a; border-left-color: #a9800a; }
+
+    .inverted .card {
+      background: #ffffff;
+      border: 1px solid rgba(0, 0, 0, 0.1);
+      color: #0a0a0a;
+    }
+    .inverted .card:hover { border-color: var(--accent); }
+    .inverted .card .card-label { color: #a9800a; }
+    .inverted .card p, .inverted .card li { color: #2a2a2a; }
+    .inverted .card ul li::before { color: var(--accent); }
+
+    .inverted .crono-table {
+      background: #ffffff;
+      border: 1px solid rgba(0, 0, 0, 0.1);
+    }
+    .inverted .crono-table th {
+      background: #f5f2ea;
+      color: #0a0a0a;
+      border-bottom: 1px solid rgba(0, 0, 0, 0.12);
+    }
+    .inverted .crono-table td {
+      color: #2a2a2a;
+      border-bottom: 1px solid rgba(0, 0, 0, 0.06);
+    }
+    .inverted .crono-table td:first-child { color: #0a0a0a; }
+    .inverted .crono-table tr.phase-row td {
+      background: #0a0a0a;
+      color: var(--accent);
+    }
+    .inverted .nota { color: #555; }
+
+    .inverted .stat-card {
+      background: #ffffff;
+      border: 1px solid rgba(0, 0, 0, 0.1);
+    }
+    .inverted .stat-card:hover { border-color: var(--accent); }
+    .inverted .stat-card .stat-label { color: #555; }
+    .inverted .stat-card .stat-value { color: #0a0a0a; }
+
+    .inverted .invest-card {
+      background: #ffffff;
+      border: 1px solid rgba(0, 0, 0, 0.1);
+    }
+    .inverted .invest-card:hover { border-color: var(--accent); }
+    .inverted .invest-card .card-label { color: #a9800a; }
+    .inverted .invest-card h3 { color: #0a0a0a; }
+    .inverted .invest-card .price { color: #0a0a0a; }
+    .inverted .invest-card .payment { color: #2a2a2a; }
+    .inverted .invest-total {
+      background: #0a0a0a;
+      border: 1px solid #0a0a0a;
+    }
+    .inverted .invest-total .total-label { color: #d8d2c2; }
+    .inverted .invest-total .total-price { color: var(--accent); }
+    .inverted .obs-block {
+      background: #ffffff;
+      border: 1px solid rgba(0, 0, 0, 0.1);
+    }
+    .inverted .obs-block h3 { color: #0a0a0a; }
+    .inverted .obs-block p,
+    .inverted .obs-block li { color: #2a2a2a; }
+    .inverted .obs-block ul li::before { color: var(--accent); }
+
+    .inverted .step {
+      background: #ffffff;
+      border: 1px solid rgba(0, 0, 0, 0.1);
+      color: #0a0a0a;
+    }
+    .inverted .step:hover { border-color: var(--accent); }
+    .inverted .step .step-num { color: var(--accent); }
+    .inverted .step .step-title { color: #0a0a0a; }
+    .inverted .step .step-desc { color: #2a2a2a; }
+
+    .inverted .scope-table th {
+      background: #f5f2ea;
+      color: #666;
+      border-bottom: 1px solid rgba(0,0,0,0.1);
+    }
+    .inverted .scope-table td {
+      color: #333;
+      border-bottom-color: rgba(0,0,0,0.05);
+    }
+    .inverted .scope-table td:last-child { color: #a9800a; }
+    .inverted .scope-table tr.scope-group td {
+      background: rgba(0,0,0,0.04);
+      color: #7a5c00;
+    }
+    .inverted .scope-table tr.scope-total td {
+      background: #f5f2ea;
+      color: #0a0a0a;
+      border-top-color: rgba(0,0,0,0.12);
+    }
+    .inverted .alert-block {
+      background: #fffdf0;
+      border-color: rgba(169, 128, 10, 0.35);
+    }
+    .inverted .alert-block .alert-title { color: #7a5c00; }
+    .inverted .alert-block p { color: #3a3020; }
+    .inverted .summary-line { border-bottom-color: rgba(0,0,0,0.1); }
+    .inverted .summary-line .sl-label { color: #555; }
+    .inverted .summary-line .sl-value { color: #0a0a0a; }
+    .inverted .summary-line.sl-total .sl-value { color: #7a5c00; }
+    .inverted .data-chip { background: #fff; border-color: rgba(0,0,0,0.12); }
+    .inverted .data-chip .chip-val { color: #0a0a0a; }
+    .inverted .data-chip .chip-label { color: #666; }
+
+    /* ==============================================================
+       Bridges
+    ============================================================== */
+    .bridge {
+      position: relative;
+      height: 100vh;
+      max-width: none;
+      margin: 0;
+      padding: 0;
+      overflow: hidden;
+      --p: 0;
+      --p-text: 0;
+      will-change: contents;
+    }
+
+    .bridge--to-light {
+      background: linear-gradient(to bottom, #000 0%, #000 35%, #1a1714 60%, #f5f2ea 100%);
+    }
+
+    .bridge--to-dark {
+      background: linear-gradient(to bottom, #f5f2ea 0%, #d8d2c2 25%, #1a1714 55%, #000 100%);
+    }
+
+    .bridge .stage {
+      position: absolute;
+      inset: 0;
+      isolation: isolate;
+    }
+
+    .bridge .stage::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background:
+        radial-gradient(ellipse at 20% 20%, rgba(249, 200, 14, 0.05) 0%, transparent 50%),
+        radial-gradient(ellipse at 85% 80%, rgba(249, 200, 14, 0.06) 0%, transparent 55%);
+      pointer-events: none;
+      z-index: 1;
+    }
+
+    .bridge .big-word {
+      position: absolute;
+      inset: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: var(--font-display);
+      font-weight: 800;
+      letter-spacing: -0.06em;
+      line-height: 0.82;
+      font-size: clamp(3rem, 12vw, 12rem);
+      text-transform: uppercase;
+      pointer-events: none;
+      user-select: none;
+      white-space: nowrap;
+      z-index: 3;
+    }
+
+    .bridge .big-word .ghost,
+    .bridge .big-word .fill {
+      position: absolute;
+      inset: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      will-change: transform, opacity;
+    }
+
+    .bridge .big-word .ghost {
+      color: transparent;
+      -webkit-text-stroke: 1px rgba(249, 200, 14, 0.6);
+      transform: translate3d(calc((0.5 - var(--p)) * 8vw), 0, 0) scale(calc(0.9 + var(--p-text) * 0.2));
+      opacity: calc(var(--p-text) * 0.9);
+    }
+
+    .bridge .big-word .fill {
+      color: #f5f5f5;
+      mix-blend-mode: difference;
+      transform: translate3d(calc((var(--p) - 0.5) * 12vw), 0, 0);
+      opacity: var(--p-text);
+    }
+
+    .bridge .bridge-index {
+      position: absolute;
+      left: 2.5rem;
+      bottom: 4rem;
+      font-family: var(--font-mono);
+      font-size: 0.72rem;
+      letter-spacing: 0.25em;
+      text-transform: uppercase;
+      color: var(--accent);
+      opacity: calc(0.3 + var(--p-text) * 0.7);
+      z-index: 4;
+      mix-blend-mode: difference;
+    }
+
+    .bridge .bridge-index .num {
+      display: block;
+      color: #fff;
+      font-family: var(--font-display);
+      font-size: clamp(1.8rem, 3.2vw, 2.75rem);
+      font-weight: 700;
+      letter-spacing: -0.03em;
+      margin-top: 0.65rem;
+    }
+
+    .bridge .bridge-caption {
+      position: absolute;
+      right: 2.5rem;
+      top: 4rem;
+      font-family: var(--font-mono);
+      font-size: 0.68rem;
+      letter-spacing: 0.3em;
+      text-transform: uppercase;
+      color: rgba(249, 200, 14, 0.7);
+      opacity: calc(0.3 + var(--p-text) * 0.7);
+      z-index: 4;
+      mix-blend-mode: difference;
+    }
+
+    @media (max-width: 900px) {
+      section { padding: 4.5rem 1.25rem; }
+      nav { padding: 0.85rem 1.25rem; flex-wrap: wrap; gap: 0.75rem; }
+      nav .nav-links { width: 100%; justify-content: flex-start; }
+      .cards-2, .invest-cards, .pilares-grid { grid-template-columns: 1fr; }
+      .cards-3 { grid-template-columns: 1fr; }
+      .step { grid-template-columns: 44px 1fr; }
+      .step .step-desc { grid-column: 1 / -1; margin-top: 0.35rem; }
+      .invest-total { flex-direction: column; text-align: center; }
+      .obs-block ul { columns: 1; }
+      .crono-table { font-size: 0.72rem; }
+      .crono-table th, .crono-table td { padding: 0.45rem 0.25rem; }
+      .client-header { grid-template-columns: 1fr; }
+      .client-header .client-info { grid-template-columns: 1fr; gap: 0.75rem; }
+      .client-monogram { align-self: flex-start; }
+      .stats-grid { grid-template-columns: 1fr 1fr; }
+      .bridge .big-word { font-size: clamp(2rem, 13vw, 6rem); }
+      .bridge .bridge-index,
+      .bridge .bridge-caption { left: 1.25rem; right: 1.25rem; }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      .bridge { height: 50vh; }
+      .bridge .big-word .ghost,
+      .bridge .big-word .fill { transform: none; opacity: 1; }
+    }
+  </style>
+</head>
+<body>
+
+<nav>
+  <a class="brand" href="https://matilha.digital/" target="_blank" rel="noopener noreferrer">
+    <span class="brand-text">Matilha Estúdio</span>
+  </a>
+  <div class="nav-links">
+    <a href="#solucao">Solução</a>
+    <a href="#escopo">Escopo</a>
+    <a href="#dados">Dados</a>
+    <a href="#cronograma">Cronograma</a>
+    <a href="#investimento">Investimento</a>
+    <a href="#proximos">Próximos passos</a>
+  </div>
+</nav>
+
+<!-- ===================== HERO ===================== -->
+<section class="hero">
+  <div class="hero-bg" aria-hidden="true"></div>
+  <div class="hero-glow"></div>
+  <div class="hero-content">
+    <div class="triangle-accent"></div>
+    <span class="section-label">Proposta comercial · Maio 2026</span>
+    <h1>Guia de <span class="accent">Transportadoras</span></h1>
+    <p class="subtitle">Desenvolvimento completo da plataforma digital — motor de rotas, perfis de transportadoras, cotação múltipla e painel administrativo.</p>
+
+    <div class="client-header">
+      <div class="client-info">
+        <div>
+          <span class="field-label">Cliente</span>
+          <span class="field-value client-name">CP</span>
+        </div>
+        <div>
+          <span class="field-label">Projeto</span>
+          <span class="field-value">Guia de Transportadoras</span>
+        </div>
+        <div>
+          <span class="field-label">Estimativa</span>
+          <span class="field-value">464h</span>
+        </div>
+        <div>
+          <span class="field-label">Prazo</span>
+          <span class="field-value">~12 semanas</span>
+        </div>
+      </div>
+      <div class="client-monogram">CP</div>
+    </div>
+
+    <p class="meta">Matilha Estúdio &nbsp;·&nbsp; Curitiba, PR &nbsp;·&nbsp; Maio 2026</p>
+
+    <div class="aspects-box">
+      <div class="aspect-item"><div class="aspect-val">5</div><div class="aspect-label">Páginas únicas</div></div>
+      <div class="aspect-item"><div class="aspect-val">7</div><div class="aspect-label">Templates dinâmicos</div></div>
+      <div class="aspect-item"><div class="aspect-val">12</div><div class="aspect-label">Componentes reutilizáveis</div></div>
+      <div class="aspect-item"><div class="aspect-val">4</div><div class="aspect-label">Integrações externas</div></div>
+      <div class="aspect-item"><div class="aspect-val">464h</div><div class="aspect-label">Total estimado</div></div>
+    </div>
+  </div>
+</section>
+
+<hr class="divider">
+
+<!-- ===================== 01 · SOLUÇÃO ===================== -->
+<section id="solucao" class="fade-in">
+  <span class="section-label">01 · O que estamos construindo</span>
+  <h2>Uma plataforma completa para conectar transportadoras, rotas e cargas.</h2>
+  <p class="lead" style="margin-bottom: 1.5rem;">O Guia de Transportadoras é um sistema de alta complexidade técnica — opera sobre uma base de mais de 5 milhões de rotas, serve perfis detalhados de mais de 15 mil transportadoras e oferece ferramentas como motor de busca em tempo real, calculadora de distâncias com múltiplos waypoints e cotação múltipla consolidada. O desenvolvimento exige arquitetura robusta de banco de dados, integrações com APIs externas e um painel administrativo completo para sustentar a operação.</p>
+
+  <div class="cards-2">
+    <div class="card">
+      <div class="card-label">Plataforma pública</div>
+      <h3>Busca, rotas e perfis</h3>
+      <ul>
+        <li>Motor de busca de rotas por origem e destino em tempo real</li>
+        <li>Calculadora de distância com múltiplos waypoints e Google Maps</li>
+        <li>Perfis detalhados de transportadoras com serviços, certificações e filiais</li>
+        <li>Listagem de fornecedores e categorias de cargas especiais</li>
+        <li>Blog integrado com notícias do setor</li>
+      </ul>
+    </div>
+    <div class="card">
+      <div class="card-label">Ferramentas e gestão</div>
+      <h3>Cotação, cadastro e administração</h3>
+      <ul>
+        <li>Sistema de cotação múltipla — seleção de N transportadoras com envio consolidado</li>
+        <li>Cadastro PJ/PF com assinatura do guia impresso integrada a gateway de pagamento</li>
+        <li>Painel administrativo completo para gestão de empresas, rotas, conteúdo e usuários</li>
+        <li>Autenticação com recuperação de senha e controle de permissões</li>
+        <li>Newsletter e e-mails transacionais</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- Bridge 01 → 02 -->
+<div class="bridge bridge--to-light" aria-hidden="true">
+  <div class="stage">
+    <span class="bridge-caption">Próxima seção · 02</span>
+    <div class="big-word">
+      <span class="ghost">Escopo</span>
+      <span class="fill">Escopo</span>
+    </div>
+    <div class="bridge-index">
+      — Detalhamento
+      <span class="num">02 / Horas</span>
+    </div>
+  </div>
+</div>
+
+<!-- ===================== 02 · ESCOPO ===================== -->
+<section id="escopo" class="fade-in inverted">
+  <span class="section-label">02 · Escopo detalhado · estimativa de horas</span>
+  <h2>Cada componente, cada hora — estimativa completa do desenvolvimento.</h2>
+  <p class="lead" style="margin-bottom: 0.5rem;">Templates são desenvolvidos uma única vez e reutilizados para todas as páginas daquele tipo, independentemente do volume de dados. As horas indicadas representam o desenvolvimento, não a aplicação por instância.</p>
+
+  <!-- Componentes Globais -->
+  <h3 style="margin-top: 2.5rem; margin-bottom: 0.25rem;">Componentes Globais</h3>
+  <p style="font-size: 0.85rem; color: #666; margin-bottom: 0.5rem;">Desenvolvidos uma vez, reutilizados em todas as páginas.</p>
+  <table class="scope-table">
+    <thead>
+      <tr><th>Componente</th><th>Descrição</th><th>Esforço</th><th class="right">Horas</th></tr>
+    </thead>
+    <tbody>
+      <tr><td>Header</td><td>Logo, busca global, botões Cadastre-se / Entrar</td><td><span class="badge-esforco badge-medio">Médio</span></td><td>8h</td></tr>
+      <tr><td>Menu de navegação</td><td>6 itens principais com estados ativo/hover</td><td><span class="badge-esforco badge-baixo">Baixo</span></td><td>3h</td></tr>
+      <tr><td>Footer</td><td>4 colunas + ícones de redes sociais</td><td><span class="badge-esforco badge-baixo">Baixo</span></td><td>4h</td></tr>
+      <tr><td>Breadcrumb</td><td>Navegação hierárquica gerada dinamicamente</td><td><span class="badge-esforco badge-baixo">Baixo</span></td><td>2h</td></tr>
+      <tr class="scope-total"><td colspan="3"><strong>Subtotal — Componentes Globais</strong></td><td>17h</td></tr>
+    </tbody>
+  </table>
+
+  <!-- Páginas Únicas -->
+  <h3 style="margin-top: 2.5rem; margin-bottom: 0.5rem;">Páginas Únicas</h3>
+  <table class="scope-table">
+    <thead>
+      <tr><th>Página</th><th>URL</th><th>Funcionalidades</th><th>Esforço</th><th class="right">Horas</th></tr>
+    </thead>
+    <tbody>
+      <tr><td><strong>Home</strong></td><td><code>/</code></td><td>Hero com busca, 4 blocos de destaque com contadores dinâmicos, calculadora, newsletter, últimas notícias, banners</td><td><span class="badge-esforco badge-alto">Alto</span></td><td>20h</td></tr>
+      <tr><td><strong>Distâncias</strong></td><td><code>/distancias</code></td><td>Formulário multi-waypoints, Google Maps interativo, rota detalhada</td><td><span class="badge-esforco badge-alto">Alto</span></td><td>14h</td></tr>
+      <tr><td><strong>Cadastro</strong></td><td><code>/conta/cadastrar</code></td><td>Formulário extenso PJ/PF, busca CEP automática, dropdowns estado/cidade, assinatura paga</td><td><span class="badge-esforco badge-medio">Médio</span></td><td>12h</td></tr>
+      <tr><td><strong>Login</strong></td><td><code>/entrar</code></td><td>Formulário de acesso com e-mail e senha, recuperação de senha</td><td><span class="badge-esforco badge-baixo">Baixo</span></td><td>4h</td></tr>
+      <tr><td><strong>Quem Somos</strong></td><td><code>/quem-somos</code></td><td>Página institucional com texto e imagens</td><td><span class="badge-esforco badge-baixo">Baixo</span></td><td>3h</td></tr>
+      <tr class="scope-total"><td colspan="4"><strong>Subtotal — Páginas Únicas (5)</strong></td><td>53h</td></tr>
+    </tbody>
+  </table>
+
+  <!-- Templates Dinâmicos -->
+  <h3 style="margin-top: 2.5rem; margin-bottom: 0.5rem;">Templates Dinâmicos</h3>
+  <table class="scope-table">
+    <thead>
+      <tr><th>Template</th><th>URL Pattern</th><th>Tipo</th><th>Esforço</th><th class="right">Horas</th></tr>
+    </thead>
+    <tbody>
+      <tr><td><strong>Listagem de Transportadoras</strong></td><td><code>/transportadoras</code></td><td>Listagem / Índice</td><td><span class="badge-esforco badge-medio">Médio</span></td><td>12h</td></tr>
+      <tr><td><strong>Listagem de Fornecedores</strong> <em style="font-size:0.72rem; opacity:0.6">variação</em></td><td><code>/fornecedores</code></td><td>Listagem / Índice</td><td><span class="badge-esforco badge-baixo">Baixo</span></td><td>4h</td></tr>
+      <tr><td><strong>Listagem de Cargas Especiais</strong> <em style="font-size:0.72rem; opacity:0.6">variação</em></td><td><code>/cargas-especiais</code></td><td>Listagem / Índice</td><td><span class="badge-esforco badge-baixo">Baixo</span></td><td>4h</td></tr>
+      <tr><td><strong>Resultados de Rota</strong></td><td><code>/rotas/[origem]/[destino]</code></td><td>Resultado de Busca</td><td><span class="badge-esforco badge-alto">Alto</span></td><td>24h</td></tr>
+      <tr><td><strong>Perfil de Transportadora</strong></td><td><code>/transportadora/[id]/[slug]</code></td><td>Detalhe / Perfil</td><td><span class="badge-esforco badge-alto">Alto</span></td><td>16h</td></tr>
+      <tr><td><strong>Listagem de Notícias</strong></td><td><code>[dominio]/</code></td><td>Blog – Listagem</td><td><span class="badge-esforco badge-medio">Médio</span></td><td>8h</td></tr>
+      <tr><td><strong>Artigo Individual</strong></td><td><code>/[ano]/[mes]/[dia]/[slug]/</code></td><td>Blog – Artigo</td><td><span class="badge-esforco badge-medio">Médio</span></td><td>10h</td></tr>
+      <tr class="scope-total"><td colspan="4"><strong>Subtotal — Templates Dinâmicos (7)</strong></td><td>78h</td></tr>
+    </tbody>
+  </table>
+
+  <!-- Componentes Reutilizáveis -->
+  <h3 style="margin-top: 2.5rem; margin-bottom: 0.5rem;">Componentes Reutilizáveis</h3>
+  <table class="scope-table">
+    <thead>
+      <tr><th>Componente</th><th>Descrição</th><th>Esforço</th><th class="right">Horas</th></tr>
+    </thead>
+    <tbody>
+      <tr><td>Card de empresa</td><td>Logo, dados, telefone, e-mail, botões ver perfil, adicionar cotação, localizar no mapa</td><td><span class="badge-esforco badge-medio">Médio</span></td><td>6h</td></tr>
+      <tr><td>Formulário busca origem/destino</td><td>Dois campos com autocomplete de cidades, botão Pesquisar</td><td><span class="badge-esforco badge-medio">Médio</span></td><td>6h</td></tr>
+      <tr><td>Filtros laterais</td><td>Checkboxes com contadores dinâmicos, colapsáveis por categoria</td><td><span class="badge-esforco badge-medio">Médio</span></td><td>8h</td></tr>
+      <tr><td>Widget de cotação múltipla</td><td>Seleção de N transportadoras com contador flutuante + formulário de envio</td><td><span class="badge-esforco badge-alto">Alto</span></td><td>12h</td></tr>
+      <tr><td>Widget de newsletter</td><td>Campos nome e e-mail + validação + integração com sistema de e-mail</td><td><span class="badge-esforco badge-baixo">Baixo</span></td><td>3h</td></tr>
+      <tr><td>Compartilhamento social</td><td>Botões WhatsApp, Facebook, Twitter com URL dinâmica</td><td><span class="badge-esforco badge-baixo">Baixo</span></td><td>2h</td></tr>
+      <tr><td>Mapa Google Maps</td><td>Embed com suporte a rotas interativas, marcadores e rota traçada</td><td><span class="badge-esforco badge-medio">Médio</span></td><td>8h</td></tr>
+      <tr><td>Banner publicitário</td><td>Slot de banner para múltiplas posições (topo, lateral, rodapé)</td><td><span class="badge-esforco badge-baixo">Baixo</span></td><td>3h</td></tr>
+      <tr class="scope-total"><td colspan="3"><strong>Subtotal — Componentes Reutilizáveis (12)</strong></td><td>48h</td></tr>
+    </tbody>
+  </table>
+
+  <!-- Funcionalidades Complexas -->
+  <h3 style="margin-top: 2.5rem; margin-bottom: 0.5rem;">Funcionalidades por Complexidade</h3>
+  <table class="scope-table">
+    <thead>
+      <tr><th>Funcionalidade</th><th>Esforço</th><th>Detalhe</th><th class="right">Horas</th></tr>
+    </thead>
+    <tbody>
+      <tr><td><strong>Motor de busca de rotas</strong></td><td><span class="badge-esforco badge-alto">Alto</span></td><td>Lógica back-end + front-end para cruzar origem/destino contra base de milhões de rotas em tempo real</td><td>40h</td></tr>
+      <tr><td><strong>Calculadora de distância</strong></td><td><span class="badge-esforco badge-alto">Alto</span></td><td>Múltiplos waypoints, integração com Directions API, exibição de rota detalhada no mapa</td><td>16h</td></tr>
+      <tr><td><strong>Sistema de cotação múltipla</strong></td><td><span class="badge-esforco badge-alto">Alto</span></td><td>Seleção persistente de N transportadoras + formulário consolidado + envio por e-mail</td><td>20h</td></tr>
+      <tr><td>Autocomplete de cidades</td><td><span class="badge-esforco badge-medio">Médio</span></td><td>Busca de município enquanto o usuário digita, filtrado por base brasileira</td><td>8h</td></tr>
+      <tr><td>Autenticação de usuários</td><td><span class="badge-esforco badge-medio">Médio</span></td><td>Cadastro PJ/PF, login, sessão, recuperação de senha por e-mail</td><td>16h</td></tr>
+      <tr><td>Assinatura do guia impresso</td><td><span class="badge-esforco badge-medio">Médio</span></td><td>Fluxo de pagamento integrado com gateway, confirmação e gestão de assinantes</td><td>12h</td></tr>
+      <tr><td>Busca de CEP</td><td><span class="badge-esforco badge-baixo">Baixo</span></td><td>Integração com API de CEP para preenchimento automático no cadastro</td><td>4h</td></tr>
+      <tr><td>Paginação de resultados</td><td><span class="badge-esforco badge-baixo">Baixo</span></td><td>Paginação ou scroll infinito nas listagens de transportadoras, rotas e fornecedores</td><td>4h</td></tr>
+      <tr class="scope-total"><td colspan="3"><strong>Subtotal — Funcionalidades (8)</strong></td><td>120h</td></tr>
+    </tbody>
+  </table>
+
+  <!-- Integrações Externas -->
+  <h3 style="margin-top: 2.5rem; margin-bottom: 0.5rem;">Integrações Externas</h3>
+  <table class="scope-table">
+    <thead>
+      <tr><th>Integração</th><th>Status</th><th>Uso</th><th>Esforço</th><th class="right">Horas</th></tr>
+    </thead>
+    <tbody>
+      <tr><td><strong>Google Maps API</strong></td><td>Obrigatória</td><td>Mapas, rotas, geocoding, Directions e Distance Matrix — usada em múltiplos contextos</td><td><span class="badge-esforco badge-alto">Alto</span></td><td>16h</td></tr>
+      <tr><td>API de CEP</td><td>Obrigatória</td><td>Preenchimento automático de endereço no cadastro (ViaCEP ou similar)</td><td><span class="badge-esforco badge-baixo">Baixo</span></td><td>4h</td></tr>
+      <tr><td>Sistema de e-mail</td><td>Obrigatória</td><td>Newsletter, envio de cotações, e-mails transacionais (cadastro, senha, confirmações)</td><td><span class="badge-esforco badge-medio">Médio</span></td><td>8h</td></tr>
+      <tr><td>Gateway de pagamento</td><td>Condicional</td><td>Fluxo de assinatura do guia impresso</td><td><span class="badge-esforco badge-medio">Médio</span></td><td>12h</td></tr>
+      <tr class="scope-total"><td colspan="4"><strong>Subtotal — Integrações (4)</strong></td><td>40h</td></tr>
+    </tbody>
+  </table>
+
+  <!-- Painel Administrativo -->
+  <h3 style="margin-top: 2.5rem; margin-bottom: 0.5rem;">Painel Administrativo</h3>
+  <p style="font-size: 0.85rem; color: #666; margin-bottom: 1rem;">Sistema de gestão back-office necessário para manter o site operacional.</p>
+  <div class="cards-2">
+    <div class="card">
+      <div class="card-label">Gestão de Empresas · 40h</div>
+      <h3>Transportadoras e Fornecedores</h3>
+      <ul>
+        <li>Cadastro e edição de transportadoras e fornecedores</li>
+        <li>Relacionamento matriz / filiais</li>
+        <li>Aprovação de novos cadastros</li>
+        <li>Gerenciamento de categorias e especialidades</li>
+      </ul>
+    </div>
+    <div class="card">
+      <div class="card-label">Gestão de Rotas · 32h</div>
+      <h3>Banco de rotas</h3>
+      <ul>
+        <li>Cadastro e edição de rotas (milhões de registros)</li>
+        <li>Associação transportadora ↔ rota</li>
+        <li>Importação e atualização em lote</li>
+      </ul>
+    </div>
+    <div class="card">
+      <div class="card-label">Gestão de Conteúdo · 20h</div>
+      <h3>Blog e banners</h3>
+      <ul>
+        <li>Blog / notícias — criação e publicação de artigos</li>
+        <li>Gerenciamento de banners publicitários</li>
+        <li>Moderação de comentários</li>
+      </ul>
+    </div>
+    <div class="card">
+      <div class="card-label">Gestão de Usuários · 16h</div>
+      <h3>Usuários e assinantes</h3>
+      <ul>
+        <li>Usuários comuns e contas de empresa</li>
+        <li>Controle de permissões e papéis</li>
+        <li>Assinantes do guia impresso</li>
+        <li>Lista de newsletter</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="alert-block" style="margin-top: 2rem;">
+    <div class="alert-title">Ponto de atenção — banco de rotas</div>
+    <p>O volume de mais de 5 milhões de rotas exige estratégia específica de banco de dados e indexação para garantir performance aceitável nas buscas de origem/destino. Este item impacta significativamente o custo de infraestrutura e as horas de desenvolvimento back-end — 40h estimadas somente para o motor de busca.</p>
+  </div>
+
+  <div class="alert-block" style="margin-top: 0.75rem;">
+    <div class="alert-title">Domínio separado para notícias</div>
+    <p>O blog pode rodar em subdomínio separado (WordPress ou CMS independente). A decisão de unificar em um único sistema ou manter a separação impacta o escopo e custo do back-end. As horas estimadas (18h para os dois templates de blog) consideram um CMS integrado.</p>
+  </div>
+</section>
+
+<!-- Bridge 02 → 03 -->
+<div class="bridge bridge--to-dark" aria-hidden="true">
+  <div class="stage">
+    <span class="bridge-caption">Próxima seção · 03</span>
+    <div class="big-word">
+      <span class="ghost">Dados</span>
+      <span class="fill">Dados</span>
+    </div>
+    <div class="bridge-index">
+      — Volume
+      <span class="num">03 / Base</span>
+    </div>
+  </div>
+</div>
+
+<!-- ===================== 03 · DADOS ===================== -->
+<section id="dados" class="fade-in">
+  <span class="section-label">03 · Volumes de dados</span>
+  <h2>Uma base de escala industrial que orienta toda a arquitetura.</h2>
+  <p class="lead" style="margin-bottom: 1.5rem;">O dimensionamento da base de dados impacta diretamente as decisões de infraestrutura, a estratégia de banco e o custo total de operação da plataforma. Os números abaixo são o ponto de partida para as decisões técnicas mais críticas do projeto.</p>
+
+  <div class="data-chips">
+    <div class="data-chip"><div class="chip-val">15.137</div><div class="chip-label">Transportadoras cadastradas</div></div>
+    <div class="data-chip"><div class="chip-val">5.018</div><div class="chip-label">Total de empresas</div></div>
+    <div class="data-chip"><div class="chip-val">5.367.861</div><div class="chip-label">Rotas disponíveis</div></div>
+    <div class="data-chip"><div class="chip-val">837</div><div class="chip-label">Fornecedores</div></div>
+    <div class="data-chip"><div class="chip-val">151</div><div class="chip-label">Categorias de fornecedores</div></div>
+    <div class="data-chip"><div class="chip-val">94</div><div class="chip-label">Categorias de cargas especiais</div></div>
+    <div class="data-chip"><div class="chip-val">28</div><div class="chip-label">Estados / Regiões</div></div>
+  </div>
+
+  <p class="result-callout" style="margin-top: 2rem;">O motor de busca sobre 5,3 milhões de rotas é a peça central e mais desafiadora da plataforma — exige indexação especializada, estratégia de cache e testes de performance com volume real antes da entrada em produção.</p>
+</section>
+
+<!-- Bridge 03 → 04 -->
+<div class="bridge bridge--to-light" aria-hidden="true">
+  <div class="stage">
+    <span class="bridge-caption">Próxima seção · 04</span>
+    <div class="big-word">
+      <span class="ghost">Cronograma</span>
+      <span class="fill">Cronograma</span>
+    </div>
+    <div class="bridge-index">
+      — Plano
+      <span class="num">04 / Fases</span>
+    </div>
+  </div>
+</div>
+
+<!-- ===================== 04 · CRONOGRAMA ===================== -->
+<section id="cronograma" class="fade-in inverted">
+  <span class="section-label">04 · Cronograma resumido</span>
+  <h2>12 semanas de desenvolvimento, em 4 fases progressivas.</h2>
+  <p class="lead" style="margin-bottom: 1.5rem;">A execução é organizada em fases com entrega incremental — fundação técnica primeiro, escopo completo depois. A ordem respeita as dependências entre camadas de desenvolvimento.</p>
+
+  <table class="crono-table">
+    <thead>
+      <tr>
+        <th>Fase · Entregas-chave</th>
+        <th>Sem 1–2</th>
+        <th>Sem 3–4</th>
+        <th>Sem 5–7</th>
+        <th>Sem 8–10</th>
+        <th>Sem 11–12</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr class="phase-row"><td colspan="6">FASE 01 — FUNDAÇÃO (Sem 1–2)</td></tr>
+      <tr><td>Setup de ambiente e arquitetura</td><td>●</td><td></td><td></td><td></td><td></td></tr>
+      <tr><td>Componentes globais (Header, Footer, Nav)</td><td>●</td><td></td><td></td><td></td><td></td></tr>
+      <tr><td>Estratégia de banco de dados e rotas</td><td>●</td><td>●</td><td></td><td></td><td></td></tr>
+
+      <tr class="phase-row"><td colspan="6">FASE 02 — MOTOR DE ROTAS E PERFIS (Sem 3–7)</td></tr>
+      <tr><td>Motor de busca de rotas (back-end)</td><td></td><td>●</td><td>●</td><td></td><td></td></tr>
+      <tr><td>Templates: Resultados de Rota e Perfil</td><td></td><td></td><td>●</td><td></td><td></td></tr>
+      <tr><td>Calculadora de distância + Maps</td><td></td><td></td><td>●</td><td></td><td></td></tr>
+      <tr><td>Componentes reutilizáveis (cards, filtros, mapas)</td><td></td><td>●</td><td>●</td><td></td><td></td></tr>
+
+      <tr class="phase-row"><td colspan="6">FASE 03 — PÁGINAS, CADASTRO E INTEGRAÇÕES (Sem 8–10)</td></tr>
+      <tr><td>Home, Distâncias, Quem Somos, Login</td><td></td><td></td><td></td><td>●</td><td></td></tr>
+      <tr><td>Cadastro PJ/PF + gateway de pagamento</td><td></td><td></td><td></td><td>●</td><td></td></tr>
+      <tr><td>Autenticação, newsletter e e-mails transacionais</td><td></td><td></td><td></td><td>●</td><td></td></tr>
+      <tr><td>Blog (listagem + artigo individual)</td><td></td><td></td><td></td><td>●</td><td></td></tr>
+
+      <tr class="phase-row"><td colspan="6">FASE 04 — PAINEL ADMINISTRATIVO E ENTREGA (Sem 11–12)</td></tr>
+      <tr><td>Painel: Empresas, Rotas, Conteúdo, Usuários</td><td></td><td></td><td></td><td></td><td>●</td></tr>
+      <tr><td>QA, testes de performance e ajustes finais</td><td></td><td></td><td></td><td></td><td>●</td></tr>
+      <tr><td>Entrega &amp; handover de documentação</td><td></td><td></td><td></td><td></td><td><span class="crono-star">★</span></td></tr>
+    </tbody>
+  </table>
+
+  <p class="nota">* O prazo não contempla tempo de aprovação com o cliente. Fases 02 e 03 podem ter paralelismo parcial dependendo da alocação de equipe.</p>
+</section>
+
+<!-- Bridge 04 → 05 -->
+<div class="bridge bridge--to-dark" aria-hidden="true">
+  <div class="stage">
+    <span class="bridge-caption">Próxima seção · 05</span>
+    <div class="big-word">
+      <span class="ghost">Investimento</span>
+      <span class="fill">Investimento</span>
+    </div>
+    <div class="bridge-index">
+      — Honorários
+      <span class="num">05 / Valor</span>
+    </div>
+  </div>
+</div>
+
+<!-- ===================== 05 · INVESTIMENTO ===================== -->
+<section id="investimento" class="fade-in">
+  <span class="section-label">05 · Investimento</span>
+  <h2>Composição de honorários — <span class="client-name">CP</span> · Guia de Transportadoras</h2>
+  <p class="lead" style="margin-bottom: 1.25rem;">Desenvolvimento completo da plataforma em 464 horas distribuídas em 12 semanas, à taxa de R$&nbsp;177,00/hora.</p>
+
+  <div class="invest-cards">
+    <div class="invest-card">
+      <div class="card-label">Desenvolvimento · ~12 semanas · 464h</div>
+      <h3>Plataforma completa</h3>
+      <div class="price">R$&nbsp;82.128,00</div>
+      <p class="payment">464h × R$&nbsp;177,00/h · front-end, back-end, integrações e painel administrativo</p>
+      <ul style="list-style: none; margin-top: 1rem;">
+        <li style="font-size: 0.82rem; color: var(--text-muted); padding: 0.2rem 0;">· Componentes Globais — 17h</li>
+        <li style="font-size: 0.82rem; color: var(--text-muted); padding: 0.2rem 0;">· Páginas Únicas — 53h</li>
+        <li style="font-size: 0.82rem; color: var(--text-muted); padding: 0.2rem 0;">· Templates Dinâmicos — 78h</li>
+        <li style="font-size: 0.82rem; color: var(--text-muted); padding: 0.2rem 0;">· Componentes Reutilizáveis — 48h</li>
+        <li style="font-size: 0.82rem; color: var(--text-muted); padding: 0.2rem 0;">· Funcionalidades Complexas — 120h</li>
+        <li style="font-size: 0.82rem; color: var(--text-muted); padding: 0.2rem 0;">· Integrações Externas — 40h</li>
+        <li style="font-size: 0.82rem; color: var(--text-muted); padding: 0.2rem 0;">· Painel Administrativo — 108h</li>
+      </ul>
+    </div>
+    <div class="invest-card">
+      <div class="card-label">Condições de pagamento</div>
+      <h3>Parcelado em 3 momentos</h3>
+      <p style="font-size: 0.88rem; color: var(--text-soft); margin-top: 0.75rem; line-height: 1.6;">Honorários fixos parcelados ao longo das fases de entrega, garantindo alinhamento de esforço e resultado.</p>
+      <div style="margin-top: 1.25rem; display: flex; flex-direction: column; gap: 0.5rem;">
+        <div class="summary-line"><span class="sl-label">No aceite da proposta (50%)</span><span class="sl-value">R$&nbsp;41.064,00</span></div>
+        <div class="summary-line"><span class="sl-label">Na entrega da Fase 02 (25%)</span><span class="sl-value">R$&nbsp;20.532,00</span></div>
+        <div class="summary-line"><span class="sl-label">Na entrega final (25%)</span><span class="sl-value">R$&nbsp;20.532,00</span></div>
+        <div class="summary-line sl-total"><span class="sl-label">Total</span><span class="sl-value">R$&nbsp;82.128,00</span></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="invest-total">
+    <div>
+      <span class="total-label">Investimento total · 464h · R$&nbsp;177,00/h</span>
+    </div>
+    <span class="total-price">R$&nbsp;82.128,00</span>
+  </div>
+
+  <div class="obs-block">
+    <h3>Observações</h3>
+    <p>Valores referem-se aos honorários da Matilha para os serviços descritos nesta proposta. Itens fora do escopo — custos de infraestrutura de servidor, licenças de APIs (Google Maps), ferramentas de monitoramento de terceiros ou novos desenvolvimentos — são orçados à parte, após validação.</p>
+    <ul>
+      <li>Horas excedentes ao escopo acordado: via hora técnica adicional</li>
+      <li>Custos de API do Google Maps conforme uso real</li>
+      <li>Decisão sobre CMS do blog (integrado vs. separado) impacta escopo</li>
+      <li>Prazo de 12 semanas não contempla tempo de aprovação com o cliente</li>
+      <li>Impostos e retenções conforme contrato e regime tributário aplicável</li>
+    </ul>
+  </div>
+</section>
+
+<!-- Bridge 05 → 06 -->
+<div class="bridge bridge--to-light" aria-hidden="true">
+  <div class="stage">
+    <span class="bridge-caption">Próxima seção · 06</span>
+    <div class="big-word">
+      <span class="ghost">Próximos</span>
+      <span class="fill">Próximos</span>
+    </div>
+    <div class="bridge-index">
+      — Avanço
+      <span class="num">06 / Passos</span>
+    </div>
+  </div>
+</div>
+
+<!-- ===================== 06 · PRÓXIMOS PASSOS ===================== -->
+<section id="proximos" class="fade-in inverted">
+  <span class="section-label">06 · Próximos passos</span>
+  <h2>Como avançamos</h2>
+  <div class="steps">
+    <div class="step">
+      <span class="step-num">01</span>
+      <span class="step-title">Aceite da proposta</span>
+      <span class="step-desc">Assinatura do instrumento comercial e pagamento da entrada (50% do valor acordado) para início dos trabalhos.</span>
+    </div>
+    <div class="step">
+      <span class="step-num">02</span>
+      <span class="step-title">Kickoff técnico</span>
+      <span class="step-desc">Alinhamento de acessos, responsabilidades, decisões de arquitetura (CMS do blog, stack, cloud) e abertura oficial do projeto.</span>
+    </div>
+    <div class="step">
+      <span class="step-num">03</span>
+      <span class="step-title">Fase 01 — Fundação</span>
+      <span class="step-desc">Setup de ambiente, componentes globais e definição da estratégia de banco de dados para o volume de rotas.</span>
+    </div>
+    <div class="step">
+      <span class="step-num">04</span>
+      <span class="step-title">Fases 02 e 03 — Desenvolvimento</span>
+      <span class="step-desc">Motor de rotas, templates, páginas, integrações externas e sistema de cotação múltipla — com entregas incrementais e validações junto à <span class="client-name">CP</span>.</span>
+    </div>
+    <div class="step">
+      <span class="step-num">05</span>
+      <span class="step-title">Fase 04 — Painel e entrega</span>
+      <span class="step-desc">Painel administrativo, QA completo, testes de carga no motor de rotas e handover com documentação técnica.</span>
+    </div>
+  </div>
+</section>
+
+<!-- Bridge final → quote -->
+<div class="bridge bridge--to-dark" aria-hidden="true">
+  <div class="stage">
+    <span class="bridge-caption">Fechamento</span>
+    <div class="big-word">
+      <span class="ghost">Vamos?</span>
+      <span class="fill">Vamos?</span>
+    </div>
+    <div class="bridge-index">
+      — Convite
+      <span class="num">CP · Matilha</span>
+    </div>
+  </div>
+</div>
+
+<section class="quote-section fade-in">
+  <p class="big-quote">A plataforma que vai <em>conectar transportadoras, rotas e cargas</em> em escala nacional — construída para durar.</p>
+</section>
+
+<footer>
+  <p class="contact-row"><a href="mailto:talk@matilha.digital">talk@matilha.digital</a></p>
+  <p class="contact-row" style="font-size: 0.95rem; color: var(--text-soft);">+55 41 99737-6060</p>
+  <p class="meta-footer">Brasil · Curitiba, PR — Rua Emiliano Perneta, 680 · <a href="https://matilha.digital/" target="_blank" rel="noopener noreferrer">matilha.digital</a></p>
+  <p class="meta-footer">© 2012–2026 Matilha Estúdio de Design Ltda. · Proposta · <span class="client-name">CP</span> · Guia de Transportadoras</p>
+</footer>
+
+<script>
+  (function () {
+    var els = document.querySelectorAll('.fade-in');
+    if (!('IntersectionObserver' in window)) {
+      els.forEach(function (el) { el.classList.add('visible'); });
+      return;
+    }
+    var io = new IntersectionObserver(function (entries) {
+      entries.forEach(function (e) {
+        if (e.isIntersecting) e.target.classList.add('visible');
+      });
+    }, { threshold: 0.12, rootMargin: '0px 0px -40px 0px' });
+    els.forEach(function (el) { io.observe(el); });
+  })();
+</script>
+
+<script>
+  (function () {
+    var bridges = document.querySelectorAll('.bridge');
+    if (!bridges.length) return;
+    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+
+    var LERP = 0.10; // fator de suavização: menor = mais fluido
+    var EPS  = 0.0003; // tolerância mínima para parar o loop
+
+    function clamp01(v) { return v < 0 ? 0 : (v > 1 ? 1 : v); }
+
+    // Estado por bridge: target e current (valor renderizado)
+    var state = Array.from(bridges).map(function () {
+      return { target: 0, current: 0 };
+    });
+
+    var rafId = null;
+
+    function getTarget(bridge) {
+      var rect = bridge.getBoundingClientRect();
+      var vh = window.innerHeight;
+      if (rect.bottom < -vh || rect.top > vh * 2) return -1; // fora da tela
+      var total = rect.height + vh;
+      return clamp01((vh - rect.top) / total);
+    }
+
+    function tick() {
+      rafId = null;
+      var needsMore = false;
+
+      for (var i = 0; i < bridges.length; i++) {
+        var t = getTarget(bridges[i]);
+        if (t < 0) continue; // bridge fora da viewport, pula
+
+        state[i].target = t;
+        // lerp suave em direção ao target
+        state[i].current += (state[i].target - state[i].current) * LERP;
+
+        var p = state[i].current;
+        var pText = p < 0.5 ? p / 0.5 : clamp01(1 - (p - 0.5) / 0.5);
+
+        bridges[i].style.setProperty('--p', p.toFixed(4));
+        bridges[i].style.setProperty('--p-text', pText.toFixed(4));
+
+        if (Math.abs(state[i].target - state[i].current) > EPS) {
+          needsMore = true;
+        }
+      }
+
+      if (needsMore) rafId = requestAnimationFrame(tick);
+    }
+
+    function schedule() {
+      if (!rafId) rafId = requestAnimationFrame(tick);
+    }
+
+    window.addEventListener('scroll', schedule, { passive: true });
+    window.addEventListener('resize', schedule);
+    schedule();
+  })();
+</script>
+
+<script>
+  (function () {
+    var TARGET = 0.56;
+    var words = document.querySelectorAll('.bridge .big-word');
+    if (!words.length) return;
+
+    function measure(el) {
+      var ref = el.querySelector('.ghost') || el;
+      var range = document.createRange();
+      range.selectNodeContents(ref);
+      var w = range.getBoundingClientRect().width;
+      range.detach && range.detach();
+      return w;
+    }
+
+    function fit() {
+      words.forEach(function (el) {
+        el.style.fontSize = '';
+        var containerW = el.clientWidth;
+        if (!containerW) return;
+        var naturalW = measure(el);
+        if (!naturalW) return;
+        var currentFs = parseFloat(getComputedStyle(el).fontSize);
+        var targetFs = currentFs * (containerW * TARGET) / naturalW;
+        el.style.fontSize = targetFs.toFixed(2) + 'px';
+      });
+    }
+
+    fit();
+    window.addEventListener('load', fit);
+
+    var t;
+    window.addEventListener('resize', function () {
+      clearTimeout(t);
+      t = setTimeout(fit, 100);
+    });
+
+    if (document.fonts && document.fonts.ready) {
+      document.fonts.ready.then(fit);
+    }
+  })();
+</script>
+
+</body>
+</html>
