@@ -3,7 +3,10 @@
 
 [build]
 builder = "RAILPACK"
-buildCommand = "npm ci && npm run build:v3"
+# Railpack já corre `npm ci` no passo install
+buildCommand = "npm run build:v3"
 
 [deploy]
 startCommand = "npm run start --workspace=cms-v3"
+healthcheckPath = "/api/health"
+healthcheckTimeout = 120

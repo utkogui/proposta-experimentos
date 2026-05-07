@@ -75,7 +75,11 @@ npm run build:v3
 
 ### Railway
 
-O ficheiro **`railway.toml`** na raiz define build/start (Config as Code), equivalente ao que no Vercel seria `vercel.json` / settings de projeto. Ver [documentação Railway](https://docs.railway.com/reference/config-as-code).
+O ficheiro **`railway.toml`** na raiz define build/start e **healthcheck** em `/api/health`. Ver [Config as Code](https://docs.railway.com/reference/config-as-code).
+
+**Variáveis no painel Railway:** replica o que está em **`apps/v3/.env.example`** (`SESSION_SECRET`, `ADMIN_PASSWORD`, `REDIS_URL`, `CMS_DEFAULT_TEMPLATE`, …).
+
+**Domínio público:** no serviço → *Networking* → *Generate domain* ou *Custom domain*. Templates por subdomínio (`v1.`, `v2.`) — vários hosts no **mesmo** serviço.
 
 ### Erro `Cannot find module './XXX.js'` ou `reading 'call'` (Webpack / `.next`)
 

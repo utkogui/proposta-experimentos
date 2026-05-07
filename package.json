@@ -9,6 +9,7 @@
     "dev:v3": "npm run dev:v3 --prefix monorepo",
     "dev:all": "npm run dev:all --prefix monorepo",
     "build": "npm run build --prefix monorepo",
-    "clean": "npm run clean --prefix monorepo"
+    "clean": "npm run clean --prefix monorepo",
+    "push:comercial": "git subtree split --prefix=monorepo -b publish-monorepo-comercial && git push comercial publish-monorepo-comercial:main --force-with-lease"
   }
 }

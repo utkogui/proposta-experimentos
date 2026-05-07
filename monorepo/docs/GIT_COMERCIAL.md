@@ -21,6 +21,12 @@ git subtree split --prefix=monorepo -b publish-monorepo-comercial
 git push comercial publish-monorepo-comercial:main --force-with-lease
 ```
 
+No repo **`proposta-experimentos`** (raiz acima de `monorepo/`), podes usar o atalho:
+
+```bash
+npm run push:comercial
+```
+
 `--force-with-lease` pode ser necessário porque `git subtree split` gera histórico rebased para o prefixo; use só se souber que ninguém mais fez push direto em `comercial`.
 
 ## Alternativa: clone só do `comercial`
