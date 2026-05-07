@@ -3,6 +3,9 @@ monorepo/node_modules/
 **/node_modules/
 **/.next/
 
+# clones / trabalho local (não versionar)
+github/
+
 # pasta base (protótipos antigos)
 base/
 

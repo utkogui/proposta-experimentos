@@ -1,0 +1,14 @@
+{
+  "name": "proposta-experimentos",
+  "private": true,
+  "scripts": {
+    "postinstall": "npm install --prefix monorepo",
+    "dev": "npm run dev --prefix monorepo",
+    "dev:v1": "npm run dev:v1 --prefix monorepo",
+    "dev:v2": "npm run dev:v2 --prefix monorepo",
+    "dev:v3": "npm run dev:v3 --prefix monorepo",
+    "dev:all": "npm run dev:all --prefix monorepo",
+    "build": "npm run build --prefix monorepo",
+    "clean": "npm run clean --prefix monorepo"
+  }
+}
