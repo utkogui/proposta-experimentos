@@ -35,6 +35,7 @@ export function getTemplate(): Proposta {
       { valor: "40h / mês", label: "Manutenção contínua" },
     ],
     sectionOrder: [...PROPOSTA_SECTION_KEYS],
+    sectionHidden: [],
     solucao: {
       sectionLabel: "01 · O que oferecemos como solução",
       heading:

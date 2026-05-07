@@ -13,6 +13,7 @@ import {
   LogoUploader,
   CronogramaEditor,
   SectionOrderEditor,
+  SectionVisibilityEditor,
 } from "./EditorParts";
 
 export function Editor({ initial }: { initial: Proposta }) {
@@ -225,6 +226,13 @@ export function Editor({ initial }: { initial: Proposta }) {
         <SectionOrderEditor
           value={normalizeSectionOrder(data.sectionOrder)}
           onChange={(sectionOrder) => update("sectionOrder", sectionOrder)}
+        />
+      </Section>
+
+      <Section title="Blocos visíveis na proposta">
+        <SectionVisibilityEditor
+          hidden={data.sectionHidden ?? []}
+          onChange={(sectionHidden) => update("sectionHidden", sectionHidden)}
         />
       </Section>
 

@@ -2,6 +2,7 @@
 
 import { ReactNode, useState } from "react";
 import {
+  PROPOSTA_SECTION_KEYS,
   PROPOSTA_SECTION_LABELS,
   type Proposta,
   type PropostaSectionKey,
@@ -237,6 +238,51 @@ export function SectionOrderEditor({
               ↓
             </button>
           </div>
+        ))}
+      </div>
+    </div>
+  );
+}
+
+export function SectionVisibilityEditor({
+  hidden,
+  onChange,
+}: {
+  hidden: PropostaSectionKey[];
+  onChange: (hidden: PropostaSectionKey[]) => void;
+}) {
+  const hiddenSet = new Set(hidden);
+
+  function toggle(key: PropostaSectionKey) {
+    const next = new Set(hiddenSet);
+    if (next.has(key)) next.delete(key);
+    else next.add(key);
+    onChange(Array.from(next));
+  }
+
+  return (
+    <div className="space-y-3">
+      <p className="text-sm text-neutral-500">
+        Marque os blocos que <strong>não</strong> aparecem na proposta pública
+        (menu e secções). Ideal para versões mais curtas do orçamento.
+      </p>
+      <div className="space-y-2">
+        {PROPOSTA_SECTION_KEYS.map((key) => (
+          <label
+            key={key}
+            className="flex items-center gap-3 rounded-lg border border-neutral-200 bg-neutral-50 px-3 py-2.5 cursor-pointer hover:bg-white"
+          >
+            <input
+              type="checkbox"
+              checked={hiddenSet.has(key)}
+              onChange={() => toggle(key)}
+              className="rounded border-neutral-300"
+            />
+            <span className="text-sm font-medium text-neutral-800 flex-1">
+              {PROPOSTA_SECTION_LABELS[key]}
+            </span>
+            <span className="text-xs font-mono text-neutral-400">{key}</span>
+          </label>
         ))}
       </div>
     </div>

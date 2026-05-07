@@ -1,6 +1,6 @@
 import {
   PROPOSTA_SECTION_LABELS,
-  normalizeSectionOrder,
+  visibleSectionKeys,
   type Proposta,
   type PropostaSectionKey,
 } from "@/lib/types";
@@ -261,7 +261,7 @@ export function PropostaView({
   data: Proposta;
   clientLogoFiles: string[];
 }) {
-  const orderedSections = normalizeSectionOrder(p.sectionOrder);
+  const orderedSections = visibleSectionKeys(p.sectionOrder, p.sectionHidden);
 
   return (
     <>

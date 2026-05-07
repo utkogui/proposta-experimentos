@@ -77,7 +77,9 @@ npm run build:v3
 
 O ficheiro **`railway.toml`** na raiz define build/start e **healthcheck** em `/api/health`. Ver [Config as Code](https://docs.railway.com/reference/config-as-code).
 
-**Variáveis no painel Railway:** replica o que está em **`apps/v3/.env.example`** (`SESSION_SECRET`, `ADMIN_PASSWORD`, `REDIS_URL`, `CMS_DEFAULT_TEMPLATE`, …).
+**Variáveis no painel Railway:** replica o que está em **`apps/v3/.env.example`** (`SESSION_SECRET`, `ADMIN_PASSWORD`, `DATABASE_URL` ou `REDIS_URL`, `CMS_DEFAULT_TEMPLATE`, …).
+
+**PostgreSQL:** adiciona o plugin *PostgreSQL* ao projeto, corre **`apps/v3/db/init.sql`** uma vez (aba Query ou cliente SQL), e define **`DATABASE_URL`** no serviço Next (referência à variável do Postgres). Com `DATABASE_URL`, as propostas passam a gravar na tabela `propostas` (JSONB); Redis/ficheiros ficam como fallback se não houver URL.
 
 **Domínio público:** no serviço → *Networking* → *Generate domain* ou *Custom domain*. Templates por subdomínio (`v1.`, `v2.`) — vários hosts no **mesmo** serviço.
 

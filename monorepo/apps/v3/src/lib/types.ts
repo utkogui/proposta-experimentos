@@ -108,6 +108,19 @@ export function normalizeSectionOrder(
   ];
 }
 
+/** Secções na ordem definida, excluindo as marcadas como ocultas na proposta pública. */
+export function visibleSectionKeys(
+  sectionOrder: PropostaSectionKey[] | undefined,
+  sectionHidden: PropostaSectionKey[] | undefined
+): PropostaSectionKey[] {
+  const hidden = new Set(
+    (sectionHidden ?? []).filter((k) =>
+      PROPOSTA_SECTION_KEYS.includes(k as PropostaSectionKey)
+    ) as PropostaSectionKey[]
+  );
+  return normalizeSectionOrder(sectionOrder).filter((k) => !hidden.has(k));
+}
+
 export const PropostaSchema = z.object({
   slug: z
     .string()
@@ -138,6 +151,9 @@ export const PropostaSchema = z.object({
   aspects: z.array(Aspect).default([]),
 
   sectionOrder: z.array(SectionKey).default([...PROPOSTA_SECTION_KEYS]),
+
+  /** Secções omitidas na página pública (/p/…) — orçamento mais curto. */
+  sectionHidden: z.array(SectionKey).default([]),
 
   solucao: z.object({
     sectionLabel: z.string(),
