@@ -287,6 +287,7 @@ export function PropostaView({ data: p }: { data: Proposta }) {
         <div className="proposal-loader__corner proposal-loader__corner--tr" aria-hidden="true" />
         <div className="proposal-loader__corner proposal-loader__corner--bl" aria-hidden="true" />
         <div className="proposal-loader__corner proposal-loader__corner--br" aria-hidden="true" />
+        <div className="proposal-loader__center-cluster">
         <div className="proposal-loader__greeting" aria-hidden="true">
           <span className="proposal-loader__greeting-label">Proposta para</span>
           <span className="proposal-loader__greeting-client">{p.cliente.nome}</span>
@@ -341,6 +342,7 @@ export function PropostaView({ data: p }: { data: Proposta }) {
               </span>
             </div>
           </div>
+        </div>
         </div>
       </div>
 

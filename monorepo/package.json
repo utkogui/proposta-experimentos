@@ -9,7 +9,8 @@
   },
   "scripts": {
     "clean": "rm -rf apps/v1/.next apps/v2/.next apps/v3/.next",
-    "dev": "concurrently -n v3,v1,v2 -c yellow,cyan,magenta \"npm run dev --workspace=cms-v3\" \"npm run dev --workspace=cms-v1\" \"npm run dev --workspace=cms-v2\"",
+    "dev": "npm run dev --workspace=cms-v3",
+    "dev:all": "concurrently -n v3,v1,v2 -c yellow,cyan,magenta \"npm run dev --workspace=cms-v3\" \"npm run dev --workspace=cms-v1\" \"npm run dev --workspace=cms-v2\"",
     "dev:v1": "npm run dev --workspace=cms-v1",
     "dev:v2": "npm run dev --workspace=cms-v2",
     "dev:v3": "npm run dev --workspace=cms-v3",

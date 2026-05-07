@@ -199,8 +199,19 @@ html:has(body.proposta-page) {
   transform: none;
 }
 
+.proposta-page .proposal-loader__center-cluster {
+  position: relative;
+  z-index: 4;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: min(92vw, 960px);
+  text-align: center;
+}
+
 .proposta-page .proposal-loader__inner {
-  width: min(88vw, 960px);
+  width: 100%;
   text-align: center;
   position: relative;
   z-index: 3;
@@ -271,13 +282,7 @@ html:has(body.proposta-page) {
 /* === Construction grid (linhas amarelas) === */
 
 .proposta-page .proposal-loader__grid {
-  position: absolute;
-  inset: clamp(2.5rem, 6vh, 5rem) clamp(2.5rem, 8vw, 7rem);
-  width: auto;
-  height: auto;
-  z-index: 2;
-  pointer-events: none;
-  overflow: visible;
+  display: none;
 }
 
 .proposta-page .proposal-loader__grid line {
@@ -452,12 +457,13 @@ html:has(body.proposta-page) {
 /* === Greeting (topo do loader) === */
 
 .proposta-page .proposal-loader__greeting {
-  position: absolute;
-  top: clamp(2.2rem, 5.5vh, 4.2rem);
-  left: 50%;
+  position: relative;
+  top: auto;
+  left: auto;
   display: inline-flex;
   align-items: center;
   gap: 0.7rem;
+  margin: 0 auto clamp(1rem, 2.5vh, 1.85rem);
   padding: 0.4rem 0.9rem;
   font-family: var(--font-mono);
   font-size: clamp(0.58rem, 0.95vw, 0.72rem);
@@ -466,7 +472,7 @@ html:has(body.proposta-page) {
   white-space: nowrap;
   z-index: 4;
   opacity: 0;
-  transform: translate(-50%, -8px);
+  transform: translateY(-8px);
   animation: loaderGreetingFlow 1.9s 0.2s cubic-bezier(0.22, 1, 0.36, 1) forwards;
 }
 
@@ -481,10 +487,10 @@ html:has(body.proposta-page) {
 }
 
 @keyframes loaderGreetingFlow {
-  0% { opacity: 0; transform: translate(-50%, -8px); }
-  22% { opacity: 1; transform: translate(-50%, 0); }
-  68% { opacity: 1; transform: translate(-50%, 0); }
-  100% { opacity: 0; transform: translate(-50%, -6px); }
+  0% { opacity: 0; transform: translateY(-8px); }
+  22% { opacity: 1; transform: translateY(0); }
+  68% { opacity: 1; transform: translateY(0); }
+  100% { opacity: 0; transform: translateY(-6px); }
 }
 
 /* === Meta info + status (empilhados) === */
@@ -1462,10 +1468,6 @@ html:has(body.proposta-page) {
     grid-template-columns: repeat(6, 1fr);
   }
 
-  .proposta-page .proposal-loader__grid {
-    inset: 1.4rem 1.4rem;
-  }
-
   .proposta-page .proposal-loader__corner {
     width: 0.85rem;
     height: 0.85rem;
@@ -1522,7 +1524,6 @@ html:has(body.proposta-page) {
   }
 
   .proposta-page .proposal-loader__greeting {
-    top: 1.6rem;
     font-size: 0.55rem;
     letter-spacing: 0.26em;
     gap: 0.45rem;
@@ -1569,10 +1570,6 @@ html:has(body.proposta-page) {
   .proposta-page .proposal-loader__corner {
     opacity: 1 !important;
     transform: none !important;
-  }
-
-  .proposta-page .proposal-loader__greeting {
-    transform: translateX(-50%) !important;
   }
 
   .proposta-page .proposal-loader__block {

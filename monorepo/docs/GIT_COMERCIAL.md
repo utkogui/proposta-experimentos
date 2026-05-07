@@ -31,7 +31,7 @@ Quem clonar `git@github.com:utkogui/comercial.git` vê **apenas** o que antes er
 git clone git@github.com:utkogui/comercial.git
 cd comercial
 npm install
-npm run dev:v3
+npm run dev
 ```
 
 ## Remote antigo `origin`

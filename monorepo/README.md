@@ -44,29 +44,25 @@ npm install
 
 ## Desenvolvimento
 
-**As três apps ao mesmo tempo** (um único comando):
+**Um servidor só (`cms-v3`, porta 3000)** — os templates v1/v2/v3 são escolhidos por **subdomínio** no mesmo processo:
 
 ```bash
 npm run dev
 ```
 
-Portas (sem conflito):
+Ex.: `http://localhost:3000` (default v3), `http://v1.localhost:3000`, `http://v2.localhost:3000`.
 
-| App | URL raiz |
-|-----|-----------|
-| **v3** | http://localhost:3000 |
-| **v1** | http://localhost:3001 |
-| **v2** | http://localhost:3002 |
+Para **subir as três apps antigas em paralelo** (3000 / 3001 / 3002), útil para comparar código antes de fundir CSS:
 
-Na **v3**: home em http://localhost:3000/ e proposta CP em http://localhost:3000/p/cp
+```bash
+npm run dev:all
+```
 
-Para correr só uma:
-
-| App | Comando |
-|-----|---------|
-| v3  | `npm run dev:v3` |
-| v1  | `npm run dev:v1` |
-| v2  | `npm run dev:v2` |
+| Objetivo | Comando |
+|----------|---------|
+| Dia a dia (um Next só) | `npm run dev` ou `npm run dev:v3` |
+| v1 ou v2 isolados (legado) | `npm run dev:v1` · `npm run dev:v2` |
+| Três servidores ao mesmo tempo | `npm run dev:all` |
 
 ## Build
 
