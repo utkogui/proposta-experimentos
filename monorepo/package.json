@@ -1,0 +1,27 @@
+{
+  "name": "proposta-monorepo",
+  "private": true,
+  "workspaces": [
+    "apps/*"
+  ],
+  "engines": {
+    "node": "20.x"
+  },
+  "scripts": {
+    "clean": "rm -rf apps/v1/.next apps/v2/.next apps/v3/.next",
+    "dev": "concurrently -n v3,v1,v2 -c yellow,cyan,magenta \"npm run dev --workspace=cms-v3\" \"npm run dev --workspace=cms-v1\" \"npm run dev --workspace=cms-v2\"",
+    "dev:v1": "npm run dev --workspace=cms-v1",
+    "dev:v2": "npm run dev --workspace=cms-v2",
+    "dev:v3": "npm run dev --workspace=cms-v3",
+    "build": "npm run build --workspaces --if-present",
+    "build:v1": "npm run build --workspace=cms-v1",
+    "build:v2": "npm run build --workspace=cms-v2",
+    "build:v3": "npm run build --workspace=cms-v3",
+    "start:v1": "npm run start --workspace=cms-v1 -- -p 3001",
+    "start:v2": "npm run start --workspace=cms-v2 -- -p 3002",
+    "start:v3": "npm run start --workspace=cms-v3 -- -p 3000"
+  },
+  "devDependencies": {
+    "concurrently": "^9.1.2"
+  }
+}

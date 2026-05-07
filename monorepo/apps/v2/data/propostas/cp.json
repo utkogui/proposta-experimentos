@@ -1,0 +1,410 @@
+{
+  "slug": "cp",
+  "cliente": {
+    "nome": "CP",
+    "contato": "",
+    "logoUrl": "",
+    "logoBg": ""
+  },
+  "proposta": {
+    "numero": "#001",
+    "projeto": "Guia de Transportadoras",
+    "data": "Maio 2026",
+    "cidade": "Curitiba, PR",
+    "label": "Proposta comercial · Maio 2026"
+  },
+  "hero": {
+    "titulo": "Guia de",
+    "tituloAccent": "Transportadoras",
+    "subtitulo": "Desenvolvimento completo da plataforma digital — motor de rotas com 5,3 milhões de registros, perfis de transportadoras, cotação múltipla e painel administrativo."
+  },
+  "aspects": [
+    {
+      "valor": "5",
+      "label": "Páginas únicas"
+    },
+    {
+      "valor": "7",
+      "label": "Templates dinâmicos"
+    },
+    {
+      "valor": "12",
+      "label": "Componentes reutilizáveis"
+    },
+    {
+      "valor": "4",
+      "label": "Integrações externas"
+    },
+    {
+      "valor": "464h",
+      "label": "Total estimado"
+    }
+  ],
+  "solucao": {
+    "sectionLabel": "01 · O que estamos construindo",
+    "heading": "Uma plataforma completa para conectar transportadoras, rotas e cargas em escala nacional.",
+    "lead": "O Guia de Transportadoras é um sistema de alta complexidade técnica — opera sobre uma base de mais de 5 milhões de rotas, serve perfis detalhados de mais de 15 mil transportadoras e oferece ferramentas como motor de busca em tempo real, calculadora de distâncias com múltiplos waypoints e cotação múltipla consolidada. O desenvolvimento exige arquitetura robusta de banco de dados, integrações com APIs externas e um painel administrativo completo para sustentar a operação.",
+    "cards": [
+      {
+        "label": "Plataforma pública",
+        "titulo": "Busca, rotas e perfis",
+        "descricao": "",
+        "itens": [
+          "Motor de busca de rotas por origem e destino em tempo real",
+          "Calculadora de distância com múltiplos waypoints e Google Maps integrado",
+          "Perfis detalhados de transportadoras com serviços, certificações e filiais",
+          "Listagem de fornecedores e categorias de cargas especiais",
+          "Blog integrado com notícias do setor de transporte"
+        ]
+      },
+      {
+        "label": "Ferramentas e gestão",
+        "titulo": "Cotação, cadastro e administração",
+        "descricao": "",
+        "itens": [
+          "Sistema de cotação múltipla — seleção de N transportadoras com envio consolidado",
+          "Cadastro PJ/PF com assinatura do guia impresso integrada a gateway de pagamento",
+          "Painel administrativo completo para gestão de empresas, rotas, conteúdo e usuários",
+          "Autenticação com recuperação de senha e controle de permissões",
+          "Newsletter e e-mails transacionais integrados"
+        ]
+      }
+    ]
+  },
+  "objetivo": {
+    "sectionLabel": "02 · Escopo do projeto",
+    "heading": "464 horas de desenvolvimento organizadas em sete blocos de entrega.",
+    "lead": "O escopo abrange desde os componentes globais reutilizáveis até o painel administrativo com 4 módulos. Cada bloco tem estimativa própria, prioridade e dependências claras — garantindo previsibilidade e rastreabilidade ao longo das 12 semanas.",
+    "pilares": [
+      {
+        "label": "17h",
+        "titulo": "Componentes Globais",
+        "descricao": "Header com busca e autenticação, menu de navegação com 6 itens, footer com redes sociais e breadcrumb dinâmico — desenvolvidos uma vez, reutilizados em todas as páginas."
+      },
+      {
+        "label": "53h",
+        "titulo": "Páginas Únicas",
+        "descricao": "Home (hero, calculadora, newsletter, banners), Distâncias (multi-waypoints + Maps), Cadastro PJ/PF, Login e Quem Somos — 5 páginas com complexidade variada."
+      },
+      {
+        "label": "78h",
+        "titulo": "Templates Dinâmicos",
+        "descricao": "7 templates desenvolvidos uma vez e reutilizados: listagens de transportadoras, fornecedores e cargas especiais; resultados de rota; perfil de transportadora; blog listagem e artigo."
+      },
+      {
+        "label": "48h",
+        "titulo": "Componentes Reutilizáveis",
+        "descricao": "12 componentes: card de empresa, busca origem/destino, filtros laterais, widget de cotação múltipla, newsletter, compartilhamento social, mapa Google Maps e banners publicitários."
+      },
+      {
+        "label": "120h",
+        "titulo": "Funcionalidades Complexas",
+        "descricao": "Motor de busca de rotas (40h), calculadora de distância (16h), sistema de cotação múltipla (20h), autenticação (16h), assinatura com gateway (12h), autocomplete de cidades e paginação."
+      },
+      {
+        "label": "40h",
+        "titulo": "Integrações Externas",
+        "descricao": "Google Maps API (16h) para mapas, rotas e geocoding; API de CEP (4h); sistema de e-mail transacional (8h); gateway de pagamento condicional para assinatura do guia impresso (12h)."
+      }
+    ],
+    "headingConexao": "Painel administrativo — 108h",
+    "leadConexao": "Sistema de gestão back-office necessário para manter o site operacional: Gestão de Empresas (40h) com cadastro, aprovação e relacionamento de filiais; Gestão de Rotas (32h) com importação em lote de milhões de registros; Gestão de Conteúdo (20h) com blog, banners e moderação; Gestão de Usuários (16h) com permissões, assinantes e newsletter.",
+    "callout": "O volume de 5,3 milhões de rotas exige estratégia específica de banco de dados e indexação para garantir performance aceitável nas buscas em tempo real. Este item impacta significativamente o custo de infraestrutura e as horas de back-end — 40h estimadas somente para o motor de busca."
+  },
+  "imersao": {
+    "sectionLabel": "03 · Volumes de dados e complexidade técnica",
+    "heading": "Uma base de escala industrial que orienta toda a arquitetura.",
+    "lead": "O dimensionamento da base de dados impacta diretamente as decisões de infraestrutura, a estratégia de banco e o custo total de operação da plataforma. Os números abaixo são o ponto de partida para as decisões técnicas mais críticas — especialmente a escolha de banco de dados, indexação e estratégia de cache para o motor de rotas.",
+    "callout": "O blog pode rodar em subdomínio separado (WordPress ou CMS independente). A decisão de unificar em um único sistema ou manter a separação impacta o escopo e custo do back-end — as 18h estimadas para os dois templates de blog consideram CMS integrado.",
+    "steps": [
+      {
+        "titulo": "15.137 transportadoras · 5.018 empresas",
+        "descricao": "Base de transportadoras e empresas a ser migrada ou recriada — cada perfil inclui dados, contatos, serviços, certificações, mapa de localização e relacionamento matriz/filiais."
+      },
+      {
+        "titulo": "5.367.861 rotas disponíveis",
+        "descricao": "O maior desafio técnico do projeto. Requer estratégia específica de banco de dados, indexação por origem/destino, cache de consultas frequentes e testes de carga antes da entrada em produção."
+      },
+      {
+        "titulo": "837 fornecedores · 151 categorias",
+        "descricao": "Base de fornecedores segmentada em 151 categorias, servida por templates de listagem que reutilizam a estrutura de transportadoras com ajustes de dados e categorização."
+      },
+      {
+        "titulo": "94 categorias de cargas especiais",
+        "descricao": "Listagem especializada com template variação — reutiliza a estrutura de transportadoras, com ajuste de categorias e dados específicos de carga."
+      },
+      {
+        "titulo": "28 estados e regiões",
+        "descricao": "Cobertura nacional com filtro por estado e dropdown aninhado estado/cidade — usado no cadastro, filtros laterais e na listagem de transportadoras por região."
+      }
+    ]
+  },
+  "cronograma": {
+    "sectionLabel": "04 · Cronograma resumido",
+    "heading": "12 semanas de desenvolvimento, em 4 fases progressivas.",
+    "lead": "A execução é organizada em fases com entrega incremental — fundação técnica primeiro, escopo completo depois. A ordem respeita as dependências entre as camadas de desenvolvimento.",
+    "nota": "* O prazo não contempla tempo de aprovação com o cliente. Fases 02 e 03 podem ter paralelismo parcial dependendo da alocação de equipe.",
+    "columns": [
+      "Sem 1–2",
+      "Sem 3–4",
+      "Sem 5–7",
+      "Sem 8–10",
+      "Sem 11–12"
+    ],
+    "phases": [
+      {
+        "nome": "FASE 01 — FUNDAÇÃO (Sem 1–2)",
+        "rows": [
+          {
+            "label": "Setup de ambiente e arquitetura",
+            "marks": [true, false, false, false, false],
+            "star": null
+          },
+          {
+            "label": "Componentes globais (Header, Footer, Nav)",
+            "marks": [true, false, false, false, false],
+            "star": null
+          },
+          {
+            "label": "Estratégia de banco de dados e rotas",
+            "marks": [true, true, false, false, false],
+            "star": null
+          }
+        ]
+      },
+      {
+        "nome": "FASE 02 — MOTOR DE ROTAS E PERFIS (Sem 3–7)",
+        "rows": [
+          {
+            "label": "Motor de busca de rotas (back-end)",
+            "marks": [false, true, true, false, false],
+            "star": null
+          },
+          {
+            "label": "Templates: Resultados de Rota e Perfil",
+            "marks": [false, false, true, false, false],
+            "star": null
+          },
+          {
+            "label": "Calculadora de distância + Google Maps",
+            "marks": [false, false, true, false, false],
+            "star": null
+          },
+          {
+            "label": "Componentes reutilizáveis (cards, filtros, mapas)",
+            "marks": [false, true, true, false, false],
+            "star": null
+          }
+        ]
+      },
+      {
+        "nome": "FASE 03 — PÁGINAS, CADASTRO E INTEGRAÇÕES (Sem 8–10)",
+        "rows": [
+          {
+            "label": "Home, Distâncias, Login, Quem Somos",
+            "marks": [false, false, false, true, false],
+            "star": null
+          },
+          {
+            "label": "Cadastro PJ/PF + gateway de pagamento",
+            "marks": [false, false, false, true, false],
+            "star": null
+          },
+          {
+            "label": "Autenticação, newsletter e e-mails transacionais",
+            "marks": [false, false, false, true, false],
+            "star": null
+          },
+          {
+            "label": "Blog (listagem + artigo individual)",
+            "marks": [false, false, false, true, false],
+            "star": null
+          }
+        ]
+      },
+      {
+        "nome": "FASE 04 — PAINEL ADMINISTRATIVO E ENTREGA (Sem 11–12)",
+        "rows": [
+          {
+            "label": "Painel: Empresas, Rotas, Conteúdo, Usuários",
+            "marks": [false, false, false, false, true],
+            "star": null
+          },
+          {
+            "label": "QA, testes de performance e ajustes finais",
+            "marks": [false, false, false, false, true],
+            "star": null
+          },
+          {
+            "label": "Entrega & handover de documentação",
+            "marks": [false, false, false, false, false],
+            "star": 4
+          }
+        ]
+      }
+    ]
+  },
+  "equipe": {
+    "sectionLabel": "05 · Time envolvido",
+    "heading": "Squad sênior, dedicado à construção da plataforma.",
+    "lead": "Quatro perfis complementares atuando em conjunto ao longo das 12 semanas de desenvolvimento.",
+    "membros": [
+      {
+        "label": "Gestão",
+        "titulo": "Gerente de Projetos",
+        "descricao": "Condução do cronograma, alinhamento com stakeholders da CP, governança das entregas e rituais do projeto ao longo das 4 fases."
+      },
+      {
+        "label": "Design",
+        "titulo": "Designer de Produto",
+        "descricao": "UX, interface da plataforma, sistema de componentes visuais e consistência entre as páginas, templates e o painel administrativo."
+      },
+      {
+        "label": "Engenharia · Back-end",
+        "titulo": "Desenvolvedor Sênior Back-end",
+        "descricao": "Arquitetura de banco de dados, motor de busca de rotas, APIs, integrações externas (Google Maps, CEP, e-mail, gateway) e painel administrativo."
+      },
+      {
+        "label": "Engenharia · Front-end",
+        "titulo": "Desenvolvedor Sênior Front-end",
+        "descricao": "Implementação de páginas, templates dinâmicos, componentes reutilizáveis, calculadora de distância, sistema de cotação múltipla e autocomplete."
+      }
+    ]
+  },
+  "historico": {
+    "sectionLabel": "06 · Nosso histórico",
+    "heading": "Experiência comprovada em sistemas de alta complexidade.",
+    "lead": "Já construímos plataformas de dados em escala, ajudamos startups a participarem dos programas das maiores aceleradoras do Brasil e do mundo, e apoiamos empresas de todos os portes em seus projetos mais desafiadores.",
+    "stats": [
+      {
+        "label": "Clientes",
+        "valor": "+130"
+      },
+      {
+        "label": "Projetos",
+        "valor": "+300"
+      },
+      {
+        "label": "Projetos com unicórnios",
+        "valor": "2"
+      },
+      {
+        "label": "Aportes milionários",
+        "valor": "10"
+      },
+      {
+        "label": "Avaliação Google",
+        "valor": "5 ★"
+      }
+    ]
+  },
+  "investimento": {
+    "sectionLabel": "07 · Investimento",
+    "heading": "Composição de honorários — CP · Guia de Transportadoras",
+    "lead": "Desenvolvimento completo da plataforma em 464 horas distribuídas em 12 semanas, à taxa de R$ 177,00/hora. Pagamento parcelado em três momentos ao longo das fases de entrega.",
+    "blocos": [
+      {
+        "label": "Desenvolvimento · 464h · ~12 semanas",
+        "titulo": "Plataforma completa",
+        "preco": "R$ 82.128,00",
+        "sufixoPreco": "",
+        "pagamento": "464h × R$ 177,00/h · front-end, back-end, integrações e painel administrativo"
+      },
+      {
+        "label": "Condições de pagamento",
+        "titulo": "Parcelado em 3 momentos",
+        "preco": "R$ 41.064,00",
+        "sufixoPreco": " no aceite",
+        "pagamento": "R$ 20.532,00 na entrega da Fase 02 · R$ 20.532,00 na entrega final"
+      }
+    ],
+    "totalLabel": "Investimento total · 464h · R$ 177,00/h",
+    "totalPreco": "R$ 82.128,00",
+    "observacoes": {
+      "titulo": "Observações",
+      "texto": "Valores referem-se aos honorários da Matilha para os serviços descritos nesta proposta. Itens fora do escopo — custos de infraestrutura de servidor, licenças de APIs (Google Maps), ferramentas de monitoramento de terceiros ou novos desenvolvimentos — são orçados à parte, após validação.",
+      "itens": [
+        "Horas excedentes ao escopo acordado: via hora técnica adicional",
+        "Custos de API do Google Maps conforme uso real em produção",
+        "Decisão sobre CMS do blog (integrado vs. separado) pode impactar escopo",
+        "Prazo de 12 semanas não contempla tempo de aprovação com o cliente",
+        "Impostos e retenções conforme contrato e regime tributário aplicável",
+        "NDA e propriedade intelectual alinhados no instrumento comercial"
+      ]
+    }
+  },
+  "proximos": {
+    "sectionLabel": "08 · Próximos passos",
+    "heading": "Como avançamos",
+    "steps": [
+      {
+        "titulo": "Aceite da proposta",
+        "descricao": "Assinatura do instrumento comercial e pagamento da entrada de R$ 41.064,00 (50%) para início dos trabalhos."
+      },
+      {
+        "titulo": "Kickoff técnico",
+        "descricao": "Alinhamento de acessos, responsabilidades, decisões de arquitetura (CMS do blog, stack, cloud) e abertura oficial do projeto."
+      },
+      {
+        "titulo": "Fase 01 — Fundação",
+        "descricao": "Setup de ambiente, componentes globais e definição da estratégia de banco de dados para suportar o volume de 5,3 milhões de rotas."
+      },
+      {
+        "titulo": "Fases 02 e 03 — Desenvolvimento",
+        "descricao": "Motor de rotas, templates, páginas, integrações externas e sistema de cotação múltipla — com entregas incrementais e validações junto à CP."
+      },
+      {
+        "titulo": "Fase 04 — Painel e entrega",
+        "descricao": "Painel administrativo, QA completo, testes de carga no motor de rotas e handover com documentação técnica consolidada."
+      }
+    ]
+  },
+  "bridges": {
+    "objetivo": {
+      "palavra": "Escopo",
+      "caption": "Próxima seção · 02",
+      "index": "— Detalhamento",
+      "numero": "02 / Horas"
+    },
+    "imersao": {
+      "palavra": "Dados",
+      "caption": "Próxima seção · 03",
+      "index": "— Volume",
+      "numero": "03 / Base"
+    },
+    "cronograma": {
+      "palavra": "Cronograma",
+      "caption": "Próxima seção · 04",
+      "index": "— Plano",
+      "numero": "04 / Fases"
+    },
+    "equipe": {
+      "palavra": "Equipe",
+      "caption": "Próxima seção · 05",
+      "index": "— Time",
+      "numero": "05 / Squad"
+    },
+    "historico": {
+      "palavra": "Histórico",
+      "caption": "Próxima seção · 06",
+      "index": "— Trajetória",
+      "numero": "06 / Matilha"
+    },
+    "investimento": {
+      "palavra": "Investimento",
+      "caption": "Próxima seção · 07",
+      "index": "— Honorários",
+      "numero": "07 / Valor"
+    },
+    "proximos": {
+      "palavra": "Próximos",
+      "caption": "Próxima seção · 08",
+      "index": "— Avanço",
+      "numero": "08 / Passos"
+    }
+  },
+  "metadata": {
+    "criadoEm": "2026-05-05T18:08:00.000Z",
+    "atualizadoEm": "2026-05-05T18:08:00.000Z"
+  }
+}

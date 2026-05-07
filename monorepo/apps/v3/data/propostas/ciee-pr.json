@@ -1,0 +1,343 @@
+{
+  "slug": "ciee-pr",
+  "cliente": {
+    "nome": "CIEE-PR",
+    "contato": "Renata Santo",
+    "logoUrl": "/ciee-logo.png",
+    "logoBg": ""
+  },
+  "proposta": {
+    "numero": "#832",
+    "projeto": "Manutenção Site",
+    "data": "Abril 2026",
+    "cidade": "Curitiba, PR",
+    "label": "Proposta comercial · Abril 2026"
+  },
+  "hero": {
+    "titulo": "Manutenção",
+    "tituloAccent": "Site CIEE-PR",
+    "subtitulo": "Estabilidade, segurança, performance e conformidade com as diretrizes do Google — sustentação contínua de um ambiente WordPress preparado para crescer."
+  },
+  "aspects": [
+    {
+      "valor": "4 semanas",
+      "label": "Correção do site"
+    },
+    {
+      "valor": "WordPress + Segurança",
+      "label": "Escopo núcleo"
+    },
+    {
+      "valor": "40h / mês",
+      "label": "Manutenção contínua"
+    }
+  ],
+  "solucao": {
+    "sectionLabel": "01 · O que oferecemos como solução",
+    "heading": "Um modelo contínuo de sustentação e segurança, antes de escalar mídia.",
+    "lead": "Oferecemos uma abordagem estruturada para diagnosticar o ambiente técnico atual, corrigir falhas críticas e estruturar um modelo contínuo de sustentação e segurança do site, garantindo estabilidade, performance e conformidade com as exigências do Google antes da consolidação das estratégias de mídia e crescimento digital.",
+    "cards": [
+      {
+        "label": "Nosso foco",
+        "titulo": "Diagnóstico, correção e proteção",
+        "descricao": "",
+        "itens": [
+          "Compreender profundamente a infraestrutura atual do WordPress e seus pontos de vulnerabilidade",
+          "Analisar bloqueios técnicos, conflitos de segurança e impactos na performance e rastreamento",
+          "Corrigir falhas como conteúdo misto, erros 403 e barreiras de indexação",
+          "Implementar hardening e camadas adicionais de proteção para mitigar riscos",
+          "Estruturar monitoramento contínuo e manutenção mensal preventiva e evolutiva"
+        ]
+      },
+      {
+        "label": "Resultado esperado",
+        "titulo": "Ambiente digital estável e preparado",
+        "descricao": "Um ambiente digital estável, seguro e preparado para suportar campanhas, estratégias de marketing e expansão institucional, com governança técnica clara e sustentação de longo prazo.",
+        "itens": [
+          "Compatibilidade plena com as diretrizes do Google Ads",
+          "Governança técnica clara e auditável",
+          "Redução de riscos operacionais e de reputação"
+        ]
+      }
+    ]
+  },
+  "objetivo": {
+    "sectionLabel": "02 · Projeto · objetivo",
+    "heading": "Estabilidade, segurança, performance e plena compatibilidade com o Google Ads.",
+    "lead": "Eliminar bloqueios e melhorar a qualidade de entrega do site, com quatro frentes integradas de atuação.",
+    "pilares": [
+      {
+        "label": "Etapa 01",
+        "titulo": "Correção de barreiras técnicas",
+        "descricao": "Resolução das barreiras que estão impactando campanhas no Google — conteúdo misto, erros 403, bloqueios de rastreamento e indexação."
+      },
+      {
+        "label": "Etapa 02",
+        "titulo": "Ajustes estruturais",
+        "descricao": "Intervenções em segurança e infraestrutura do ambiente, com hardening do WordPress e camadas adicionais de proteção."
+      },
+      {
+        "label": "Etapa 03",
+        "titulo": "Apoio técnico especializado",
+        "descricao": "Suporte contínuo de um time sênior com profundidade em WordPress, integrações, servidor e rastreamento."
+      },
+      {
+        "label": "Etapa 04",
+        "titulo": "Modelo de manutenção contínua",
+        "descricao": "Estruturação de rotina mensal preventiva e evolutiva — monitoramento, atualizações, correções e relatórios."
+      }
+    ],
+    "headingConexao": "O que nos conecta a esse projeto",
+    "leadConexao": "Este projeto nasce do desafio de garantir estabilidade, segurança e performance ao ambiente digital do CIEE-PR, assegurando que o site em WordPress esteja plenamente adequado às exigências técnicas do Google e às melhores práticas de proteção de dados. Mais do que uma manutenção corretiva, o objetivo é estruturar um modelo contínuo de sustentação técnica, eliminando barreiras como bloqueios de rastreamento, conflitos de segurança e vulnerabilidades de infraestrutura, reduzindo riscos e assegurando confiabilidade ao ambiente digital.",
+    "callout": "Nossa atuação se conecta a esse desafio ao combinar diagnóstico técnico aprofundado, intervenções estruturais e monitoramento contínuo, transformando um cenário de instabilidade em um ambiente seguro, performático e preparado para sustentar estratégias de marketing, comunicação e crescimento institucional."
+  },
+  "imersao": {
+    "sectionLabel": "03 · Imersão e Planejamento",
+    "heading": "Para estruturar com segurança.",
+    "lead": "Nesta fase inicial, mergulhamos no ambiente técnico e operacional do site do CIEE-PR para compreender os objetivos institucionais, as demandas do time de marketing e o cenário tecnológico em que o WordPress está inserido. A partir de auditoria técnica e análise estratégica, buscamos identificar vulnerabilidades, barreiras de rastreamento, riscos de segurança e fatores que impactam campanhas e performance — embasando todas as decisões do projeto, desde as correções críticas até a definição do modelo de manutenção contínua.",
+    "callout": "Nosso foco é construir uma visão clara e compartilhada do ambiente digital, alinhando expectativas e definindo premissas técnicas sólidas para as próximas etapas.",
+    "steps": [
+      {
+        "titulo": "Kickoff técnico",
+        "descricao": "Alinhamento de acessos, responsabilidades, stakeholders e premissas do projeto."
+      },
+      {
+        "titulo": "Auditoria WordPress",
+        "descricao": "Auditoria técnica completa do WordPress, servidor, plugins, temas e integrações ativas."
+      },
+      {
+        "titulo": "Conflitos de segurança",
+        "descricao": "Análise de conflitos de segurança — HTTPS, firewall, rastreamento e políticas de acesso."
+      },
+      {
+        "titulo": "Mapeamento de vulnerabilidades",
+        "descricao": "Identificação de vulnerabilidades e riscos de infraestrutura com impacto direto em negócio."
+      },
+      {
+        "titulo": "Plano de ação",
+        "descricao": "Definição de prioridades, plano de ação e escopo detalhado de intervenção."
+      }
+    ]
+  },
+  "cronograma": {
+    "sectionLabel": "04 · Cronograma resumido",
+    "heading": "Correção do site em 4 semanas.",
+    "lead": "Etapa única de correção, com entregas-chave organizadas por semana. Após a entrega, entra em vigor o modelo mensal de manutenção contínua.",
+    "nota": "* Este prazo não contempla tempo de aprovação com o cliente.",
+    "columns": [
+      "Sem 1",
+      "Sem 2",
+      "Sem 3",
+      "Sem 4"
+    ],
+    "phases": [
+      {
+        "nome": "ETAPA 01 — CORREÇÃO SITE (~4 semanas)",
+        "rows": [
+          {
+            "label": "Kickoff & auditoria técnica",
+            "marks": [
+              true,
+              false,
+              false,
+              false
+            ],
+            "star": null
+          },
+          {
+            "label": "Análise de conflitos & vulnerabilidades",
+            "marks": [
+              true,
+              true,
+              false,
+              false
+            ],
+            "star": null
+          },
+          {
+            "label": "Correções (conteúdo misto, 403, rastreamento)",
+            "marks": [
+              false,
+              true,
+              true,
+              false
+            ],
+            "star": null
+          },
+          {
+            "label": "Hardening & ajustes de infraestrutura",
+            "marks": [
+              false,
+              false,
+              true,
+              true
+            ],
+            "star": null
+          },
+          {
+            "label": "Entrega & handover de documentação",
+            "marks": [
+              false,
+              false,
+              false,
+              false
+            ],
+            "star": 3
+          }
+        ]
+      }
+    ]
+  },
+  "equipe": {
+    "sectionLabel": "05 · Time envolvido",
+    "heading": "Squad sênior, dedicado à operação do site.",
+    "lead": "Três perfis complementares atuando em conjunto durante a correção e a manutenção contínua.",
+    "membros": [
+      {
+        "label": "Gestão",
+        "titulo": "Gerente de Projetos",
+        "descricao": "Condução do cronograma, alinhamento com stakeholders, governança das entregas e rituais do projeto."
+      },
+      {
+        "label": "Design",
+        "titulo": "Design Sênior",
+        "descricao": "Curadoria visual, UX, ajustes de interface e consistência com a identidade institucional do CIEE-PR."
+      },
+      {
+        "label": "Engenharia",
+        "titulo": "Desenvolvedor Sênior",
+        "descricao": "Auditoria técnica, correções, hardening do WordPress, integrações, rastreamento e monitoramento contínuo."
+      }
+    ]
+  },
+  "historico": {
+    "sectionLabel": "06 · Nosso histórico",
+    "heading": "Experiência comprovada em cenários exigentes.",
+    "lead": "Já fundamos e ajudamos startups a participarem dos programas das maiores aceleradoras do Brasil e do mundo. Também apoiamos empresas de todos os portes em seus projetos mais desafiadores.",
+    "stats": [
+      {
+        "label": "Clientes",
+        "valor": "+130"
+      },
+      {
+        "label": "Projetos",
+        "valor": "+300"
+      },
+      {
+        "label": "Projetos com unicórnios",
+        "valor": "2"
+      },
+      {
+        "label": "Aportes milionários",
+        "valor": "10"
+      },
+      {
+        "label": "Avaliação Google",
+        "valor": "5 ★"
+      }
+    ]
+  },
+  "investimento": {
+    "sectionLabel": "07 · Investimento",
+    "heading": "Composição de honorários — CIEE-PR · Manutenção Site",
+    "lead": "Dois blocos de investimento complementares: um para a correção inicial do site e outro para a sustentação mensal contínua.",
+    "blocos": [
+      {
+        "label": "Correção Site · ~4 semanas",
+        "titulo": "Projeto de correção e hardening",
+        "preco": "R$ 15.680,00",
+        "sufixoPreco": "",
+        "pagamento": "R$ 9.408,00 no aceite da proposta · R$ 6.272,00 na entrega final"
+      },
+      {
+        "label": "Manutenção · 40h / mês",
+        "titulo": "Modelo de horas mensais",
+        "preco": "R$ 6.800,00",
+        "sufixoPreco": " / mês",
+        "pagamento": "Manutenção preventiva, evolutiva e monitoramento contínuo"
+      }
+    ],
+    "totalLabel": "Investimento total de correção",
+    "totalPreco": "R$ 15.680,00",
+    "observacoes": {
+      "titulo": "Observações",
+      "texto": "Valores referem-se aos honorários da Matilha para os serviços descritos nesta proposta. Itens fora do escopo — licenças de plugins premium, infraestrutura de servidor, ferramentas de monitoramento de terceiros ou novos desenvolvimentos — são orçados à parte, após validação.",
+      "itens": [
+        "Horas excedentes ao pacote mensal: acordadas via hora técnica adicional",
+        "Impostos e retenções conforme contrato e regime tributário aplicável",
+        "NDA e propriedade intelectual alinhados no instrumento comercial",
+        "O prazo de 4 semanas não contempla tempo de aprovação com o cliente"
+      ]
+    }
+  },
+  "proximos": {
+    "sectionLabel": "08 · Próximos passos",
+    "heading": "Como avançamos",
+    "steps": [
+      {
+        "titulo": "Aceite da proposta",
+        "descricao": "Assinatura do instrumento comercial e pagamento do sinal de R$ 9.408,00 para início dos trabalhos."
+      },
+      {
+        "titulo": "Kickoff técnico",
+        "descricao": "Alinhamento de acessos, responsabilidades, stakeholders e abertura oficial do projeto em 4 semanas."
+      },
+      {
+        "titulo": "Auditoria & correção",
+        "descricao": "Execução da auditoria técnica, correções críticas, hardening e entrega da documentação consolidada."
+      },
+      {
+        "titulo": "Manutenção contínua",
+        "descricao": "Entrada no modelo mensal de 40h — monitoramento, evoluções e rituais recorrentes com o time."
+      }
+    ]
+  },
+  "bridges": {
+    "objetivo": {
+      "palavra": "Objetivo",
+      "caption": "Próxima seção · 02",
+      "index": "— Inversão",
+      "numero": "02 / Projeto"
+    },
+    "imersao": {
+      "palavra": "Imersão",
+      "caption": "Próxima seção · 03",
+      "index": "— Diagnóstico",
+      "numero": "03 / Método"
+    },
+    "cronograma": {
+      "palavra": "Cronograma",
+      "caption": "Próxima seção · 04",
+      "index": "— Plano",
+      "numero": "04 / Fases"
+    },
+    "equipe": {
+      "palavra": "Equipe",
+      "caption": "Próxima seção · 05",
+      "index": "— Time",
+      "numero": "05 / Squad"
+    },
+    "historico": {
+      "palavra": "Histórico",
+      "caption": "Próxima seção · 06",
+      "index": "— Trajetória",
+      "numero": "06 / Matilha"
+    },
+    "investimento": {
+      "palavra": "Investimento",
+      "caption": "Próxima seção · 07",
+      "index": "— Honorários",
+      "numero": "07 / Valor"
+    },
+    "proximos": {
+      "palavra": "Próximos",
+      "caption": "Próxima seção · 08",
+      "index": "— Avanço",
+      "numero": "08 / Passos"
+    }
+  },
+  "metadata": {
+    "criadoEm": "2026-04-27T02:23:19.913Z",
+    "atualizadoEm": "2026-04-27T02:23:19.913Z"
+  }
+}

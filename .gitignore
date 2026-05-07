@@ -1,9 +1,13 @@
-# projetos Next.js (não necessários para o site estático)
-v1/
-v2/
+# Next.js apps — monorepo em monorepo/apps/v1 e monorepo/apps/v2
+monorepo/node_modules/
+**/node_modules/
+**/.next/
 
 # pasta base (protótipos antigos)
 base/
+
+# cópia solta na raiz — apps oficiais: monorepo/apps/
+/v1/
 
 # macOS
 .DS_Store

@@ -1,0 +1,519 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Orçamento — Guia de Transportadoras</title>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+      font-size: 14px;
+      line-height: 1.5;
+      color: #1a1a1a;
+      background: #f5f5f5;
+      padding: 32px 16px 64px;
+    }
+
+    .container {
+      max-width: 1020px;
+      margin: 0 auto;
+      background: #fff;
+      border-radius: 10px;
+      border: 1px solid #e0e0e0;
+      padding: 36px 40px;
+      display: flex;
+      flex-direction: column;
+      gap: 28px;
+    }
+
+    h1 { font-size: 22px; font-weight: 700; color: #111; letter-spacing: -0.3px; }
+    h2 { font-size: 16px; font-weight: 600; color: #111; margin-bottom: 2px; }
+    .subtitle { font-size: 13px; color: #666; }
+    .text-sm { font-size: 13px; color: #333; }
+    .text-sm-muted { font-size: 12px; color: #888; }
+
+    hr { border: none; border-top: 1px solid #e8e8e8; }
+
+    /* Stats */
+    .stats-grid {
+      display: grid;
+      grid-template-columns: repeat(5, 1fr);
+      gap: 14px;
+    }
+    .stat {
+      background: #fafafa;
+      border: 1px solid #e8e8e8;
+      border-radius: 8px;
+      padding: 14px 16px;
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+    }
+    .stat-value { font-size: 26px; font-weight: 700; color: #111; line-height: 1; }
+    .stat-value.accent { color: #1a6ef0; }
+    .stat-label { font-size: 11px; color: #777; }
+
+    /* Pills */
+    .pills { display: flex; flex-wrap: wrap; gap: 8px; }
+    .pill {
+      display: inline-block;
+      padding: 3px 10px;
+      border: 1px solid #d0d0d0;
+      border-radius: 99px;
+      font-size: 12px;
+      color: #444;
+      background: #f8f8f8;
+    }
+
+    .section { display: flex; flex-direction: column; gap: 10px; }
+
+    /* Tables */
+    .table-wrapper { overflow-x: auto; border-radius: 8px; border: 1px solid #e0e0e0; }
+    table { width: 100%; border-collapse: collapse; font-size: 13px; }
+    thead tr { background: #f5f5f5; }
+    thead th {
+      text-align: left;
+      padding: 9px 14px;
+      font-weight: 600;
+      font-size: 11px;
+      color: #555;
+      border-bottom: 1px solid #e0e0e0;
+      white-space: nowrap;
+    }
+    thead th.right { text-align: right; }
+    thead th.center { text-align: center; }
+    tbody tr:nth-child(even) { background: #fafafa; }
+    tbody td {
+      padding: 9px 14px;
+      color: #333;
+      border-bottom: 1px solid #f0f0f0;
+      vertical-align: top;
+    }
+    tbody td.right { text-align: right; font-variant-numeric: tabular-nums; font-weight: 600; color: #111; }
+    tbody td.center { text-align: center; }
+    tbody tr:last-child td { border-bottom: none; }
+
+    tfoot tr { background: #f0f5ff; }
+    tfoot td {
+      padding: 9px 14px;
+      font-weight: 700;
+      font-size: 13px;
+      color: #1a1a1a;
+      border-top: 2px solid #ccd9f5;
+    }
+    tfoot td.right { text-align: right; color: #1a6ef0; }
+
+    /* Row tones */
+    tbody tr.tone-danger { background: #fff5f5; }
+    tbody tr.tone-danger:nth-child(even) { background: #fff0f0; }
+    tbody tr.tone-warning { background: #fffbf0; }
+    tbody tr.tone-warning:nth-child(even) { background: #fff8e8; }
+    tbody tr.tone-info { background: #f0f7ff; }
+    tbody tr.tone-info:nth-child(even) { background: #eaf4ff; }
+
+    /* Badges */
+    .badge {
+      display: inline-block;
+      padding: 2px 8px;
+      border-radius: 4px;
+      font-size: 11px;
+      font-weight: 600;
+      white-space: nowrap;
+    }
+    .badge-alto   { background: #ffe4e4; color: #c0392b; }
+    .badge-medio  { background: #fff3cd; color: #856404; }
+    .badge-baixo  { background: #e8f5e9; color: #2e7d32; }
+
+    .horas {
+      font-variant-numeric: tabular-nums;
+      font-weight: 600;
+      color: #1a6ef0;
+      white-space: nowrap;
+    }
+
+    /* Note tag */
+    .note-tag {
+      display: inline-block;
+      font-size: 10px;
+      padding: 1px 6px;
+      border-radius: 3px;
+      background: #e8f0ff;
+      color: #3060c0;
+      font-weight: 500;
+      margin-left: 6px;
+      vertical-align: middle;
+    }
+
+    /* Admin cards */
+    .admin-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+    .card { border: 1px solid #e0e0e0; border-radius: 8px; overflow: hidden; }
+    .card-header {
+      background: #f7f7f7;
+      padding: 8px 14px;
+      font-size: 12px;
+      font-weight: 600;
+      color: #444;
+      border-bottom: 1px solid #e8e8e8;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .card-header .horas { font-size: 12px; }
+    .card-body { padding: 12px 14px; display: flex; flex-direction: column; gap: 5px; }
+
+    /* Callouts */
+    .callout { border-radius: 8px; padding: 14px 16px; display: flex; flex-direction: column; gap: 4px; }
+    .callout.warning  { background: #fffaed; border: 1px solid #f5c842; }
+    .callout.neutral  { background: #f7f7f7; border: 1px solid #d8d8d8; }
+    .callout.info     { background: #f0f7ff; border: 1px solid #9bbfe8; }
+    .callout-title    { font-size: 13px; font-weight: 600; color: #7a5c00; }
+    .callout.neutral .callout-title { color: #444; }
+    .callout.info    .callout-title { color: #1a4f8a; }
+    .callout-body     { font-size: 13px; color: #555; line-height: 1.55; }
+
+    /* Summary total */
+    .summary-box {
+      background: #f0f5ff;
+      border: 1px solid #ccd9f5;
+      border-radius: 10px;
+      padding: 24px 28px;
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+    }
+    .summary-totals {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 16px;
+    }
+    .summary-total-item { display: flex; flex-direction: column; gap: 3px; }
+    .summary-total-value { font-size: 30px; font-weight: 700; color: #1a6ef0; line-height: 1; }
+    .summary-total-label { font-size: 12px; color: #555; }
+    .summary-breakdown { display: flex; flex-direction: column; gap: 6px; }
+    .summary-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-size: 13px;
+      color: #444;
+      padding: 4px 0;
+      border-bottom: 1px solid #dce8ff;
+    }
+    .summary-row:last-child { border-bottom: none; }
+    .summary-row-total {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-size: 14px;
+      font-weight: 700;
+      color: #111;
+      padding-top: 8px;
+      border-top: 2px solid #aac0f0;
+      margin-top: 4px;
+    }
+    .summary-row-total span:last-child { color: #1a6ef0; font-size: 18px; }
+
+    @media (max-width: 720px) {
+      .container { padding: 20px 16px; }
+      .stats-grid { grid-template-columns: repeat(2, 1fr); }
+      .admin-grid { grid-template-columns: 1fr; }
+      .summary-totals { grid-template-columns: 1fr 1fr; }
+    }
+  </style>
+</head>
+<body>
+<div class="container">
+
+  <!-- Título -->
+  <div>
+    <h1>Orçamento — Guia de Transportadoras</h1>
+    <p class="subtitle" style="margin-top:4px">Estimativa de esforço e horas por componente do site</p>
+  </div>
+
+  <!-- Stats -->
+  <div class="stats-grid">
+    <div class="stat"><span class="stat-value">5</span><span class="stat-label">Páginas únicas</span></div>
+    <div class="stat"><span class="stat-value">7</span><span class="stat-label">Templates dinâmicos</span></div>
+    <div class="stat"><span class="stat-value">12</span><span class="stat-label">Componentes reutilizáveis</span></div>
+    <div class="stat"><span class="stat-value">4</span><span class="stat-label">Integrações externas</span></div>
+    <div class="stat"><span class="stat-value accent">464h</span><span class="stat-label">Total estimado</span></div>
+  </div>
+
+  <div class="callout info">
+    <strong class="callout-title">Critério de estimativa de templates</strong>
+    <p class="callout-body">Templates são desenvolvidos uma única vez e reutilizados para todas as páginas daquele tipo, independentemente do volume de dados. As horas listadas representam o desenvolvimento do template, não a sua aplicação por instância. Quando um template é variação direta de outro já desenvolvido, as horas refletem apenas o delta necessário.</p>
+  </div>
+
+  <hr />
+
+  <!-- Componentes globais -->
+  <div class="section">
+    <h2>Componentes Globais</h2>
+    <p class="subtitle">Desenvolvidos uma vez, reutilizados em todas as páginas</p>
+    <div class="table-wrapper">
+      <table>
+        <thead>
+          <tr><th>Componente</th><th>Descrição</th><th class="center">Esforço</th><th class="right">Horas</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>Header</td><td>Logo, busca global, botões Cadastre-se / Entrar</td><td class="center"><span class="badge badge-medio">Médio</span></td><td class="right"><span class="horas">8h</span></td></tr>
+          <tr><td>Menu de navegação</td><td>6 itens principais com estados ativo/hover</td><td class="center"><span class="badge badge-baixo">Baixo</span></td><td class="right"><span class="horas">3h</span></td></tr>
+          <tr><td>Footer</td><td>4 colunas + ícones de redes sociais</td><td class="center"><span class="badge badge-baixo">Baixo</span></td><td class="right"><span class="horas">4h</span></td></tr>
+          <tr><td>Breadcrumb</td><td>Navegação hierárquica gerada dinamicamente</td><td class="center"><span class="badge badge-baixo">Baixo</span></td><td class="right"><span class="horas">2h</span></td></tr>
+        </tbody>
+        <tfoot>
+          <tr><td colspan="3">Subtotal — Componentes Globais</td><td class="right">17h</td></tr>
+        </tfoot>
+      </table>
+    </div>
+  </div>
+
+  <hr />
+
+  <!-- Páginas únicas -->
+  <div class="section">
+    <h2>Páginas Únicas</h2>
+    <div class="table-wrapper">
+      <table>
+        <thead>
+          <tr><th>Página</th><th>URL</th><th>Conteúdo / Funcionalidades</th><th class="center">Esforço</th><th class="right">Horas</th></tr>
+        </thead>
+        <tbody>
+          <tr class="tone-danger"><td><strong>Home</strong></td><td><code>/</code></td><td>Hero com busca, 4 blocos de destaque com contadores dinâmicos, calculadora de distância, newsletter, bloco de últimas notícias, banners publicitários</td><td class="center"><span class="badge badge-alto">Alto</span></td><td class="right"><span class="horas">20h</span></td></tr>
+          <tr class="tone-danger"><td><strong>Distâncias</strong></td><td><code>/distancias</code></td><td>Formulário multi-waypoints, Google Maps interativo, suporte a rota detalhada</td><td class="center"><span class="badge badge-alto">Alto</span></td><td class="right"><span class="horas">14h</span></td></tr>
+          <tr class="tone-warning"><td><strong>Cadastro</strong></td><td><code>/conta/cadastrar</code></td><td>Formulário extenso PJ/PF, busca CEP automática, dropdowns aninhados estado/cidade, opção de assinatura paga</td><td class="center"><span class="badge badge-medio">Médio</span></td><td class="right"><span class="horas">12h</span></td></tr>
+          <tr><td><strong>Login</strong></td><td><code>/entrar</code></td><td>Formulário de acesso com e-mail e senha, recuperação de senha</td><td class="center"><span class="badge badge-baixo">Baixo</span></td><td class="right"><span class="horas">4h</span></td></tr>
+          <tr><td><strong>Quem Somos</strong></td><td><code>/quem-somos</code></td><td>Página institucional com texto e imagens</td><td class="center"><span class="badge badge-baixo">Baixo</span></td><td class="right"><span class="horas">3h</span></td></tr>
+        </tbody>
+        <tfoot>
+          <tr><td colspan="4">Subtotal — Páginas Únicas</td><td class="right">53h</td></tr>
+        </tfoot>
+      </table>
+    </div>
+  </div>
+
+  <hr />
+
+  <!-- Templates dinâmicos -->
+  <div class="section">
+    <h2>Templates Dinâmicos</h2>
+    <p class="subtitle">Cada template é desenvolvido uma vez. As horas indicadas são para o desenvolvimento do template, não por instância/página gerada.</p>
+    <div class="table-wrapper">
+      <table>
+        <thead>
+          <tr><th>Template</th><th>URL Pattern</th><th>Tipo</th><th>Descrição</th><th class="center">Esforço</th><th class="right">Horas</th></tr>
+        </thead>
+        <tbody>
+          <tr class="tone-warning"><td><strong>Listagem de Transportadoras</strong></td><td><code>/transportadoras</code></td><td>Listagem / Índice</td><td>Busca + filtro dropdown, grid 2 colunas por estado com contadores — template base para listagens</td><td class="center"><span class="badge badge-medio">Médio</span></td><td class="right"><span class="horas">12h</span></td></tr>
+          <tr><td><strong>Listagem de Fornecedores</strong> <span class="note-tag">variacao</span></td><td><code>/fornecedores</code></td><td>Listagem / Índice</td><td>Reusa estrutura do template anterior — apenas ajuste de categorias e dados</td><td class="center"><span class="badge badge-baixo">Baixo</span></td><td class="right"><span class="horas">4h</span></td></tr>
+          <tr><td><strong>Listagem de Cargas Especiais</strong> <span class="note-tag">variacao</span></td><td><code>/cargas-especiais</code></td><td>Listagem / Índice</td><td>Reusa estrutura do template anterior — apenas ajuste de categorias e dados</td><td class="center"><span class="badge badge-baixo">Baixo</span></td><td class="right"><span class="horas">4h</span></td></tr>
+          <tr class="tone-danger"><td><strong>Resultados de Rota</strong></td><td><code>/rotas/[origem]/[destino]</code></td><td>Resultado de Busca</td><td>Mapa com rota traçada + lista lateral de transportadoras + filtros colapsáveis + sistema de cotação múltipla</td><td class="center"><span class="badge badge-alto">Alto</span></td><td class="right"><span class="horas">24h</span></td></tr>
+          <tr class="tone-danger"><td><strong>Perfil de Transportadora</strong></td><td><code>/transportadora/[id]/[slug]</code></td><td>Detalhe / Perfil</td><td>Dados, contatos, serviços, certificações, mapa de localização, empresas relacionadas (matriz/filiais)</td><td class="center"><span class="badge badge-alto">Alto</span></td><td class="right"><span class="horas">16h</span></td></tr>
+          <tr class="tone-warning"><td><strong>Listagem de Notícias</strong></td><td><code>[dominio]/</code></td><td>Blog – Listagem</td><td>Grid de cards com imagem, título, categoria, resumo e data — paginação</td><td class="center"><span class="badge badge-medio">Médio</span></td><td class="right"><span class="horas">8h</span></td></tr>
+          <tr class="tone-warning"><td><strong>Artigo Individual</strong></td><td><code>/[ano]/[mes]/[dia]/[slug]/</code></td><td>Blog – Artigo</td><td>Conteúdo rico, sidebar com CTA, posts relacionados, comentários, FAQ opcional, Schema.org</td><td class="center"><span class="badge badge-medio">Médio</span></td><td class="right"><span class="horas">10h</span></td></tr>
+        </tbody>
+        <tfoot>
+          <tr><td colspan="5">Subtotal — Templates Dinâmicos</td><td class="right">78h</td></tr>
+        </tfoot>
+      </table>
+    </div>
+  </div>
+
+  <hr />
+
+  <!-- Componentes reutilizáveis -->
+  <div class="section">
+    <h2>Componentes Reutilizáveis</h2>
+    <p class="subtitle">Desenvolvidos uma vez, compostos dentro das páginas e templates conforme necessário</p>
+    <div class="table-wrapper">
+      <table>
+        <thead>
+          <tr><th>Componente</th><th>Descrição</th><th class="center">Esforço</th><th class="right">Horas</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>Card de empresa</td><td>Logo, dados, telefone, e-mail, botões de ação (ver perfil, adicionar cotação, localizar no mapa)</td><td class="center"><span class="badge badge-medio">Médio</span></td><td class="right"><span class="horas">6h</span></td></tr>
+          <tr><td>Formulário busca origem/destino</td><td>Dois campos com autocomplete de cidades, botão Pesquisar</td><td class="center"><span class="badge badge-medio">Médio</span></td><td class="right"><span class="horas">6h</span></td></tr>
+          <tr><td>Filtros laterais</td><td>Checkboxes com contadores dinâmicos, colapsáveis por categoria</td><td class="center"><span class="badge badge-medio">Médio</span></td><td class="right"><span class="horas">8h</span></td></tr>
+          <tr><td>Widget de cotação múltipla</td><td>Seleção de N transportadoras com contador flutuante + formulário de envio</td><td class="center"><span class="badge badge-alto">Alto</span></td><td class="right"><span class="horas">12h</span></td></tr>
+          <tr><td>Widget de newsletter</td><td>Campos nome e e-mail + validação + integração com sistema de e-mail</td><td class="center"><span class="badge badge-baixo">Baixo</span></td><td class="right"><span class="horas">3h</span></td></tr>
+          <tr><td>Compartilhamento social</td><td>Botões WhatsApp, Facebook, Twitter com URL dinâmica</td><td class="center"><span class="badge badge-baixo">Baixo</span></td><td class="right"><span class="horas">2h</span></td></tr>
+          <tr><td>Mapa Google Maps</td><td>Embed com suporte a rotas interativas, marcadores de localização e rota traçada</td><td class="center"><span class="badge badge-medio">Médio</span></td><td class="right"><span class="horas">8h</span></td></tr>
+          <tr><td>Banner publicitário</td><td>Slot de banner para múltiplas posições (topo, lateral, rodapé)</td><td class="center"><span class="badge badge-baixo">Baixo</span></td><td class="right"><span class="horas">3h</span></td></tr>
+        </tbody>
+        <tfoot>
+          <tr><td colspan="3">Subtotal — Componentes Reutilizáveis</td><td class="right">48h</td></tr>
+        </tfoot>
+      </table>
+    </div>
+  </div>
+
+  <hr />
+
+  <!-- Funcionalidades complexas -->
+  <div class="section">
+    <h2>Funcionalidades por Complexidade</h2>
+    <div class="table-wrapper">
+      <table>
+        <thead>
+          <tr><th>Funcionalidade</th><th>Esforço</th><th>Detalhe</th><th class="right">Horas</th></tr>
+        </thead>
+        <tbody>
+          <tr class="tone-danger"><td>Motor de busca de rotas</td><td><span class="badge badge-alto">Alto</span></td><td>Lógica back-end + front-end para cruzar origem/destino contra base de milhões de rotas com resposta em tempo real</td><td class="right"><span class="horas">40h</span></td></tr>
+          <tr class="tone-danger"><td>Calculadora de distância</td><td><span class="badge badge-alto">Alto</span></td><td>Múltiplos waypoints, integração com Directions API, exibição de rota detalhada no mapa</td><td class="right"><span class="horas">16h</span></td></tr>
+          <tr class="tone-danger"><td>Sistema de cotação múltipla</td><td><span class="badge badge-alto">Alto</span></td><td>Seleção persistente de N transportadoras + formulário consolidado + envio por e-mail</td><td class="right"><span class="horas">20h</span></td></tr>
+          <tr class="tone-warning"><td>Autocomplete de cidades</td><td><span class="badge badge-medio">Médio</span></td><td>Busca de município enquanto o usuário digita, filtrado por base brasileira</td><td class="right"><span class="horas">8h</span></td></tr>
+          <tr class="tone-warning"><td>Autenticação de usuários</td><td><span class="badge badge-medio">Médio</span></td><td>Cadastro PJ/PF, login, sessão, recuperação de senha por e-mail</td><td class="right"><span class="horas">16h</span></td></tr>
+          <tr class="tone-warning"><td>Assinatura do guia impresso</td><td><span class="badge badge-medio">Médio</span></td><td>Fluxo de pagamento integrado com gateway, confirmação e gestão de assinantes</td><td class="right"><span class="horas">12h</span></td></tr>
+          <tr><td>Busca de CEP</td><td><span class="badge badge-baixo">Baixo</span></td><td>Integração com API de CEP para preenchimento automático no formulário de cadastro</td><td class="right"><span class="horas">4h</span></td></tr>
+          <tr><td>Paginação de resultados</td><td><span class="badge badge-baixo">Baixo</span></td><td>Paginação ou scroll infinito nas listagens de transportadoras, rotas e fornecedores</td><td class="right"><span class="horas">4h</span></td></tr>
+        </tbody>
+        <tfoot>
+          <tr><td colspan="3">Subtotal — Funcionalidades</td><td class="right">120h</td></tr>
+        </tfoot>
+      </table>
+    </div>
+  </div>
+
+  <hr />
+
+  <!-- Integrações externas -->
+  <div class="section">
+    <h2>Integrações Externas</h2>
+    <div class="table-wrapper">
+      <table>
+        <thead>
+          <tr><th>Integração</th><th>Status</th><th>Uso</th><th class="center">Esforço</th><th class="right">Horas</th></tr>
+        </thead>
+        <tbody>
+          <tr class="tone-danger"><td>Google Maps API</td><td>Obrigatória</td><td>Mapas, rotas, geocoding, Directions e Distance Matrix — usada em múltiplos contextos</td><td class="center"><span class="badge badge-alto">Alto</span></td><td class="right"><span class="horas">16h</span></td></tr>
+          <tr><td>API de CEP</td><td>Obrigatória</td><td>Preenchimento automático de endereço no cadastro (ViaCEP ou similar)</td><td class="center"><span class="badge badge-baixo">Baixo</span></td><td class="right"><span class="horas">4h</span></td></tr>
+          <tr class="tone-warning"><td>Sistema de e-mail</td><td>Obrigatória</td><td>Newsletter, envio de cotações, e-mails transacionais (cadastro, senha, confirmações)</td><td class="center"><span class="badge badge-medio">Médio</span></td><td class="right"><span class="horas">8h</span></td></tr>
+          <tr class="tone-warning"><td>Gateway de pagamento</td><td>Condicional</td><td>Fluxo de assinatura do guia impresso — R$ 80,00</td><td class="center"><span class="badge badge-medio">Médio</span></td><td class="right"><span class="horas">12h</span></td></tr>
+        </tbody>
+        <tfoot>
+          <tr><td colspan="4">Subtotal — Integrações</td><td class="right">40h</td></tr>
+        </tfoot>
+      </table>
+    </div>
+  </div>
+
+  <hr />
+
+  <!-- Painel administrativo -->
+  <div class="section">
+    <h2>Painel Administrativo</h2>
+    <p class="subtitle">Sistema de gestão back-office necessário para manter o site operacional</p>
+    <div class="admin-grid">
+      <div class="card">
+        <div class="card-header">Gestão de Empresas <span class="horas">40h</span></div>
+        <div class="card-body">
+          <p class="text-sm">Cadastro e edição de transportadoras e fornecedores</p>
+          <p class="text-sm">Relacionamento matriz / filiais</p>
+          <p class="text-sm">Aprovação de novos cadastros</p>
+          <p class="text-sm">Gerenciamento de categorias e especialidades</p>
+        </div>
+      </div>
+      <div class="card">
+        <div class="card-header">Gestão de Rotas <span class="horas">32h</span></div>
+        <div class="card-body">
+          <p class="text-sm">Cadastro e edição de rotas (milhões de registros)</p>
+          <p class="text-sm">Associação transportadora ↔ rota</p>
+          <p class="text-sm">Importação e atualização em lote</p>
+        </div>
+      </div>
+      <div class="card">
+        <div class="card-header">Gestão de Conteúdo <span class="horas">20h</span></div>
+        <div class="card-body">
+          <p class="text-sm">Blog / notícias (criação e publicação de artigos)</p>
+          <p class="text-sm">Gerenciamento de banners publicitários</p>
+          <p class="text-sm">Moderação de comentários</p>
+        </div>
+      </div>
+      <div class="card">
+        <div class="card-header">Gestão de Usuários <span class="horas">16h</span></div>
+        <div class="card-body">
+          <p class="text-sm">Usuários comuns e contas de empresa</p>
+          <p class="text-sm">Controle de permissões e papéis</p>
+          <p class="text-sm">Assinantes do guia impresso</p>
+          <p class="text-sm">Lista de newsletter</p>
+        </div>
+      </div>
+    </div>
+    <p class="text-sm-muted" style="margin-top:6px">Subtotal Painel Administrativo: <strong>108h</strong></p>
+  </div>
+
+  <hr />
+
+  <!-- Volumes de dados -->
+  <div class="section">
+    <h2>Volumes de Dados</h2>
+    <p class="subtitle">Dimensionamento da base a ser migrada ou recriada — impacta custo de infraestrutura e estratégia de banco</p>
+    <div class="table-wrapper">
+      <table>
+        <thead>
+          <tr><th>Entidade</th><th class="right">Volume</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>Transportadoras cadastradas</td><td class="right">15.137</td></tr>
+          <tr><td>Total de empresas</td><td class="right">5.018</td></tr>
+          <tr><td>Rotas disponíveis</td><td class="right">5.367.861</td></tr>
+          <tr><td>Fornecedores</td><td class="right">837</td></tr>
+          <tr><td>Categorias de fornecedores</td><td class="right">151</td></tr>
+          <tr><td>Categorias de cargas especiais</td><td class="right">94</td></tr>
+          <tr><td>Estados / Regiões</td><td class="right">28</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <hr />
+
+  <!-- Callouts -->
+  <div class="callout warning">
+    <strong class="callout-title">Ponto de atenção — banco de rotas</strong>
+    <p class="callout-body">O volume de milhões de rotas exige estratégia específica de banco de dados e indexação para garantir performance aceitável nas buscas de origem/destino. Este item impacta significativamente o custo de infraestrutura e as horas de desenvolvimento back-end — 40h estimadas somente para o motor de busca.</p>
+  </div>
+
+  <div class="callout neutral">
+    <strong class="callout-title">Domínio separado para notícias</strong>
+    <p class="callout-body">O blog roda em subdomínio separado, possivelmente WordPress ou CMS independente. A reconstrução pode optar por unificar em um único sistema ou manter a separação — esta decisão impacta o escopo e custo do back-end. As horas estimadas (18h para os dois templates de blog) consideram um CMS integrado.</p>
+  </div>
+
+  <hr />
+
+  <!-- Resumo total -->
+  <div class="summary-box">
+    <h2 style="color:#1a3a7a;">Resumo do Esforço Total</h2>
+    <div class="summary-totals">
+      <div class="summary-total-item">
+        <span class="summary-total-value">464h</span>
+        <span class="summary-total-label">Total de horas estimadas</span>
+      </div>
+      <div class="summary-total-item">
+        <span class="summary-total-value" style="color:#2e7d32">~58 dias</span>
+        <span class="summary-total-label">Dias úteis (8h/dia)</span>
+      </div>
+      <div class="summary-total-item">
+        <span class="summary-total-value" style="color:#7a5c00">~12 sem.</span>
+        <span class="summary-total-label">Semanas (1 dev full-time)</span>
+      </div>
+    </div>
+    <div class="summary-breakdown">
+      <div class="summary-row"><span>Componentes Globais</span><span>17h</span></div>
+      <div class="summary-row"><span>Páginas Únicas (5)</span><span>53h</span></div>
+      <div class="summary-row"><span>Templates Dinâmicos (7)</span><span>78h</span></div>
+      <div class="summary-row"><span>Componentes Reutilizáveis (12)</span><span>48h</span></div>
+      <div class="summary-row"><span>Funcionalidades Complexas (8)</span><span>120h</span></div>
+      <div class="summary-row"><span>Integrações Externas (4)</span><span>40h</span></div>
+      <div class="summary-row"><span>Painel Administrativo (4 módulos)</span><span>108h</span></div>
+      <div class="summary-row-total"><span>Total</span><span>464h</span></div>
+    </div>
+  </div>
+
+  <p class="text-sm-muted">Estimativa elaborada em 05/05/2026 — valores sujeitos a revisão após detalhamento técnico do projeto.</p>
+
+</div>
+</body>
+</html>
