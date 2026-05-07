@@ -2222,3 +2222,112 @@ html:has(body.proposta-page) {
     padding-right: 1rem;
   }
 }
+
+/* ─── Intro full-screen (2011 → 2026 → 15ANOS) ─── */
+body.proposta-page.site-loader-active {
+  overflow: hidden;
+}
+
+.proposta-page .site-loader {
+  position: fixed;
+  inset: 0;
+  z-index: 10050;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #000;
+  opacity: 1;
+  visibility: visible;
+  transition:
+    opacity 0.7s cubic-bezier(0.22, 1, 0.36, 1),
+    visibility 0s linear 0s;
+}
+
+.proposta-page .site-loader.site-loader--done {
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+  transition:
+    opacity 0.65s cubic-bezier(0.22, 1, 0.36, 1) 0.12s,
+    visibility 0s linear 0.85s;
+}
+
+.proposta-page .site-loader__stack {
+  position: relative;
+  width: 100%;
+  max-width: min(96vw, 920px);
+  margin: 0 auto;
+  min-height: clamp(5.5rem, 22vw, 11rem);
+}
+
+.proposta-page .site-loader__phrase {
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  font-family: var(--font-display);
+  font-weight: 800;
+  font-size: clamp(3.25rem, 14vw, 8rem);
+  color: var(--accent);
+  letter-spacing: -0.035em;
+  line-height: 1;
+  text-align: center;
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+  transition: opacity 0.38s ease, visibility 0s linear 0.38s;
+}
+
+.proposta-page .site-loader__phrase.is-enter {
+  opacity: 1;
+  visibility: visible;
+  transition: opacity 0s, visibility 0s;
+}
+
+.proposta-page .site-loader__phrase.is-leave {
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.36s ease, visibility 0s linear 0.36s;
+}
+
+.proposta-page .site-loader__phrase--anos {
+  font-size: clamp(2.6rem, 11vw, 6rem);
+  letter-spacing: 0.06em;
+  font-weight: 800;
+}
+
+.proposta-page .site-loader__phrase .dig {
+  display: inline-block;
+  opacity: 0;
+  transform: translate3d(0, 0.28em, 0);
+}
+
+.proposta-page .site-loader__phrase.is-enter .dig {
+  animation: propostaSiteLoaderDig 0.58s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+  animation-delay: calc(var(--d, 0) * 0.065s);
+}
+
+@keyframes propostaSiteLoaderDig {
+  to {
+    opacity: 1;
+    transform: translate3d(0, 0, 0);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .proposta-page .site-loader__phrase .dig {
+    opacity: 1;
+    transform: none;
+    animation: none !important;
+  }
+
+  .proposta-page .site-loader__phrase.is-enter .dig {
+    animation: none !important;
+  }
+
+  .proposta-page .site-loader,
+  .proposta-page .site-loader.site-loader--done {
+    transition-duration: 0.25s;
+  }
+}

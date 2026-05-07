@@ -10,50 +10,18 @@
 <link rel="stylesheet" href="proposta-cms.css"/>
 <meta name="description" content="Desenvolvimento completo da plataforma digital — motor de rotas com 5,3 milhões de registros, perfis de transportadoras, cotação múltipla e painel administrativo."/>
 </head>
-<body class="proposta-page is-loading">
+<body class="proposta-page site-loader-active">
 
-<div class="proposal-loader" id="proposal-loader" aria-hidden="true">
-  <div class="proposal-loader__blocks"><span class="proposal-loader__block"></span><span class="proposal-loader__block"></span><span class="proposal-loader__block"></span><span class="proposal-loader__block"></span><span class="proposal-loader__block"></span><span class="proposal-loader__block"></span><span class="proposal-loader__block"></span><span class="proposal-loader__block"></span><span class="proposal-loader__block"></span><span class="proposal-loader__block"></span></div>
-  <svg class="proposal-loader__grid" viewBox="0 0 1200 600" preserveAspectRatio="none" aria-hidden="true">
-    <g class="proposal-loader__grid-v"><line x1="100" y1="0" x2="100" y2="600" style="animation-delay:0.15s"/><line x1="200" y1="0" x2="200" y2="600" style="animation-delay:0.195s"/><line x1="300" y1="0" x2="300" y2="600" style="animation-delay:0.24s"/><line x1="400" y1="0" x2="400" y2="600" style="animation-delay:0.28500000000000003s"/><line x1="500" y1="0" x2="500" y2="600" style="animation-delay:0.32999999999999996s"/><line x1="600" y1="0" x2="600" y2="600" style="animation-delay:0.375s"/><line x1="700" y1="0" x2="700" y2="600" style="animation-delay:0.42000000000000004s"/><line x1="800" y1="0" x2="800" y2="600" style="animation-delay:0.46499999999999997s"/><line x1="900" y1="0" x2="900" y2="600" style="animation-delay:0.51s"/><line x1="1000" y1="0" x2="1000" y2="600" style="animation-delay:0.5549999999999999s"/><line x1="1100" y1="0" x2="1100" y2="600" style="animation-delay:0.6s"/></g>
-    <g class="proposal-loader__grid-h"><line x1="0" y1="100" x2="1200" y2="100" style="animation-delay:0.55s"/><line x1="0" y1="200" x2="1200" y2="200" style="animation-delay:0.6100000000000001s"/><line x1="0" y1="300" x2="1200" y2="300" style="animation-delay:0.67s"/><line x1="0" y1="400" x2="1200" y2="400" style="animation-delay:0.73s"/><line x1="0" y1="500" x2="1200" y2="500" style="animation-delay:0.79s"/></g>
-  </svg>
-  <div class="proposal-loader__corner proposal-loader__corner--tl" aria-hidden="true"></div>
-  <div class="proposal-loader__corner proposal-loader__corner--tr" aria-hidden="true"></div>
-  <div class="proposal-loader__corner proposal-loader__corner--bl" aria-hidden="true"></div>
-  <div class="proposal-loader__corner proposal-loader__corner--br" aria-hidden="true"></div>
-  <div class="proposal-loader__greeting" aria-hidden="true">
-    <span class="proposal-loader__greeting-label">Proposta para</span>
-    <span class="proposal-loader__greeting-client">CP</span>
-  </div>
-  <div class="proposal-loader__inner">
-    <div class="proposal-loader__lockup">
-      <div class="proposal-loader__brand proposal-loader__brand--matilha">
-        <img src="02-logo-matilha-full.svg" alt="Matilha" class="proposal-loader__logo"/>
-        <span class="proposal-loader__brand-tag">Matilha</span>
-      </div>
-      <span class="proposal-loader__connector" aria-hidden="true">×</span>
-      <div class="proposal-loader__brand proposal-loader__brand--client">
-        <div class="proposal-loader__logo proposal-loader__monogram" aria-label="CP">CP</div>
-        <span class="proposal-loader__brand-tag">CP</span>
-      </div>
+<div id="site-loader" class="site-loader" aria-busy="true" aria-live="polite">
+  <div class="site-loader__stack">
+    <div class="site-loader__phrase" data-step="2011">
+      <span class="dig" style="--d:0">2</span><span class="dig" style="--d:1">0</span><span class="dig" style="--d:2">1</span><span class="dig" style="--d:3">1</span>
     </div>
-    <div class="proposal-loader__info">
-      <div class="proposal-loader__meta">
-        <span class="proposal-loader__meta-label">Proposta</span>
-        <span class="proposal-loader__meta-line">
-          <span>#001</span>
-          <span class="proposal-loader__meta-sep" aria-hidden="true">·</span>
-          <span>CURITIBA, PR</span>
-          <span class="proposal-loader__meta-sep" aria-hidden="true">·</span>
-          <span>MAIO 2026</span>
-        </span>
-      </div>
-      <div class="proposal-loader__status" aria-live="polite">
-        <span class="proposal-loader__status-dot" aria-hidden="true"></span>
-        <span class="proposal-loader__status-text" id="proposal-loader-status">Carregando proposta</span>
-        <span class="proposal-loader__status-dots" aria-hidden="true"><span>.</span><span>.</span><span>.</span></span>
-      </div>
+    <div class="site-loader__phrase" data-step="2026">
+      <span class="dig" style="--d:0">2</span><span class="dig" style="--d:1">0</span><span class="dig" style="--d:2">2</span><span class="dig" style="--d:3">6</span>
+    </div>
+    <div class="site-loader__phrase site-loader__phrase--anos" data-step="15anos">
+      <span class="dig" style="--d:0">1</span><span class="dig" style="--d:1">5</span><span class="dig" style="--d:2">A</span><span class="dig" style="--d:3">N</span><span class="dig" style="--d:4">O</span><span class="dig" style="--d:5">S</span>
     </div>
   </div>
 </div>
@@ -93,50 +61,114 @@
   <p class="meta-footer">© 2012–2026 Matilha Estúdio de Design Ltda. · Proposta #001 · <span class="client-name">CP</span> · Guia de Transportadoras</p>
 </footer>
 <script>
-(function(){
-var reduced = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
-var body = document.body;
-body.classList.remove("is-ready");
-body.classList.add("is-loading");
-var loader = document.getElementById("proposal-loader");
-var loaderLockTimeout=null, loaderHoldTimeout=null, loaderGreetingTimeout=null, loaderExitTimeout=null;
-var LOADER_BUILD_MS=3500, LOADER_HOLD_MS=4000, LOADER_GREETING_AFTER_MS=2500, LOADER_EXIT_DURATION=1200;
-function finishLoader(){
-  if(!loader){ body.classList.remove("is-loading"); body.classList.add("is-ready"); return; }
-  loader.classList.add("is-exiting");
-  loaderExitTimeout=setTimeout(function(){
-    loader.remove();
-    body.classList.remove("is-loading");
-    body.classList.add("is-ready");
-  }, LOADER_EXIT_DURATION);
-}
-function enterLocked(){
-  if(!loader) return;
-  loader.classList.add("is-built","is-locked");
-  loaderGreetingTimeout=setTimeout(function(){
-    var st=document.getElementById("proposal-loader-status");
-    if(st) st.textContent="Bem-vindo";
-    loader.classList.add("is-greeting");
-  }, LOADER_GREETING_AFTER_MS);
-  loaderHoldTimeout=setTimeout(finishLoader, LOADER_HOLD_MS);
-}
-if(loader){
-  if(reduced) enterLocked();
-  else loaderLockTimeout=setTimeout(enterLocked, LOADER_BUILD_MS);
-}else{
-  body.classList.remove("is-loading");
-  body.classList.add("is-ready");
-}
-var els=document.querySelectorAll(".fade-in");
-var io=null;
-if("IntersectionObserver" in window){
-  io=new IntersectionObserver(function(entries){
-    entries.forEach(function(e){ if(e.isIntersecting) e.target.classList.add("visible"); });
-  }, { threshold:0.12, rootMargin:"0px 0px -40px 0px" });
-  els.forEach(function(el){ io.observe(el); });
-}else{
-  els.forEach(function(el){ el.classList.add("visible"); });
-}
+(function () {
+  function fadeInObserve() {
+    var els = document.querySelectorAll(".fade-in");
+    if (!("IntersectionObserver" in window)) {
+      els.forEach(function (el) { el.classList.add("visible"); });
+      return;
+    }
+    var io = new IntersectionObserver(function (entries) {
+      entries.forEach(function (e) {
+        if (e.isIntersecting) e.target.classList.add("visible");
+      });
+    }, { threshold: 0.12, rootMargin: "0px 0px -40px 0px" });
+    els.forEach(function (el) { io.observe(el); });
+  }
+
+  var loader = document.getElementById("site-loader");
+  if (!loader) {
+    document.body.classList.add("is-ready");
+    fadeInObserve();
+    return;
+  }
+
+  var phrases = loader.querySelectorAll(".site-loader__phrase");
+  if (!phrases.length) {
+    document.body.classList.remove("site-loader-active");
+    document.body.classList.add("is-ready");
+    fadeInObserve();
+    return;
+  }
+
+  var reduced = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+  var HOLD = reduced ? 0 : 1050;
+  var LAST_HOLD = reduced ? 0 : 1150;
+  var EXIT_GAP = reduced ? 0 : 360;
+
+  function finish() {
+    loader.classList.add("site-loader--done");
+    document.body.classList.remove("site-loader-active");
+    document.body.classList.add("is-ready");
+    loader.setAttribute("aria-busy", "false");
+    window.setTimeout(function () {
+      if (loader.parentNode) loader.parentNode.removeChild(loader);
+    }, 880);
+    fadeInObserve();
+  }
+
+  function clearPhrase(el) {
+    el.classList.remove("is-enter", "is-leave");
+  }
+
+  function showPhrase(idx) {
+    phrases.forEach(function (p) {
+      clearPhrase(p);
+    });
+    var p = phrases[idx];
+    void p.offsetWidth;
+    p.classList.add("is-enter");
+  }
+
+  function hidePhrase(idx) {
+    var p = phrases[idx];
+    p.classList.remove("is-enter");
+    p.classList.add("is-leave");
+  }
+
+  function run() {
+    if (reduced) {
+      phrases.forEach(clearPhrase);
+      void phrases[2].offsetWidth;
+      phrases[2].classList.add("is-enter");
+      window.setTimeout(finish, 480);
+      return;
+    }
+
+    showPhrase(0);
+
+    window.setTimeout(function () {
+      hidePhrase(0);
+      window.setTimeout(function () {
+        clearPhrase(phrases[0]);
+        showPhrase(1);
+        window.setTimeout(function () {
+          hidePhrase(1);
+          window.setTimeout(function () {
+            clearPhrase(phrases[1]);
+            showPhrase(2);
+            window.setTimeout(finish, LAST_HOLD);
+          }, EXIT_GAP);
+        }, HOLD);
+      }, EXIT_GAP);
+    }, HOLD);
+  }
+
+  function boot() {
+    if (document.fonts && document.fonts.ready) {
+      document.fonts.ready.then(function () {
+        window.requestAnimationFrame(run);
+      });
+    } else {
+      window.requestAnimationFrame(run);
+    }
+  }
+
+  if (document.readyState === "loading") {
+    document.addEventListener("DOMContentLoaded", boot);
+  } else {
+    boot();
+  }
 })();
 </script>
 </body>
