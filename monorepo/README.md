@@ -73,6 +73,10 @@ npm run build:v2
 npm run build:v3
 ```
 
+### Railway
+
+O ficheiro **`railway.toml`** na raiz define build/start (Config as Code), equivalente ao que no Vercel seria `vercel.json` / settings de projeto. Ver [documentação Railway](https://docs.railway.com/reference/config-as-code).
+
 ### Erro `Cannot find module './XXX.js'` ou `reading 'call'` (Webpack / `.next`)
 
 Cache `.next` ou grafo de chunks inconsistente é comum em monorepos com vários `next dev`. Na pasta **`monorepo/`**:

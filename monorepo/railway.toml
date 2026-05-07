@@ -1,0 +1,9 @@
+# Railway Config as Code — https://docs.railway.com/reference/config-as-code
+# Um serviço: cms-v3 (templates v1/v2 por subdomínio no mesmo processo).
+
+[build]
+builder = "RAILPACK"
+buildCommand = "npm ci && npm run build:v3"
+
+[deploy]
+startCommand = "npm run start --workspace=cms-v3"
