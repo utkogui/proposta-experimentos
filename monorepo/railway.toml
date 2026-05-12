@@ -1,12 +1,17 @@
 # Railway Config as Code — https://docs.railway.com/reference/config-as-code
-# Um serviço: cms-v3 (templates v1/v2 por subdomínio no mesmo processo).
+# Use este ficheiro quando o Root Directory do serviço no Railway for "monorepo".
+# Se o Root Directory for a raiz do repositório Git, usa-se o railway.toml na raiz (../railway.toml).
+#
+# Variáveis: monorepo/apps/v3/.env.example (SESSION_SECRET, ADMIN_PASSWORD, DATABASE_URL|REDIS_URL)
 
 [build]
 builder = "RAILPACK"
-# Railpack já corre `npm ci` no passo install
+watchPatterns = ["**"]
 buildCommand = "npm run build:v3"
 
 [deploy]
 startCommand = "npm run start --workspace=cms-v3"
 healthcheckPath = "/api/health"
 healthcheckTimeout = 120
+restartPolicyType = "ON_FAILURE"
+restartPolicyMaxRetries = 10

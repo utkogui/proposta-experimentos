@@ -162,6 +162,19 @@ export default function HomePage() {
           desc="Abre a proposta CP neste servidor na rota pública /p/cp (mesmo conteúdo da Versão 02 neste ambiente)."
           href="/p/cp"
         />
+        <LauncherCard
+          tag="Versão 04"
+          tech="Next.js · v4 · institucional"
+          title={
+            <>
+              Proposta
+              <br />
+              Institucional
+            </>
+          }
+          desc="O tema visual v4 só aparece no subdomínio v4 (este link), não em localhost:3000/p/cp. Rota /p/educacao com placeholders do eixo Educação (hero, cases, social proof, método CS). Fundo índigo e faixa colorida no topo."
+          href="http://v4.localhost:3000/p/educacao"
+        />
       </div>
 
       {/* footer */}

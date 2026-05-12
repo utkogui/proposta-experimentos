@@ -3,6 +3,7 @@
   "private": true,
   "scripts": {
     "postinstall": "npm install --prefix monorepo",
+    "start": "cd monorepo && npm run start --workspace=cms-v3",
     "dev": "npm run dev --prefix monorepo",
     "dev:v1": "npm run dev:v1 --prefix monorepo",
     "dev:v2": "npm run dev:v2 --prefix monorepo",

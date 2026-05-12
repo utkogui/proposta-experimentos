@@ -1,7 +1,16 @@
 import { notFound } from "next/navigation";
+import { cookies, headers } from "next/headers";
 import { getProposta } from "@/lib/storage";
-import { listClientLogoSvgs } from "@/lib/client-proof-logos";
+import {
+  listClientLogoSvgs,
+  listEducationProofLogos,
+} from "@/lib/client-proof-logos";
 import { PropostaView } from "@/components/proposta/PropostaView";
+import {
+  CMS_TEMPLATE_COOKIE,
+  CMS_TEMPLATE_HEADER,
+  parseTemplateCookie,
+} from "@/lib/cms-template";
 
 export const dynamic = "force-dynamic";
 
@@ -13,9 +22,21 @@ export default async function PropostaPublicaPage({
   const { slug } = await params;
   const proposta = await getProposta(slug);
   if (!proposta) notFound();
-  const clientLogoFiles = listClientLogoSvgs();
+  const clientLogoFiles =
+    slug === "educacao"
+      ? listEducationProofLogos()
+      : listClientLogoSvgs();
+  const h = await headers();
+  const jar = await cookies();
+  const template = parseTemplateCookie(
+    h.get(CMS_TEMPLATE_HEADER) ?? jar.get(CMS_TEMPLATE_COOKIE)?.value,
+  );
   return (
-    <PropostaView data={proposta} clientLogoFiles={clientLogoFiles} />
+    <PropostaView
+      data={proposta}
+      clientLogoFiles={clientLogoFiles}
+      template={template}
+    />
   );
 }
 

@@ -507,7 +507,7 @@ export function Editor({ initial }: { initial: Proposta }) {
         <ListEditor
           label="Membros do squad"
           items={data.equipe.membros}
-          empty={() => ({ label: "", titulo: "", descricao: "" })}
+          empty={() => ({ label: "", titulo: "", descricao: "", icone: "" })}
           onChange={(items) =>
             update("equipe", { ...data.equipe, membros: items })
           }
@@ -522,6 +522,11 @@ export function Editor({ initial }: { initial: Proposta }) {
                 value={item.titulo}
                 onChange={(v) => set({ ...item, titulo: v })}
                 placeholder="Cargo / título"
+              />
+              <TextInput
+                value={item.icone ?? ""}
+                onChange={(v) => set({ ...item, icone: v || undefined })}
+                placeholder="Ícone (emoji opcional)"
               />
               <TextArea
                 value={item.descricao}

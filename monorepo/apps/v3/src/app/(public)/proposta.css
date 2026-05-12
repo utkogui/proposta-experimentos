@@ -60,6 +60,90 @@ html:has(body.proposta-page .proposta-yellow-theme-marker) .proposta-page .propo
     radial-gradient(ellipse 45% 30% at 78% 55%, rgba(253, 156, 39, 0.058) 0%, transparent 50%);
 }
 
+/*
+ * v4 · Institucional / educação
+ * Contraste forte vs v3: fundo índigo, acentos ciano + ouro, faixa superior.
+ * Importante: só aplica com body.cms-template-v4 (ex.: http://v4.localhost:3000/…).
+ * URL em localhost:3000/p/cp permanece v3 — é outro template.
+ */
+.proposta-page.cms-template-v4 {
+  --bg: #060a14;
+  --bg-card: #0e1628;
+  --bg-card-hover: #152238;
+  --accent: #f0d875;
+  --accent-dim: #b89230;
+  --text: #f0f4fc;
+  --text-muted: #5c6a89;
+  --text-soft: #8b97b3;
+  --border: #1e2d4a;
+  --c-yellow: #f0d875;
+  --c-purple: #b49cff;
+  --c-green: #5ee9b0;
+  --c-blue: #38bdf8;
+  --c-pink: #e879f9;
+  --c-orange: #fb923c;
+  --c-dark-orange: #f472b6;
+}
+
+/* Faixa fixa no topo — diferença visível logo ao carregar */
+.proposta-page.cms-template-v4::before {
+  content: "";
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 4px;
+  z-index: 10002;
+  background: linear-gradient(
+    90deg,
+    #22d3ee 0%,
+    #f0d875 38%,
+    #4ade80 68%,
+    #a78bfa 100%
+  );
+  pointer-events: none;
+}
+
+.proposta-page.cms-template-v4 [data-section="equipe"] {
+  --section-hue: var(--c-blue);
+}
+.proposta-page.cms-template-v4 [data-section="historico"] {
+  --section-hue: var(--c-green);
+}
+.proposta-page.cms-template-v4 [data-section="proximos"] {
+  --section-hue: var(--accent);
+}
+
+.proposta-page.cms-template-v4 .proposta-ambient__wash {
+  background:
+    radial-gradient(ellipse 82% 52% at 6% 4%, rgba(240, 216, 117, 0.24) 0%, transparent 54%),
+    radial-gradient(ellipse 58% 48% at 94% 8%, rgba(56, 189, 248, 0.2) 0%, transparent 52%),
+    radial-gradient(ellipse 70% 48% at 48% 96%, rgba(167, 139, 250, 0.16) 0%, transparent 52%),
+    radial-gradient(ellipse 52% 42% at 78% 42%, rgba(94, 233, 176, 0.14) 0%, transparent 48%),
+    linear-gradient(165deg, rgba(6, 10, 20, 0.97) 0%, rgba(12, 22, 42, 0.85) 50%, rgba(6, 10, 20, 0.98) 100%);
+}
+
+html:has(body.proposta-page.cms-template-v4 .proposta-yellow-theme-marker) .proposta-page.cms-template-v4 .proposta-ambient__wash {
+  background:
+    radial-gradient(ellipse 80% 50% at 10% 6%, rgba(240, 216, 117, 0.26) 0%, transparent 54%),
+    radial-gradient(ellipse 56% 44% at 88% 14%, rgba(56, 189, 248, 0.18) 0%, transparent 52%),
+    radial-gradient(ellipse 62% 48% at 44% 92%, rgba(94, 233, 176, 0.16) 0%, transparent 52%),
+    radial-gradient(ellipse 54% 40% at 95% 70%, rgba(180, 156, 255, 0.12) 0%, transparent 50%),
+    linear-gradient(165deg, rgba(6, 10, 20, 0.97) 0%, rgba(14, 26, 48, 0.88) 100%);
+}
+
+.proposta-page.cms-template-v4 .proposta-ambient__glyph {
+  opacity: 0.11;
+}
+
+.proposta-page.cms-template-v4 .proposta-ambient__mesh {
+  opacity: 0.38;
+}
+
+.proposta-page.cms-template-v4 .section-label {
+  color: color-mix(in srgb, var(--c-blue) 35%, var(--accent));
+}
+
 .proposta-page * { margin: 0; padding: 0; box-sizing: border-box; }
 .proposta-page { scroll-behavior: smooth; }
 
@@ -169,69 +253,70 @@ html:has(body.proposta-page .proposta-yellow-theme-marker) .proposta-page .propo
   }
 }
 
-.proposta-page.is-loading { overflow: hidden; }
+/* Transição inicial nav/hero: só na página de proposta (evita nav sumido nos cases .meups-portfolio). */
+.proposta-page.is-loading:not(:has(.meups-portfolio)) { overflow: hidden; }
 
-.proposta-page nav,
-.proposta-page .hero {
+.proposta-page:not(:has(.meups-portfolio)) nav,
+.proposta-page:not(:has(.meups-portfolio)) .hero {
   opacity: 0;
   transform: translateY(24px);
   filter: blur(10px);
   transition: opacity 0.9s cubic-bezier(0.22, 1, 0.36, 1), transform 0.9s cubic-bezier(0.22, 1, 0.36, 1), filter 0.9s ease;
 }
 
-.proposta-page.is-ready nav,
-.proposta-page.is-ready .hero {
+.proposta-page.is-ready:not(:has(.meups-portfolio)) nav,
+.proposta-page.is-ready:not(:has(.meups-portfolio)) .hero {
   opacity: 1;
   transform: translateY(0);
   filter: blur(0);
 }
 
-.proposta-page nav {
+.proposta-page:not(:has(.meups-portfolio)) nav {
   transform: translateY(-16px);
   transition-delay: 0.08s;
 }
 
-.proposta-page .hero {
+.proposta-page:not(:has(.meups-portfolio)) .hero {
   transition-delay: 0.14s;
 }
 
-.proposta-page .hero-content > * {
+.proposta-page:not(:has(.meups-portfolio)) .hero-content > * {
   opacity: 0;
   transform: translateY(28px);
   transition: opacity 0.75s cubic-bezier(0.22, 1, 0.36, 1), transform 0.75s cubic-bezier(0.22, 1, 0.36, 1);
 }
 
-.proposta-page.is-ready .hero-content > * {
+.proposta-page.is-ready:not(:has(.meups-portfolio)) .hero-content > * {
   opacity: 1;
   transform: translateY(0);
 }
 
-.proposta-page.is-ready .hero-content > :nth-child(1) { transition-delay: 0.24s; }
-.proposta-page.is-ready .hero-content > :nth-child(2) { transition-delay: 0.3s; }
-.proposta-page.is-ready .hero-content > :nth-child(3) { transition-delay: 0.38s; }
-.proposta-page.is-ready .hero-content > :nth-child(4) { transition-delay: 0.46s; }
-.proposta-page.is-ready .hero-content > :nth-child(5) { transition-delay: 0.54s; }
-.proposta-page.is-ready .hero-content > :nth-child(6) { transition-delay: 0.62s; }
-.proposta-page.is-ready .hero-content > :nth-child(7) { transition-delay: 0.7s; }
+.proposta-page.is-ready:not(:has(.meups-portfolio)) .hero-content > :nth-child(1) { transition-delay: 0.24s; }
+.proposta-page.is-ready:not(:has(.meups-portfolio)) .hero-content > :nth-child(2) { transition-delay: 0.3s; }
+.proposta-page.is-ready:not(:has(.meups-portfolio)) .hero-content > :nth-child(3) { transition-delay: 0.38s; }
+.proposta-page.is-ready:not(:has(.meups-portfolio)) .hero-content > :nth-child(4) { transition-delay: 0.46s; }
+.proposta-page.is-ready:not(:has(.meups-portfolio)) .hero-content > :nth-child(5) { transition-delay: 0.54s; }
+.proposta-page.is-ready:not(:has(.meups-portfolio)) .hero-content > :nth-child(6) { transition-delay: 0.62s; }
+.proposta-page.is-ready:not(:has(.meups-portfolio)) .hero-content > :nth-child(7) { transition-delay: 0.7s; }
 
-.proposta-page .hero-bg {
+.proposta-page:not(:has(.meups-portfolio)) .hero-bg {
   transform: scale(1.08);
   filter: saturate(0.82) brightness(0.78);
   transition: transform 1.25s cubic-bezier(0.22, 1, 0.36, 1), filter 1.25s ease;
 }
 
-.proposta-page.is-ready .hero-bg {
+.proposta-page.is-ready:not(:has(.meups-portfolio)) .hero-bg {
   transform: scale(1);
   filter: saturate(1) brightness(1);
 }
 
-.proposta-page .hero-glow {
+.proposta-page:not(:has(.meups-portfolio)) .hero-glow {
   opacity: 0;
   transform: translateX(60px) scale(0.92);
   transition: opacity 1.1s ease, transform 1.25s cubic-bezier(0.22, 1, 0.36, 1);
 }
 
-.proposta-page.is-ready .hero-glow {
+.proposta-page.is-ready:not(:has(.meups-portfolio)) .hero-glow {
   opacity: 1;
   transform: translateX(0) scale(1);
 }
@@ -240,6 +325,10 @@ html:has(body.proposta-page) {
   margin: 0;
   padding: 0;
   background: var(--bg);
+}
+
+html:has(body.proposta-page.cms-template-v4) {
+  background: #060a14;
 }
 
 .proposta-page::after {
@@ -263,6 +352,14 @@ html:has(body.proposta-page) {
     radial-gradient(ellipse at 85% 82%, rgba(251, 217, 81, 0.08) 0%, transparent 48%),
     #000;
   transition: opacity 0.65s ease, visibility 0.65s ease, transform 0.75s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.proposta-page.cms-template-v4 .proposal-loader {
+  background:
+    radial-gradient(ellipse at 16% 20%, rgba(240, 216, 117, 0.16) 0%, transparent 44%),
+    radial-gradient(ellipse at 84% 76%, rgba(56, 189, 248, 0.14) 0%, transparent 46%),
+    radial-gradient(ellipse at 50% 50%, rgba(167, 139, 250, 0.08) 0%, transparent 55%),
+    var(--bg);
 }
 
 .proposta-page .proposal-loader.is-exiting {
@@ -1031,6 +1128,13 @@ html:has(body.proposta-page) {
   border-top: 1px solid var(--border);
 }
 
+.proposta-page .equipe-servico-card__icone {
+  font-size: 2.1rem;
+  line-height: 1;
+  margin-bottom: 0.65rem;
+  filter: grayscale(0.08);
+}
+
 .proposta-page .cards-2 {
   display: grid;
   grid-template-columns: 1fr 1fr;
@@ -1043,6 +1147,19 @@ html:has(body.proposta-page) {
   grid-template-columns: repeat(3, 1fr);
   gap: 1rem;
   margin-top: 2rem;
+}
+
+/* 6 blocos (2×3): alinhamento estável em viewports médios */
+.proposta-page .cards-3.cards-3--six {
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 1.1rem 1.25rem;
+  align-items: stretch;
+}
+
+@media (max-width: 1100px) and (min-width: 721px) {
+  .proposta-page .cards-3.cards-3--six {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
 }
 
 .proposta-page .card {
@@ -1471,6 +1588,31 @@ html:has(body.proposta-page) {
 .proposta-page footer .contact-row a:hover { color: var(--accent); text-decoration: none; }
 .proposta-page footer .contact-row a:hover::after { width: 100%; }
 
+.proposta-footer__phone-row {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  gap: 0.35rem 0.65rem;
+  font-family: var(--font-body);
+}
+
+.proposta-footer__wa {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+}
+
+.proposta-footer__wa-icon {
+  display: inline-flex;
+  color: #25d366;
+}
+
+.proposta-footer__phone-sep {
+  opacity: 0.45;
+  user-select: none;
+}
+
 .proposta-page footer p.meta-footer {
   font-family: var(--font-mono);
   font-size: 0.68rem;
@@ -1815,6 +1957,14 @@ html:has(body.proposta-page) {
   margin-bottom: 0;
 }
 
+.proposta-page .clients-proof__inline-code {
+  font-family: var(--font-mono);
+  font-size: 0.88em;
+  padding: 0.1em 0.35em;
+  border-radius: 4px;
+  background: color-mix(in srgb, var(--border) 55%, transparent);
+}
+
 .proposta-page .clients-proof__metrics {
   list-style: none;
   padding: 0;
@@ -2097,6 +2247,17 @@ html:has(body.proposta-page) {
 @media (max-width: 560px) {
   .proposta-page .case-spotlight__grid {
     grid-template-columns: 1fr;
+  }
+}
+
+/* 6 cards educação: 2 colunas mobile → 3 em desktop largo */
+.proposta-page .case-spotlight__grid--education {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+@media (min-width: 900px) {
+  .proposta-page .case-spotlight__grid--education {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
   }
 }
 

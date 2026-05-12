@@ -1,0 +1,31 @@
+# Railway — Config as Code
+# Repo: https://github.com/utkogui/proposta-experimentos
+#
+# No Railway: New Project → “Deploy from GitHub repo” → selecione este repositório.
+# Em Service → Settings → Root Directory: deixe VAZIO ou "." (raiz do Git).
+# Se preferir Root Directory = "monorepo", use o ficheiro monorepo/railway.toml e
+# ignore este (ou apague-o para evitar duas fontes de verdade).
+#
+# Variáveis no painel (Variables): ver monorepo/apps/v3/.env.example
+# Mínimo recomendado em produção:
+#   SESSION_SECRET (32+ chars), ADMIN_PASSWORD,
+#   DATABASE_URL (Postgres Railway) ou REDIS_URL
+# Opcional: CMS_DEFAULT_TEMPLATE=v3, DATABASE_SSL=true|false, UPLOAD_DIR
+
+[build]
+builder = "RAILPACK"
+# Redeploy só quando o app ou a raiz de instalação mudam (ajuste se necessário)
+watchPatterns = [
+  "monorepo/**",
+  "package.json",
+  "package-lock.json"
+]
+# Instalação: o Railpack corre npm ci na raiz; o postinstall instala o monorepo.
+buildCommand = "cd monorepo && npm run build:v3"
+
+[deploy]
+startCommand = "cd monorepo && npm run start --workspace=cms-v3"
+healthcheckPath = "/api/health"
+healthcheckTimeout = 120
+restartPolicyType = "ON_FAILURE"
+restartPolicyMaxRetries = 10

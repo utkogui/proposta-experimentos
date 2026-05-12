@@ -12,9 +12,6 @@ export function PropostaScripts() {
   useEffect(() => {
     const reduced = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
     const body = document.body;
-    body.classList.remove("is-ready");
-    body.classList.add("is-loading");
-
     const loader = document.getElementById("proposal-loader");
     let loaderLockTimeout: ReturnType<typeof setTimeout> | null = null;
     let loaderHoldTimeout: ReturnType<typeof setTimeout> | null = null;
@@ -55,15 +52,19 @@ export function PropostaScripts() {
       loaderHoldTimeout = setTimeout(finishLoader, LOADER_HOLD_MS);
     };
 
-    if (loader) {
+    /* Páginas só com fade-in (portfolio etc.): não tire is-ready no início — no dev
+     * o Strict Mode remonta o efeito e isso piscava o nav antes do segundo mount. */
+    if (!loader) {
+      body.classList.remove("is-loading");
+      body.classList.add("is-ready");
+    } else {
+      body.classList.remove("is-ready");
+      body.classList.add("is-loading");
       if (reduced) {
         enterLocked();
       } else {
         loaderLockTimeout = setTimeout(enterLocked, LOADER_BUILD_MS);
       }
-    } else {
-      body.classList.remove("is-loading");
-      body.classList.add("is-ready");
     }
 
     // Fade-in

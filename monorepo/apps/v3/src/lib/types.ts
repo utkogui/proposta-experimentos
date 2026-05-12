@@ -1,4 +1,19 @@
 import { z } from "zod";
+import {
+  PROPOSTA_SECTION_KEYS,
+  type PropostaSectionKey,
+  PROPOSTA_SECTION_LABELS,
+  normalizeSectionOrder,
+  visibleSectionKeys,
+} from "./proposta-sections";
+
+export {
+  PROPOSTA_SECTION_KEYS,
+  PROPOSTA_SECTION_LABELS,
+  normalizeSectionOrder,
+  visibleSectionKeys,
+  type PropostaSectionKey,
+};
 
 /**
  * Schema da Proposta. Cada cliente tem um JSON desse formato persistido.
@@ -49,6 +64,8 @@ const Membro = z.object({
   label: z.string(),
   titulo: z.string(),
   descricao: z.string(),
+  /** Ícone curto (ex.: emoji) para cards de serviço / equipe. */
+  icone: z.string().optional(),
 });
 
 const InvestBloco = z.object({
@@ -66,60 +83,12 @@ const Bridge = z.object({
   numero: z.string(),
 });
 
-export const PROPOSTA_SECTION_KEYS = [
-  "solucao",
-  "objetivo",
-  "imersao",
-  "cronograma",
-  "equipe",
-  "historico",
-  "investimento",
-  "proximos",
-] as const;
-
-export type PropostaSectionKey = (typeof PROPOSTA_SECTION_KEYS)[number];
-
-export const PROPOSTA_SECTION_LABELS: Record<PropostaSectionKey, string> = {
-  solucao: "Solução",
-  objetivo: "Objetivo",
-  imersao: "Imersão",
-  cronograma: "Cronograma",
-  equipe: "Equipe",
-  historico: "Histórico",
-  investimento: "Investimento",
-  proximos: "Próximos passos",
-};
-
-const SectionKey = z.enum(PROPOSTA_SECTION_KEYS);
-
-export function normalizeSectionOrder(
-  order?: PropostaSectionKey[]
-): PropostaSectionKey[] {
-  const seen = new Set<PropostaSectionKey>();
-  const valid = (order ?? []).filter((key): key is PropostaSectionKey => {
-    if (!PROPOSTA_SECTION_KEYS.includes(key)) return false;
-    if (seen.has(key)) return false;
-    seen.add(key);
-    return true;
-  });
-  return [
-    ...valid,
-    ...PROPOSTA_SECTION_KEYS.filter((key) => !seen.has(key)),
-  ];
-}
-
-/** Secções na ordem definida, excluindo as marcadas como ocultas na proposta pública. */
-export function visibleSectionKeys(
-  sectionOrder: PropostaSectionKey[] | undefined,
-  sectionHidden: PropostaSectionKey[] | undefined
-): PropostaSectionKey[] {
-  const hidden = new Set(
-    (sectionHidden ?? []).filter((k) =>
-      PROPOSTA_SECTION_KEYS.includes(k as PropostaSectionKey)
-    ) as PropostaSectionKey[]
-  );
-  return normalizeSectionOrder(sectionOrder).filter((k) => !hidden.has(k));
-}
+const SectionKey = z.enum(
+  PROPOSTA_SECTION_KEYS as unknown as [
+    PropostaSectionKey,
+    ...PropostaSectionKey[],
+  ],
+);
 
 export const PropostaSchema = z.object({
   slug: z

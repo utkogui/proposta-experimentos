@@ -4,17 +4,94 @@ import {
   getSpotlightCases,
   type MatilhaPortfolioCaseDefinition,
 } from "@/lib/matilha-portfolio-cases";
+import {
+  getEducationSpotlightCards,
+  type EducationSpotlightCard,
+} from "@/lib/education-spotlight";
 
-function displayCaseTitle(c: MatilhaPortfolioCaseDefinition): string {
+type Mode = "default" | "education";
+
+function displayPortfolioTitle(c: MatilhaPortfolioCaseDefinition): string {
+  return `${c.title}${c.titleAccent ?? ""}`.trim();
+}
+
+function displayEducationTitle(c: EducationSpotlightCard): string {
   return `${c.title}${c.titleAccent}`.trim();
 }
 
 /**
- * Grade de destaques para cases publicados pela Matilha, com link para páginas internas.
+ * Grade de destaques — cases gerais ou vitrine focada em Educação (/p/educacao).
  */
-export function CaseSpotlightSection() {
-  const cases = getSpotlightCases();
+export function CaseSpotlightSection({ mode = "default" }: { mode?: Mode }) {
+  if (mode === "education") {
+    const cards = getEducationSpotlightCards();
+    return (
+      <section
+        id="cases-matilha"
+        className="fade-in case-spotlight"
+        aria-labelledby="cases-matilha-heading"
+      >
+        <div className="case-spotlight__inner">
+          <span className="section-label">Portfólio · Educação</span>
+          <h2 id="cases-matilha-heading" className="case-spotlight__section-title">
+            Marcas e instituições de ensino
+          </h2>
+          <p className="lead case-spotlight__section-lead">
+            Placeholders alinhados ao eixo educação — FTD (Somos), LAL, PUC-PR, Grupo Marista,
+            CRF-SP e Scriba. Textos e imagens serão trocados quando os cases e logos finais
+            estiverem aprovados.
+          </p>
+          <div className="case-spotlight__grid case-spotlight__grid--education">
+            {cards.map((c) => (
+              <Link
+                key={c.slug}
+                href={c.href}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="case-spotlight__card case-spotlight__card--tile"
+              >
+                <div className="case-spotlight__thumb" aria-hidden="true">
+                  <Image
+                    src={c.bannerUrl}
+                    alt=""
+                    fill
+                    className="case-spotlight__thumb-img"
+                    sizes="(max-width: 640px) 100vw, (max-width: 1079px) 50vw, 33vw"
+                  />
+                  <div className="case-spotlight__thumb-scrim" />
+                  <div className="case-spotlight__thumb-grid" />
+                  <span className="case-spotlight__thumb-badge">// EDUCAÇÃO</span>
+                  <span className="case-spotlight__thumb-kicker">
+                    {c.spotlightKicker}
+                  </span>
+                </div>
+                <div className="case-spotlight__body">
+                  <h3 className="case-spotlight__card-title">
+                    {displayEducationTitle(c)}
+                  </h3>
+                  <p className="lead case-spotlight__lead">{c.spotlightLead}</p>
+                  <ul
+                    className="case-spotlight__tags"
+                    aria-label="Linhas de atuação (placeholder)"
+                  >
+                    {c.spotlightTags.map((t) => (
+                      <li key={t}>{t}</li>
+                    ))}
+                  </ul>
+                  <span className="case-spotlight__cta">
+                    Site institucional (referência)
+                    <span aria-hidden="true"> ↗</span>
+                  </span>
+                </div>
+              </Link>
+            ))}
+          </div>
+        </div>
+      </section>
+    );
+  }
 
+  const cases = getSpotlightCases();
   return (
     <section
       id="cases-matilha"
@@ -56,7 +133,7 @@ export function CaseSpotlightSection() {
               </div>
               <div className="case-spotlight__body">
                 <h3 className="case-spotlight__card-title">
-                  {displayCaseTitle(c)}
+                  {displayPortfolioTitle(c)}
                 </h3>
                 <p className="lead case-spotlight__lead">{c.spotlightLead}</p>
                 <ul

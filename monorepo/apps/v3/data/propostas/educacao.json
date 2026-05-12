@@ -1,0 +1,172 @@
+{
+  "slug": "educacao",
+  "cliente": {
+    "nome": "Matilha · vitrine Educação",
+    "contato": "Educação e Edtech",
+    "logoUrl": "/02-logo-matilha-full.svg",
+    "logoBg": ""
+  },
+  "proposta": {
+    "numero": "INST-EDU-01",
+    "projeto": "Página institucional · Educação",
+    "data": "Maio 2026",
+    "cidade": "Curitiba, PR",
+    "label": "Institucional · Educação · Prospects"
+  },
+  "hero": {
+    "titulo": "Especialistas em soluções para",
+    "tituloAccent": "Educação",
+    "subtitulo": "Apoiamos editoras, redes de ensino, universidades e edtechs a evoluir produtos digitais — do portal institucional ao LMS, do conteúdo pedagógico à jornada do aluno — para vender mais licenças, reter estudantes e atender famílias e professores com clareza."
+  },
+  "aspects": [
+    { "valor": "15+", "label": "anos em produto digital" },
+    { "valor": "K12 · Ed. Sup.", "label": "segmentos de ensino" },
+    { "valor": "WCAG", "label": "experiência acessível" },
+    { "valor": "CS", "label": "método com Customer Success" }
+  ],
+  "sectionOrder": [
+    "solucao",
+    "objetivo",
+    "imersao",
+    "cronograma",
+    "equipe",
+    "historico",
+    "investimento",
+    "proximos"
+  ],
+  "sectionHidden": [],
+  "solucao": {
+    "sectionLabel": "01 · Contexto (oculto em v4)",
+    "heading": "Placeholder: proposta de valor para instituições de ensino",
+    "lead": "Este bloco permanece no JSON para compatibilidade com o CMS; na vitrine v4 ele fica oculto. Use o admin para futuras expansões.",
+    "cards": []
+  },
+  "objetivo": {
+    "sectionLabel": "02 · Objetivo (placeholder CMS)",
+    "heading": "Placeholder educacional",
+    "lead": "Texto reservado — v4 não exibe esta secção publicamente.",
+    "pilares": [],
+    "headingConexao": "",
+    "leadConexao": "",
+    "callout": ""
+  },
+  "imersao": {
+    "sectionLabel": "03 · Imersão (placeholder CMS)",
+    "heading": "Placeholder",
+    "lead": "Reservado ao conteúdo comercial completo.",
+    "callout": "",
+    "steps": []
+  },
+  "cronograma": {
+    "sectionLabel": "04 · Cronograma (placeholder CMS)",
+    "heading": "Placeholder",
+    "lead": "Reservado.",
+    "nota": "",
+    "columns": ["—"],
+    "phases": []
+  },
+  "equipe": {
+    "sectionLabel": "Como podemos ajudar",
+    "heading": "Da dor do time pedagógico ao produto que escala",
+    "lead": "Cada card sintetiza um sintoma comum em instituições de ensino e o que entregamos como resposta — texto placeholder até validação com comercial.",
+    "membros": [
+      {
+        "label": "Dor",
+        "titulo": "\"Muito conteúdo espalhado e aluno perdido\"",
+        "descricao": "Remédio (placeholder): arquitetura de informação e hub educacional — trilhas por série, busca única e UX da jornada do aluno/pais alinhada à sua operação (LMS, portal ou app).",
+        "icone": "🧭"
+      },
+      {
+        "label": "Dor",
+        "titulo": "\"Matrícula e suporte sobrecarregam o time\"",
+        "descricao": "Remédio (placeholder): fluxos digitais de matrícula, FAQ inteligível, integrações com ERP/acadêmico e handoff claro para CS — menos retrabalho em call center.",
+        "icone": "📋"
+      },
+      {
+        "label": "Dor",
+        "titulo": "\"Marca fraca no digital frente à concorrência\"",
+        "descricao": "Remédio (placeholder): sistema de identidade aplicado a sites, campanhas de captação e materiais didáticos digitais — narrativa consistente em todas as unidades.",
+        "icone": "✨"
+      },
+      {
+        "label": "Dor",
+        "titulo": "\"Não passa em auditoria de acessibilidade ou LGPD\"",
+        "descricao": "Remédio (placeholder): revisão heurística + ajustes WCAG, termos de uso alinhados ao contexto educacional e apoio na governança de dados de menores e titulares.",
+        "icone": "🛡️"
+      },
+      {
+        "label": "Dor",
+        "titulo": "\"Conteúdo pedagógico digital engessa e demora para atualizar\"",
+        "descricao": "Remédio (placeholder): biblioteca de componentes editoriais, padrões por disciplina/série e fluxo de publicação com revisão — menos retrabalho para autores e professores.",
+        "icone": "📚"
+      },
+      {
+        "label": "Dor",
+        "titulo": "\"Métricas de uso e aprendizagem espalhadas em vários sistemas\"",
+        "descricao": "Remédio (placeholder): desenho de painéis e integrações (LMS, ERP acadêmico, CRM) para ver retenção, conclusão de trilhas e saúde da operação em um só lugar.",
+        "icone": "📊"
+      }
+    ]
+  },
+  "historico": {
+    "sectionLabel": "Nosso histórico",
+    "heading": "Da curadoria visual a produto vivo no ar",
+    "lead": "Placeholder para narrativa do Gui: linha do tempo amigável ou marcos em educação — por ora, números de referência do estúdio (substituir por histórico pedagógico quando fechado).",
+    "stats": [
+      { "label": "Desde", "valor": "2012" },
+      { "label": "Projetos entregues", "valor": "+300" },
+      { "label": "Países", "valor": "8" },
+      { "label": "Nota Google", "valor": "5 ★" },
+      { "label": "Ecossistema ensino", "valor": "K12 · sup." }
+    ]
+  },
+  "investimento": {
+    "sectionLabel": "07 · Investimento (placeholder CMS)",
+    "heading": "Reservado",
+    "lead": "Não exibido na vitrine v4.",
+    "blocos": [],
+    "totalLabel": "—",
+    "totalPreco": "—",
+    "observacoes": {
+      "titulo": "Observações",
+      "texto": "",
+      "itens": []
+    }
+  },
+  "proximos": {
+    "sectionLabel": "08 · Próximos passos (rótulo trocado no template v4)",
+    "heading": "Método Matilha — visão Customer Success do processo",
+    "lead": "Roteiro interno placeholder: do primeiro diagnóstico à operação contínua. Ajuste com o time de CS antes do go-live.",
+    "steps": [
+      {
+        "titulo": "01 · Onboarding e diagnóstico de produto",
+        "descricao": "Placeholder: mapeamos stakeholders, canais, métricas de sucesso (retenção, NPS educacional, tempo de resposta) e riscos técnicos — baseline para o plano de trabalho."
+      },
+      {
+        "titulo": "02 · Discovery e alinhamento pedagógico-comercial",
+        "descricao": "Placeholder: workshops com quem cuida de conteúdo, TI e negócio; priorização de jornadas (aluno, professor, família) e definição de releases."
+      },
+      {
+        "titulo": "03 · Design e validação em ritmo de sprint",
+        "descricao": "Placeholder: protótipos testáveis, revisão de acessibilidade e handoff com critérios de aceite — CS acompanha adoção desde o primeiro beta."
+      },
+      {
+        "titulo": "04 · Build, integrações e go-live assistido",
+        "descricao": "Placeholder: desenvolvimento alinhado ao seu LMS/portal, testes com usuários internos, migração de conteúdo e plano de comunicação pós-publicação."
+      },
+      {
+        "titulo": "05 · Hipercare e indicadores vivos",
+        "descricao": "Placeholder: janela pós-go-live com rituais quinzenais, monitoramento de erros e fila de melhoria contínua — CS como ponte entre uso real e próximo backlog."
+      },
+      {
+        "titulo": "06 · Ciclo de evolução e roadmap trimestral",
+        "descricao": "Placeholder: review de OKRs educacionais, priorização de features e health score da conta — contrato de parceria, não de entrega única."
+      }
+    ]
+  },
+  "bridges": {},
+  "metadata": {
+    "criadoEm": "2026-05-12T12:00:00.000Z",
+    "atualizadoEm": "2026-05-12T12:00:00.000Z"
+  }
+}
