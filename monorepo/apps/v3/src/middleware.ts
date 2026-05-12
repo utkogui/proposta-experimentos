@@ -73,6 +73,7 @@ export async function middleware(req: NextRequest) {
 
 export const config = {
   matcher: [
-    "/((?!_next/static|_next/image|favicon.ico).*)",
+    // Evita cookies/template no ping do balanceador (Railway healthcheck)
+    "/((?!_next/static|_next/image|favicon.ico|api/health).*)",
   ],
 };
