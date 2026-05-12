@@ -172,7 +172,7 @@ export default function HomePage() {
               Institucional
             </>
           }
-          desc="Tema v4 (educação): em produção com um único domínio use ?cms_template=v4 (este link). Em dev também funciona v4.localhost:3000. Rota /p/educacao — hero, cases, social proof, método CS."
+          desc="Mesmo host que as outras versões (ex.: …/p/cp): rota pública /p/educacao com tema v4 — Educação, cases, prova social e método Matilha."
           href="/p/educacao?cms_template=v4"
         />
       </div>
