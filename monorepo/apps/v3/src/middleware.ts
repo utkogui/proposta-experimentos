@@ -3,7 +3,7 @@ import { verifySessionToken, SESSION_COOKIE_NAME } from "@/lib/auth";
 import {
   CMS_TEMPLATE_COOKIE,
   CMS_TEMPLATE_HEADER,
-  resolveTemplateFromHost,
+  resolveCmsTemplate,
   type CmsTemplateId,
 } from "@/lib/cms-template";
 
@@ -42,7 +42,11 @@ function nextWithTemplate(req: NextRequest, template: CmsTemplateId) {
 
 export async function middleware(req: NextRequest) {
   const { pathname } = req.nextUrl;
-  const template = resolveTemplateFromHost(forwardedHost(req));
+  const template = resolveCmsTemplate({
+    hostHeader: forwardedHost(req),
+    queryTemplate: req.nextUrl.searchParams.get("cms_template"),
+    cookieTemplate: req.cookies.get(CMS_TEMPLATE_COOKIE)?.value,
+  });
 
   const protectedPath =
     (pathname.startsWith("/admin") && pathname !== "/admin/login") ||

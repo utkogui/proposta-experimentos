@@ -93,20 +93,41 @@ export function sectionPublicNavLabel(
 }
 
 /**
- * Define o template a partir do Host (subdomínio v1–v4).
- * Local: `v3.localhost:3000`, `v4.localhost:3000`, etc. Produção: `v2.matilha.digital`.
+ * Ordem: query `cms_template` → subdomínio no host (v4.localhost / v4.seudominio.com) →
+ * cookie `cms_template` (útil em *.up.railway.app sem subdomínio) → `CMS_DEFAULT_TEMPLATE` / v3.
  */
-export function resolveTemplateFromHost(hostHeader: string): CmsTemplateId {
-  const host = normalizeHost(hostHeader);
-  if (!host) return envDefault();
+export function resolveCmsTemplate(opts: {
+  hostHeader: string;
+  queryTemplate?: string | null;
+  cookieTemplate?: string | null;
+}): CmsTemplateId {
+  const fromQuery = coerceTemplate(opts.queryTemplate ?? null);
+  if (fromQuery) return fromQuery;
 
-  const fromLocal = coerceTemplate(subdomainLocalhost(host));
-  if (fromLocal) return fromLocal;
+  const host = normalizeHost(opts.hostHeader);
+  if (host) {
+    const fromLocal = coerceTemplate(subdomainLocalhost(host));
+    if (fromLocal) return fromLocal;
+    const fromProd = coerceTemplate(subdomainProduction(host));
+    if (fromProd) return fromProd;
+  }
 
-  const fromProd = coerceTemplate(subdomainProduction(host));
-  if (fromProd) return fromProd;
+  const fromCookie = coerceTemplate(opts.cookieTemplate ?? null);
+  if (fromCookie) return fromCookie;
 
   return envDefault();
+}
+
+/**
+ * Define o template só a partir do Host (sem query nem cookie).
+ * Preferir `resolveCmsTemplate` no middleware.
+ */
+export function resolveTemplateFromHost(hostHeader: string): CmsTemplateId {
+  return resolveCmsTemplate({
+    hostHeader,
+    queryTemplate: null,
+    cookieTemplate: null,
+  });
 }
 
 export function parseTemplateCookie(value: string | undefined): CmsTemplateId {

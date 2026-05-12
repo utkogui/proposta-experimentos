@@ -151,7 +151,7 @@ export default function HomePage() {
         />
         <LauncherCard
           tag="Versão 03"
-          tech="Hub · localhost:3000"
+          tech="Hub · mesmo servidor"
           title={
             <>
               Proposta
@@ -172,8 +172,8 @@ export default function HomePage() {
               Institucional
             </>
           }
-          desc="O tema visual v4 só aparece no subdomínio v4 (este link), não em localhost:3000/p/cp. Rota /p/educacao com placeholders do eixo Educação (hero, cases, social proof, método CS). Fundo índigo e faixa colorida no topo."
-          href="http://v4.localhost:3000/p/educacao"
+          desc="Tema v4 (educação): em produção com um único domínio use ?cms_template=v4 (este link). Em dev também funciona v4.localhost:3000. Rota /p/educacao — hero, cases, social proof, método CS."
+          href="/p/educacao?cms_template=v4"
         />
       </div>
 

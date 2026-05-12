@@ -63,8 +63,8 @@ html:has(body.proposta-page .proposta-yellow-theme-marker) .proposta-page .propo
 /*
  * v4 · Institucional / educação
  * Contraste forte vs v3: fundo índigo, acentos ciano + ouro, faixa superior.
- * Importante: só aplica com body.cms-template-v4 (ex.: http://v4.localhost:3000/…).
- * URL em localhost:3000/p/cp permanece v3 — é outro template.
+ * Importante: só aplica com body.cms-template-v4 (v4.localhost, subdomínio v4.* ou ?cms_template=v4).
+ * URL /p/cp sem isso permanece v3 — é outro template.
  */
 .proposta-page.cms-template-v4 {
   --bg: #060a14;
